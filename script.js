@@ -18,8 +18,6 @@ async function fillForm(fname, lname) {
   const dateField = form.getTextField("date");
   const nameField = form.getTextField("name");
 
-  
-
   // Fill in the name field
   dateField.setText(`${myDate.toDateString().substring(4)}`);
   nameField.setText(`Dear ${fname} ${lname},`);
@@ -37,4 +35,5 @@ async function fillForm(fname, lname) {
     `WCU_AdmissionOffer_${fname}_${lname}.pdf`,
     "application/pdf"
   );
+
 }

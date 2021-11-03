@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script src="https://unpkg.com/pdf-lib"></script>
     <script src="https://unpkg.com/downloadjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
     
   </head>
 
@@ -99,27 +100,30 @@
                     <div class="grid--50-50">
                       <label for="lname">Last Name:</label>
                     </div>
-                    <input type="text" id="lname" name="lname" />
+                    <input type="text" id="lname" name="lname" devalue="something"/>
                   </div>
 
                   
                 </form
                 <div class="field padding-bottom--24">
                   <button
-                    onclick="fillForm(document.getElementById('fname').value, document.getElementById('lname').value)"
+                    onclick="fillForm(document.getElementById('fname').value, document.getElementById('lname').value); party.confetti(this);"
                   >
-                    Download
+                    Enter your name & Download
                   </button>
-                  <span class="ButtonLink-label Text-color--blue Text-fontSize--14 Text-fontWeight--medium Text-lineHeight--20 Text-numericSpacing--proportional Text-typeface--base Text-wrap--noWrap Text-display--block">
-                    <br />
-                    Made by a <a href="https://github.com/Mr-Sheep">Snorlax</a>
-                  </span>
+                  <div>
+                    <br/>Copyleft © <a href="https://github.com/Mr-Sheep/WildChickenAdmission">Snorlax</a>, no rights reserved. Assets have their own licenses.
+                  </div>
                 </div>
+                
               </div>
+              
             </div>
           </div>
         </div>
+        
       </div>
     </div>
+    
   </body>
 </html>

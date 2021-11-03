@@ -8,17 +8,21 @@ button {
   border-radius: 4px;
   outline-color: rgb(84 105 212 / 0.5);
 
-  background-color: rgb(84, 105, 212);
+  background-color: #5E81AC;
     box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                 rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                 rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
-                rgb(84, 105, 212) 0px 0px 0px 1px, 
+                #81A1C1 0px 0px 0px 1px, 
                 rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                 rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                 rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
     color: #fff;
     font-weight: 600;
     cursor: pointer;
+}
+
+bottom-line {
+  font-size: 5px;
 }
 
 * {
@@ -255,3 +259,4 @@ a.ssolink {
     transform: translateX(0px);
   }
 } 
+
