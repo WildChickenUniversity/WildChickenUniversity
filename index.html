@@ -1,131 +1,79 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-    <title>WCU Admission</title>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script src="https://unpkg.com/pdf-lib"></script>
-    <script src="https://unpkg.com/downloadjs"></script>
-    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-    <link rel="mask-icon" href="./favicon.svg" color="#ff8a01">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>WCU</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Wild Chicken University" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./style.css"
+      media=""
+    />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="mask-icon" href="./assets/favicon.svg" color="#ff8a01" />
   </head>
 
   <body>
-    <script src="./script.js"></script>
-    <div class="login-root">
-      <div
-        class="box-root flex-flex flex-direction--column"
-        style="min-height: 100vh; flex-grow: 1"
-      >
-        <div class="loginbackground box-background--white padding-top--64">
-          <div class="loginbackground-gridContainer">
-            <div
-              class="box-root flex-flex"
-              style="grid-area: top / start / 8 / end"
-            >
-              <div
-                class="box-root"
-                style="
-                  background-image: linear-gradient(
-                    white 0%,
-                    rgb(247, 250, 252) 33%
-                  );
-                  flex-grow: 1;
-                "
-              ></div>
-            </div>
-            <div
-              class="box-root flex-flex"
-              style="grid-area: 4 / 2 / auto / 5"
-            ></div>
-            <div
-              class="box-root flex-flex"
-              style="grid-area: 6 / start / auto / 2"
-            >
-              <div
-                class="box-root box-background--blue800"
-                style="flex-grow: 1"
-              ></div>
-            </div>
-            <div
-              class="box-root flex-flex"
-              style="grid-area: 7 / start / auto / 4"
-            ></div>
-            <div
-              class="box-root flex-flex"
-              style="grid-area: 8 / 4 / auto / 6"
-            ></div>
-            <div
-              class="box-root flex-flex"
-              style="grid-area: 2 / 15 / auto / end"
-            ></div>
-            <div
-              class="box-root flex-flex"
-              style="grid-area: 3 / 14 / auto / end"
-            ></div>
-            <div
-              class="box-root flex-flex"
-              style="grid-area: 4 / 17 / auto / 20"
-            ></div>
-            <div
-              class="box-root flex-flex"
-              style="grid-area: 5 / 14 / auto / 17"
-            ></div>
-          </div>
+    <div class="wrapper">
+      <div class="main">
+        <div class="header">
+          <h1 class="title"><a href="https://wcu.edu.pl" ><img src="./assets/Wild_Chicken_White.svg" alt="Wild Chicken University" style="height:6rem; padding-top:2.3rem; padding-left:1rem;"></a>
+          </h1>
         </div>
-        <div
-          class="box-root padding-top--24 flex-flex flex-direction--column"
-          style="flex-grow: 1; z-index: 9"
-        >
-          <div
-            class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center"
-          >
-            <h1>
-              <a href="https://apply.wcn.md" ><img src="./Wild_Chicken.svg" alt="Wild Chicken University" style="width:300px;height:82px;"></a>
-            </h1>
-          </div>
-          <div class="formbg-outer">
-            <div class="formbg">
-              <div class="formbg-inner padding-horizontal--48">
-                <span class="padding-bottom--15">Welcome to the <bold>Official</bold> admission
-                  offer download page!</span>
+        <div class="content">
+          <h2 class="title">About</h2>
+          <p>
+            Wild Chicken University (also known as a diploma mill or degree
+            mill) is an organization that awards academic degrees and diplomas
+            with substandard or no academic study and without recognition by
+            official educational accrediting bodies. The purchaser can then
+            claim to hold an academic degree, and the organization is motivated
+            by making a profit. These degrees are often awarded based on vaguely
+            construed life experience. Some such organizations claim
+            accreditation by non-recognized/unapproved accrediting bodies set up
+            for the purposes of providing a veneer of authenticity. While the
+            terms "degree mill" and "diploma mill" are commonly used
+            interchangeably, within the academic community a distinction is
+            sometimes drawn: <br />
+            <ul>
+              <li>
+                A "degree mill" issues "real" diplomas from non regionally
+                accredited "universities", which may be legal in some states but
+                are generally illegitimate universities.
+              </li>
+              <li>
+                A "diploma mill" issues counterfeit diplomas which bear the
+                names of legitimate universities.
+              </li>
+            </ul>
+            <br />
+            copied from: <a href="https://www.facebook.com/Wild-Chicken-University-170013173058220/about">Wild Chicken University on Facebook(or should we call it Meta?)</a>
+            
+          </p>
 
-                <form
-                  id="stripe-login"
-                >
-                  <div class="field padding-bottom--24">
-                    <label for="fname">First Name:</label>
-                    <input type="text" id="fname" name="fname" />
-                  </div>
-                  <div class="field padding-bottom--24">
-                    <div class="grid--50-50">
-                      <label for="lname">Last Name:</label>
-                    </div>
-                    <input type="text" id="lname" name="lname" devalue="something"/>
-                  </div>
 
-                  
-                </form
-                <div class="field padding-bottom--24">
-                  <button
-                    onclick="fillForm(document.getElementById('fname').value, document.getElementById('lname').value); party.confetti(this);"
-                  >
-                    Download (it takes TIME)
-                  </button>
-                  <div>
-                    <br/> Copyleft <span class="copyleft">©</span> <a href="https://github.com/Mr-Sheep/WildChickenAdmission">Snorlax</a>, no rights reserved. Assets have their own licenses.
-                  </div>
-                </div>
-                
-              </div>
-              
-            </div>
-          </div>
+          <h2 class="title">Why us?</h2>
+          
+          <ul>
+            <li>
+              We offer <b>FREE</b> admission offers in PDF, click <a href="./admission/index.html">this link</a> to get yours today
+            </li>
+          </ul>
+          <br />
+          <h2 class="title">Disclaimers</h2>
+          <ul>
+            <li>Our logo is borrowed from UPenn; signed by director of admission, Colonel Harland David Sanders, the founder of KFC(cuz we are chicken university).
+            <li>The content of the admission offer is copied from Stanford as I am too lazy to write them myself.
+            <li>No chickens were harmed during the creation of this website.
+            <li>We are NOT affiliated with any educational institution. Files downloaded from WildChicken DOES NOT have ANY legal effect.
+          </ul>
         </div>
-        
+        <div class="footer">
+          <br/> Copyleft <span class="copyleft">©</span> <a href="https://github.com/Mr-Sheep/WildChickenAdmission">Snorlax</a>, no rights reserved. Assets have their own licenses.
+        </div>
       </div>
     </div>
-    
   </body>
 </html>
