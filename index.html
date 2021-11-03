@@ -1,67 +1,125 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <title>Wild Chicken Admission Portal</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://unpkg.com/pdf-lib"></script>
     <script src="https://unpkg.com/downloadjs"></script>
-    <link rel="stylesheet" href="style.css" />
+    
   </head>
 
   <body>
-    <p>
-      Click the button to fill PDF and get your personalized Wild Chicken
-      Admission Offer PDF
-    </p>
-    <form>
-      <label for="fname">First Name:</label>
-      <input type="text" id="fname" name="fname" /><br />
-      <label for="fname">Last Name:</label>
-      <input type="text" id="lname" name="lname" /><br />
-    </form>
-    <button onclick="fillForm(document.getElementById('fname').value, document.getElementById('lname').value)">
-      Fill PDF
-    </button>
+    <script src="./script.js"></script>
+    <div class="login-root">
+      <div
+        class="box-root flex-flex flex-direction--column"
+        style="min-height: 100vh; flex-grow: 1"
+      >
+        <div class="loginbackground box-background--white padding-top--64">
+          <div class="loginbackground-gridContainer">
+            <div
+              class="box-root flex-flex"
+              style="grid-area: top / start / 8 / end"
+            >
+              <div
+                class="box-root"
+                style="
+                  background-image: linear-gradient(
+                    white 0%,
+                    rgb(247, 250, 252) 33%
+                  );
+                  flex-grow: 1;
+                "
+              ></div>
+            </div>
+            <div
+              class="box-root flex-flex"
+              style="grid-area: 4 / 2 / auto / 5"
+            ></div>
+            <div
+              class="box-root flex-flex"
+              style="grid-area: 6 / start / auto / 2"
+            >
+              <div
+                class="box-root box-background--blue800"
+                style="flex-grow: 1"
+              ></div>
+            </div>
+            <div
+              class="box-root flex-flex"
+              style="grid-area: 7 / start / auto / 4"
+            ></div>
+            <div
+              class="box-root flex-flex"
+              style="grid-area: 8 / 4 / auto / 6"
+            ></div>
+            <div
+              class="box-root flex-flex"
+              style="grid-area: 2 / 15 / auto / end"
+            ></div>
+            <div
+              class="box-root flex-flex"
+              style="grid-area: 3 / 14 / auto / end"
+            ></div>
+            <div
+              class="box-root flex-flex"
+              style="grid-area: 4 / 17 / auto / 20"
+            ></div>
+            <div
+              class="box-root flex-flex"
+              style="grid-area: 5 / 14 / auto / 17"
+            ></div>
+          </div>
+        </div>
+        <div
+          class="box-root padding-top--24 flex-flex flex-direction--column"
+          style="flex-grow: 1; z-index: 9"
+        >
+          <div
+            class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center"
+          >
+            <h1>
+              <a href="https://apply.wcn.md" ><img src="./Wild_Chicken.svg" alt="Wild Chicken University" style="width:300px;height:82px;"></a>
+            </h1>
+          </div>
+          <div class="formbg-outer">
+            <div class="formbg">
+              <div class="formbg-inner padding-horizontal--48">
+                <span class="padding-bottom--15">Welcome to the <bold>Official</bold> admission
+                  offer download page!</span>
 
-    <p class="small">(Your browser will download the resulting file)</p>
+                <form
+                  id="stripe-login"
+                >
+                  <div class="field padding-bottom--24">
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" name="fname" />
+                  </div>
+                  <div class="field padding-bottom--24">
+                    <div class="grid--50-50">
+                      <label for="lname">Last Name:</label>
+                    </div>
+                    <input type="text" id="lname" name="lname" />
+                  </div>
+
+                  
+                </form
+                <div class="field padding-bottom--24">
+                  <button
+                    onclick="fillForm(document.getElementById('fname').value, document.getElementById('lname').value)"
+                  >
+                    Download
+                  </button>
+                  <span class="ButtonLink-label Text-color--blue Text-fontSize--14 Text-fontWeight--medium Text-lineHeight--20 Text-numericSpacing--proportional Text-typeface--base Text-wrap--noWrap Text-display--block">
+                    <br />
+                    Made by a <a href="https://github.com/Mr-Sheep">Snorlax</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-
-  <script>
-    const { PDFDocument, StandardFonts } = PDFLib;
-    const myDate = new Date();
-    async function fillForm(fname, lname) {
-      // Fetch the PDF with form fields
-      
-      const formUrl =
-        "https://raw.githubusercontent.com/Mr-Sheep/WildChickenAdmission/master/template.pdf";
-      const formPdfBytes = await fetch(formUrl).then((res) =>
-        res.arrayBuffer()
-      );
-
-      const pdfDoc = await PDFDocument.load(formPdfBytes);
-      const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-      const fontSize = 12;
-      console.log(myDate.toDateString().substring(3,));
-      console.log(`${fname} ${lname}`);
-      // Get the form containing all the fields
-      const form = pdfDoc.getForm();
-      // Get all fields in the PDF by their names
-      const dateField = form.getTextField("date");
-      const nameField = form.getTextField("name");
-      // Fill in the name field
-      dateField.setText(`${myDate.toDateString().substring(4,)}`, {
-        size: fontSize,
-        font: timesRomanFont,
-      });
-      nameField.setText(`Dear ${fname} ${lname},`, {
-        size: fontSize,
-        font: timesRomanFont,
-      });
-
-      // Flatten the form fields
-      form.flatten();
-      // Serialize the PDFDocument to bytes (a Uint8Array)
-      const pdfBytes = await pdfDoc.save();
-      // Trigger the browser to download the PDF document
-      download(pdfBytes, `WCU_AdmissionOffer_${fname}_${lname}.pdf`, "application/pdf");
-    }
-  </script>
 </html>
