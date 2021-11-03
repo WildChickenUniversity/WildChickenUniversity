@@ -18,11 +18,9 @@
 
     async function fillForm() {
     	// Fetch the PDF with form fields
-      const formUrl = './template.pdf'
+      const formUrl = 'https://raw.githubusercontent.com/Mr-Sheep/WildChickenAdmission/master/template.pdf'
       const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer())
-
-		
-
+      const pdfDoc = await PDFDocument.load(formPdfBytes)
 
       // Get the form containing all the fields
       const form = pdfDoc.getForm()
