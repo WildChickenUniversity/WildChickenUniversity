@@ -40,11 +40,11 @@
       const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
       const fontSize = 12;
       console.log(myDate.toDateString().substring(3,));
-
+      console.log(`${fname} ${lname}`);
       // Get the form containing all the fields
       const form = pdfDoc.getForm();
       // Get all fields in the PDF by their names
-      const dateField = form.getTextField("Date");
+      const dateField = form.getTextField("date");
       const nameField = form.getTextField("name");
       // Fill in the name field
       dateField.setText(`myDate.toDateString().substring(3,)`, {
