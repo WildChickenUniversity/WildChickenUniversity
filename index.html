@@ -3,44 +3,61 @@
     <meta charset="utf-8" />
     <script src="https://unpkg.com/pdf-lib"></script>
     <script src="https://unpkg.com/downloadjs"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    
-    <p>Click the button to fill PDF and get your personalized Wild Chicken Admission Offer PDF</p>
+    <p>
+      Click the button to fill PDF and get your personalized Wild Chicken
+      Admission Offer PDF
+    </p>
     <form>
-      <label for="fname">First name:</label><br>
-      <input type="text" id="fname" name="fname"><br>
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" name="fname" /><br />
+      <label for="fname">Last Name:</label>
+      <input type="text" id="lname" name="lname" /><br />
     </form>
-    <button onclick="fillForm(document.getElementById('fname').value)">Fill PDF</button>
-    
+    <button onclick="fillForm(document.getElementById('fname').value, document.getElementById('lname').value)">
+      Fill PDF
+    </button>
+
     <p class="small">(Your browser will download the resulting file)</p>
   </body>
 
   <script>
-    const { PDFDocument } = PDFLib
+    const { PDFDocument, StandardFonts } = PDFLib;
 
-    async function fillForm(fname) {
-    	// Fetch the PDF with form fields
-      const formUrl = 'https://raw.githubusercontent.com/Mr-Sheep/WildChickenAdmission/master/template.pdf'
-      const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer())
-      const pdfDoc = await PDFDocument.load(formPdfBytes)
-      console.log(document.getElementById('fname').value)
-      // Get the form containing all the fields
-      const form = pdfDoc.getForm()
-
-      // Get all fields in the PDF by their names
-      const nameField = form.getTextField('name')
+    async function fillForm(fname, lname) {
+      // Fetch the PDF with form fields
       
-      // Fill in the basic info fields
-      nameField.setText(fname)
-    
-      // Serialize the PDFDocument to bytes (a Uint8Array)
-      const pdfBytes = await pdfDoc.save()
+      const formUrl =
+        "https://raw.githubusercontent.com/Mr-Sheep/WildChickenAdmission/master/template.pdf";
+      const formPdfBytes = await fetch(formUrl).then((res) =>
+        res.arrayBuffer()
+      );
 
-			// Trigger the browser to download the PDF document
-      download(pdfBytes, "WCU_AdmissionOffer.pdf", "application/pdf");
+      const pdfDoc = await PDFDocument.load(formPdfBytes);
+      const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+      const fontSize = 12;
+
+      console.log(fname);
+
+      // Get the form containing all the fields
+      const form = pdfDoc.getForm();
+      // Get all fields in the PDF by their names
+      const nameField = form.getTextField("name");
+      // Fill in the name field
+      nameField.setText(`${fname} ${lname},`, {
+        size: fontSize,
+        font: timesRomanFont,
+      });
+
+      // Flatten the form fields
+      form.flatten();
+      // Serialize the PDFDocument to bytes (a Uint8Array)
+      const pdfBytes = await pdfDoc.save();
+      // Trigger the browser to download the PDF document
+      download(pdfBytes, `WCU_AdmissionOffer_${fname}_${lname}.pdf`, "application/pdf");
     }
   </script>
 </html>
