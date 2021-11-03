@@ -4,7 +4,7 @@ async function fillForm(fname, lname) {
   // Fetch the PDF with form fields
 
   const formUrl =
-    "https://raw.githubusercontent.com/Mr-Sheep/WildChickenAdmission/master/Admission/template.pdf";
+    "https://raw.githubusercontent.com/Mr-Sheep/WildChickenAdmission/master/admission/template.pdf";
   const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
 
   const pdfDoc = await PDFDocument.load(formPdfBytes);
