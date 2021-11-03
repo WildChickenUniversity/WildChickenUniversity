@@ -10,7 +10,7 @@ The content of the admission offer is copied from Stanford as I am too lazy to w
 
 We are NOT affiliated with any educational institution. Files downloaded from WildChicken **DOES NOT** have ANY legal effect. 
 
-Copyleft 🄯 Snorlax, no rights reserved. Assets have their own licenses.
+Copyleft © Snorlax, no rights reserved. Assets have their own licenses.
 
 --- Chinese Version Below ---
 
