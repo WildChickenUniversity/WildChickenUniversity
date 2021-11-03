@@ -47,7 +47,7 @@
       const dateField = form.getTextField("date");
       const nameField = form.getTextField("name");
       // Fill in the name field
-      dateField.setText(`myDate.toDateString().substring(3,)`, {
+      dateField.setText(`${myDate.toDateString().substring(4,)}`, {
         size: fontSize,
         font: timesRomanFont,
       });
