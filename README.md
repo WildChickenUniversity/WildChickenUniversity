@@ -13,6 +13,9 @@ The content of the admission offer is copied from Stanford as I am too lazy to w
 
 We are NOT affiliated with any educational institution. Files downloaded from WildChicken **DOES NOT** have ANY legal effect. 
 
+Wild Chicken is always look for donation, if you would like to donate us something:
+ETH: 0x6b05Ce9c673c762538cfC9c4cb07e0da00B376AB
+
 Copyleft © Snorlax, no rights reserved. Assets have their own licenses.
 
 --- Chinese Version Below ---
