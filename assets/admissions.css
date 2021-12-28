@@ -683,14 +683,12 @@ p.error,
 	margin: 1em 0;
 }
 
-input[type="password"],
 input[type="text"],
-input[type="email"],
-input[type="tel"],
 input:not([type]),
 textarea {
 	padding: .5rem;
 	font-size: 16px;
+	width: 200px;
 }
 
 select {
@@ -730,17 +728,17 @@ button[type="button"],
 }
 
 .submit {
-	  background-color: #0a9396;
-	  margin-top: 1em;
-	  border: none;
-	  color: white;
-	  padding: 15px 32px;
-	  text-align: center;
-	  text-decoration: none;
-	  font-size: 16px;
-	  font-weight: bold;
-	  display: inline-block;
-	}
+	background-color: #0a9396;
+	margin-top: 1em;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	display: inline-block;
+}
 
 button[type="button"]:before,
 .action .default:before,
@@ -816,6 +814,18 @@ button[type="button"]:active:before,
 	color: #706c6b;
 }
 
+.success {
+
+	background-color: #e6efc2;
+	border-color: #529214;
+	border-left: 5px solid #3b4252;
+	border-left-color: #3b4252;
+	color: #3b4252;
+	display: block;
+	padding: 10px 10px 10px 15px;
+
+}
+
 .text-muted {
 	color: #6c757d;
 }
@@ -863,12 +873,7 @@ ul.subtabs>li>a.selected {
 	}
 }
 
-.container {
-	width: 500px;
-	clear: both;
-}
-	
-.container input {
-	width: 100%;
-	clear: both;
+tbody>tr>td {
+	padding: 4px 5px;
+	text-align: left;
 }

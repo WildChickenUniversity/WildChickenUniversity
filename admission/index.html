@@ -7,6 +7,9 @@
   <link href="../assets/admissions.css" rel="stylesheet" type="text/css">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/pdf-lib"></script>
+  <script src="https://unpkg.com/downloadjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
   <title>Applicant Status Portal</title>
   <style>
     /*<![CDATA[*/
@@ -83,10 +86,11 @@
     </div>
     <div class="bottom-bar contain-1120 group">
       <div id="department">
-        <h1><a href="https://admissions.wcu.edu.pl/admission.html">Undergraduate Admissions</a></h1>
+        <h1><a href="https://admissions.wcu.edu.pl/index.html">Undergraduate Admissions</a></h1>
       </div>
     </div>
   </header>
+  <script src="../assets/script.js"></script>
   <div id="page" class="contain-1120 group">
     <main id="main-content" class="content-full" role="main" tabindex="0">
       <div id="portal_row_container">
@@ -103,29 +107,59 @@
           </ul>
         </div>
       </div>
-      <form action="admission.html" method="GET">
-        <div class="container">
-          <label for="fname">First Name:</label>
-          <input type="text" id="fname" name="fname" />
-          <label for="lname">Last Name: </label>
-          <input type="text" id="lname" name="lname" devalue="something" />
-          <input class="submit" type="submit" value="I WANT AN ADMISSION LETTER"/>
-        </div>
-      </form>
       <br>
+      <div class="part_rows_container col-1" data-col="1">
+        <div class="part "><span style="font-size:16px;"><span style="font-family:Arial,Helvetica,sans-serif;"><span style="color:#005f73;">This
+                page is your application status portal and will be used to monitor the
+                progress of your application and to communicate any important updates or
+                changes to your application. When decisions become available they will
+                also be posted here. We anticipate releasing admission decisions for
+                Early Decision candidates on December 17th.
+                <br><br>
+                If you have any questions please reach out to us at&nbsp;
+              </span><a href="mailto:ug-admission@wcu.edu.pl"><span style="color:#005f73;">ug-admission@wcu.edu.pl</span></a><span style="color:#005f73;">&nbsp;or (555) not-free and provide the following reference number: <strong>I_Want_A_University</strong>.</span></span></span></div>
+        <div id="admitted">
+          <br>
+          <h3>Status Update</h3>
+          <p>Congratulations! It is with great pleasure to offer you admission to the Wild Chicken University class of 2026. Please click on the button below to review your admission letter!</p>
+          <button onclick="fillForm(fname, lname, admitted); party.confetti(this);">
+            Download (it takes TIME)&gt;&gt;
+          </button>
+          <br>
+        </div>
+        
+        <div id="rejected">
+            <br>
+            <h3>Status Update</h3>
+            <p>The admission committee has concluded its evaluation of Early Decision applicants to Wild Chicken University. Unfortunately, we are unable to offer you a place in the first-year class. Since Northwestern was your top choice, we understand this news is very disappointing.   
+            </p>
+            <p>
+              Given the relatively small size of the incoming class and the strength of the applicant pool, we cannot admit all of the qualified applicants who apply to Northwestern. You should not feel our decision reflects negatively on you or your potential as a college student. We simply are unable to admit all of the students who present a solid record of achievement.
+            </p> 
+            <button onclick="fillForm(fname, lname, admitted); party.confetti(this);">
+                Download (it takes TIME)&gt;&gt;
+              </button>
+            <br>
+          </div>
+
+      </div>
+      <script src="https://utteranc.es/client.js" repo="Mr-Sheep/WildChickenUniversity" issue-term="title" label="ADMISSION COMMENT" theme="github-light" crossorigin="anonymous" async>
+      </script>
       <div class="footer">
-        <span>Wild Chicken University is committed to a policy of non-discrimination.
-          <a href="./privacy.html"> Privacy Policy </a>
+        <span><br>Wild Chicken University is committed to a policy of non-discrimination.
           <br> If you no longer wish to continue your application to Wild Chicken, you can go <a href="https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-4-piece.html" target="_blank">BUY </a> some Chicken McNuggets® .</span>
         <br /> Copyleft <span class="copyleft">©</span> <a href="https://github.com/Mr-Sheep/WildChickenUniversity">Snorlax</a>, no rights reserved. Assets have their own licenses.
       </div>
+      <div style="clear: both;"></div>
+    </main>
   </div>
-  </div>
-  </div>
-  </div>
-  <div style="clear: both;"></div>
-  </main>
-  </div>
+  <script>
+      const url = new URL(document.URL);
+      const fname = url.searchParams.get("fname");
+      const lname = url.searchParams.get("lname");
+      const admitted = url.searchParams.get('admitted')==='true' ? true : false;
+      admitted ? document.getElementById('rejected').style.display = 'none': document.getElementById('admitted').style.display = 'none';
+  </script>
 
   <div class="progress_box" style="visibility: hidden;"></div>
 </body>
