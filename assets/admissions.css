@@ -565,11 +565,6 @@ header {
 		font-size: 24px;
 	}
 
-	#department img {
-		width: 160px;
-		height: 21px;
-	}
-
 	.hide-desktop {
 		display: block;
 	}
@@ -675,13 +670,6 @@ p.error,
 	display: inline-block;
 }
 
-#register-date {
-	font-family: "Akkurat Pro Bold", "Arial Black", sans-serif;
-}
-
-.form_question {
-	margin: 1em 0;
-}
 
 input[type="text"],
 input:not([type]),
@@ -750,7 +738,7 @@ button[type="button"]:before,
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: #b69fd5 !important;
+	background: #005F73 !important;
 	-webkit-transform: scaleX(0);
 	transform: scaleX(0);
 	-webkit-transform-origin: 0 50%;
@@ -793,27 +781,6 @@ button[type="button"]:active:before,
 	display: none;
 }
 
-.ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
-	border: 1px solid #ccc;
-}
-
-.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all {
-	background: #457b9d;
-}
-
-.ui-datepicker-title {
-	color: #fff;
-}
-
-.ui-widget-header {
-	background: #f4f4f4;
-}
-
-.ui-datepicker td span,
-.ui-datepicker td a {
-	color: #706c6b;
-}
-
 .success {
 
 	background-color: #e6efc2;
@@ -826,9 +793,6 @@ button[type="button"]:active:before,
 
 }
 
-.text-muted {
-	color: #6c757d;
-}
 
 ul.subtabs {
 	background: none;
@@ -847,7 +811,7 @@ ul.subtabs>li {
 
 ul.subtabs>li>a {
 	font: 18px "Akkurat Pro Regular", Arial, sans-serif;
-	color: #836eaa !important;
+	color: #457b9d !important;
 	text-decoration: none !important;
 	text-align: center;
 	box-sizing: content-box;
@@ -876,4 +840,35 @@ ul.subtabs>li>a.selected {
 tbody>tr>td {
 	padding: 4px 5px;
 	text-align: left;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.banner_text {
+	font: 48px/1.2em "Campton Bold", Impact, sans-serif;
+	color: #5e81ac ;
+	text-shadow: 2px 2px 0px #3b4252;
+	margin: 0 0 1rem 1rem;
+	position: relative;
+}
+
+
+@media only screen and (max-width: 480px) {
+	.small_text {
+		font: 32px/1.2em "Campton Bold", Impact, sans-serif;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.med_text {
+		font: 48px/1.2em "Campton Bold", Impact, sans-serif;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.grid_container {
+		display: block;
+	}
 }
