@@ -17,7 +17,7 @@ We are NOT affiliated with any educational institution. Files downloaded from Wi
 
 Wild Chicken is always looking for donation, if you would like to donate:
 
-ETH: **0x6b05Ce9c673c762538cfC9c4cb07e0da00B376AB**
+[![Donate with Ethereum](https://en.cryptobadges.io/badge/big/0x6b05Ce9c673c762538cfC9c4cb07e0da00B376AB?showBalance=true)](https://en.cryptobadges.io/donate/0x6b05Ce9c673c762538cfC9c4cb07e0da00B376AB)
 
 Copyleft © Snorlax, no rights reserved. Assets have their own licenses(normally copylefted).
 
