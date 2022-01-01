@@ -4,7 +4,7 @@ async function fillForm(fname, lname, admitted) {
   // Fetch the PDF with form fields
   console.log(admitted)
   const formUrl = admitted ?
-    "https://cdn.jsdelivr.net/gh/Mr-Sheep/WildChickenUniversity/assets/template.pdf" : "https://cdn.jsdelivr.net/gh/Mr-Sheep/WildChickenUniversity/assets/template_reject.pdf";
+    "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/template.pdf" : "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/template_reject.pdf";
   const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
 
   const pdfDoc = await PDFDocument.load(formPdfBytes);
