@@ -7,19 +7,19 @@
   <link href="../assets/admissions.css" rel="stylesheet" type="text/css">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wild Chicken Applicant Status Portal</title>
+  <title>野鸡大学申请者状态门户</title>
 </head>
 
 <body>
   <header id="mini">
     <div id="top-bar">
       <div class="contain-1120 group">
-        <div id="left"><a href="https://wcu.edu.pl"><img alt="Wild Chicken University" src="../assets/Wild_Chicken_White.svg"><span class="hide-label">Wild Chicken University</span></a></div>
+        <div id="left"><a href="https://wcu.edu.pl"><img alt="野鸡大学" src="../assets/Wild_Chicken_White.svg"><span class="hide-label">野鸡大学</span></a></div>
       </div>
     </div>
     <div class="bottom-bar contain-1120 group">
       <div id="department">
-        <h1><a href="#">Undergraduate Admissions</a></h1>
+        <h1><a href="#">本科生申请</a></h1>
       </div>
     </div>
   </header>
@@ -30,16 +30,16 @@
         <div class="part_rows_container col-1" data-col="1">
           <section class="hero">
             <div class="banner_text small_text">
-              <p>Welcome</p>
+              <p>欢迎</p>
             </div>
           </section>
           <ul class="subtabs">
-            <li><a class="selected" href="#" onclick="$(this).parents('ul').find('.selected').removeClass('selected'); $(this).addClass('selected');">Application Status</a></li>
+            <li><a class="selected" href="#" onclick="$(this).parents('ul').find('.selected').removeClass('selected'); $(this).addClass('selected');">申请状态</a></li>
           </ul>
         </div>
       </div>
       <form action="result.html" method="GET">
-        <p class="success">To get your admission letter, please enter your first name and last name.</p>
+        <p class="success">输入您的名字和姓氏以获得录取通知书</p>
         <table class="plain">
           <colgroup>
             <col style="width: 150px;">
@@ -47,30 +47,30 @@
           </colgroup>
           <tbody>
             <tr>
-              <th><label for="fname" data-required="1">First Name:</label></th>
+              <th><label for="fname" data-required="1">名字:</label></th>
               <td><input type="text" id="fname" name="fname" maxlength="20" size="10" data-required="1" spellcheck="false" required="required" aria-busy="" /></td>
             </tr>
             <tr>
-              <th><label for="lname" data-required="1" spellcheck="false">Last Name: </label></th>
+              <th><label for="lname" data-required="1" spellcheck="false">姓氏: </label></th>
               <td><input type="text" id="lname" name="lname" maxlength="20" size="10" data-required="1" spellcheck="false" required="required" /></td>
             </tr>
             <tr>
-              <th><label for="checkbox" data-required="1" spellcheck="false">Admitted? </label></th>
+              <th><label for="checkbox" data-required="1" spellcheck="false">是否被录取? </label></th>
               <td><input id="admitted" type="checkbox" name="admitted" value="true" /></td>
               <td><input id='checkboxHidden' type='hidden' name='admitted' value='false'></td>
             </tr>
           </tbody>
         </table>
         <br>
-        <div class="action"><button class="default" onclick="if (FW.Validate(this)) FW.Postback(this); return (false);" type="submit">I WANT AN ADMISSION LETTER</button></div>
+        <div class="action"><button class="default" onclick="if (FW.Validate(this)) FW.Postback(this); return (false);" type="submit">获得录取通知书！</button></div>
       </form>
 
       <br>
       <div class="footer">
         <br><br>
-        <hr>Wild Chicken University is committed to a policy of non-discrimination.
-        <a href="../privacy.html"> Privacy Policy </a>
-        <br> If you no longer wish to continue your application to Wild Chicken, you can go <a href="https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-4-piece.html" target="_blank">BUY </a> some Chicken McNuggets®.
+        <hr>野鸡大学致力于非歧视政策。
+        <a href="../privacy.html"> 隐私政策 </a>
+        <br> 如果您不再希望继续申请野鸡大学，您可以去 <a href="https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-4-piece.html" target="_blank">买些麦乐鸡® </a> .
         <br> Copyleft <span class="copyleft">©</span> <a href="https://github.com/Mr-Sheep/WildChickenUniversity">Snorlax</a>, licensed under GPL v3. Assets have their own licenses.
       </div>
       <div style="clear: both;"></div>
