@@ -34,7 +34,7 @@
           <div class="part ">
             <section class="hero">
               <div class="banner_text small_text">
-                <p>Welcome</p>
+                <p id="welcome">Welcome</p>
               </div>
           </div>
           </section>
@@ -53,10 +53,10 @@
                 Early Decision candidates on December 17th.
                 <br><br>
                 If you have any questions please reach out to us at&nbsp;
-              </span><a><span style="color:#005f73;">ug-admission#wcu.edu.pl</span></a><span style="color:#005f73;">&nbsp;or (555) not-free and provide the following reference number: <strong>I_Want_A_University</strong>.
-                <p> If you care about security, our public key can be found <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/830C321A7BD2F2E238760C602D5D295C85EFB7BB">here</a>. <br>Fingerprint: 830C 321A 7BD2 F2E2 3876 0C60 2D5D 295C 85EF B7BB <br>Please <b>DO NOT</b> paste our public key's fingerprint in your email.
+              </span><a><span style="color:#005f73;">ug-admission#wcu.edu.pl</span></a><span style="color:#005f73;">&nbsp; and provide the following reference number: <strong>I_Want_AN_University_Offer</strong>.
+                <p> If you care about security, our public key can be found <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/830C321A7BD2F2E238760C602D5D295C85EFB7BB">here</a>. <br>Fingerprint: 830C 321A 7BD2 F2E2 3876 0C60 2D5D 295C 85EF B7BB.<br>Please <b>DO NOT</b> paste our public key's fingerprint in your email.
                 </p>
-                <p style="color: #7f4f24;"> If you no longer wish to continue your application to Wild Chicken, you can go <a href="https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-4-piece.html" target="_blank">BUY </a> some Chicken McNuggets®. </p>
+                
 
               </span></span></span></div>
         <div id="admitted">
@@ -86,13 +86,15 @@
           <br>
         </div>
 
-
+        
+        <p style="color: #7f4f24;"> If your GPA at WCU is higher than 3.5, you may be made into a chicken nugget. <wbr  />And if you no longer wish to continue your application to Wild Chicken, please go <a href="https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-4-piece.html" target="_blank">BUY </a> some Chicken McNuggets®. </p>
+        
       </div>
       <script src="https://utteranc.es/client.js" repo="Mr-Sheep/WildChickenUniversity" issue-term="title" label="ADMISSION COMMENT" theme="github-light" crossorigin="anonymous" async>
       </script>
 
       <div class="footer">
-        <br><br>
+        <br>
         <hr>Wild Chicken University is committed to a policy of non-discrimination.
         <a href="../privacy.html"> Privacy Policy </a>
         <br> Copyleft <span class="copyleft">©</span> <a href="https://github.com/Mr-Sheep/WildChickenUniversity">Snorlax</a>, licensed under GPL v3. Assets have their own licenses.
@@ -106,6 +108,7 @@
     const lname = url.searchParams.get("lname");
     const admitted = url.searchParams.get('admitted') === 'true' ? true : false;
     admitted ? document.getElementById('rejected').style.display = 'none' : document.getElementById('admitted').style.display = 'none';
+    document.getElementById("welcome").textContent += `, ${fname} ${lname}`
   </script>
 
   <div class="progress_box" style="visibility: hidden;"></div>
