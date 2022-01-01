@@ -3,17 +3,29 @@ html {
     font-size: 16px;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
     margin: 0;
     padding: 0;
     font-weight: normal;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -25,7 +37,8 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-a, a:visited {
+a,
+a:visited {
     color: #333;
 }
 
@@ -84,11 +97,11 @@ tr {
     display: none;
 }
 
-.header > .title {
+.header>.title {
     font-size: 3rem;
 }
 
-.header > .title::before {
+.header>.title::before {
     content: '//';
     font-size: 5.5rem;
 }
@@ -99,17 +112,19 @@ tr {
     background-color: #eee;
 }
 
-.content > .title {
+.content>.title {
     font-size: 1.75em;
     margin: 0 0 .4em 0;
 }
 
-.content > p {
+.content>p {
     line-height: 1.5em;
     margin-bottom: .75em;
 }
 
-p.address, .regnum, .mono {
+p.address,
+.regnum,
+.mono {
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -151,4 +166,84 @@ a.button:hover {
     line-height: 12px;
     position: relative;
     color: #1a1f36;
+}
+
+button[type="button"],
+.action .default,
+.action .button {
+    font: 16px "Akkurat Pro Bold", "Arial Black", sans-serif !important;
+    color: #fff !important;
+    background: #9caaa9 !important;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: .5em .5em .5em 0;
+    padding: .8em 1em .7em 1em;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+    min-width: 165px;
+    border: none;
+}
+
+button[type="button"]:before,
+.action .default:before,
+.action .button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #4e5d5c !important;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+button[type="button"]:hover,
+button[type="button"]:focus,
+button[type="button"]:active,
+.action .default:hover,
+.action .default:focus,
+.action .default:active,
+.action .button:hover,
+.action .button:focus,
+.action .button:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+button[type="button"]:hover:before,
+button[type="button"]:focus:before,
+button[type="button"]:active:before,
+.action .default:hover:before,
+.action .default:focus:before,
+.action .default:active:before,
+.action .button:hover:before,
+.action .button:focus:before,
+.action .button:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }
