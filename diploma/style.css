@@ -136,7 +136,7 @@ html {
 
 body {
 	font: 62.5%/1.7em "Roboto", Arial, sans-serif;
-	font-weight : 400;
+	font-weight: 400;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -240,14 +240,14 @@ img {
 
 #main-content h3 {
 	font: 26px "Roboto", Arial, sans-serif;
-	font-weight : 400;
+	font-weight: 400;
 	color: #706c6b;
 	margin-bottom: 1rem;
 }
 
 #main-content h4 {
 	font: 21px "Roboto", Arial, sans-serif;
-	font-weight : 400;
+	font-weight: 400;
 	color: #457b9d;
 	margin-bottom: 1rem;
 }
@@ -323,7 +323,7 @@ img {
 .content-full table {
 	width: 100%;
 	font: 16px "Roboto", Arial, sans-serif;
-	font-weight : 400;
+	font-weight: 400;
 	color: #6d6e71;
 }
 
@@ -415,7 +415,7 @@ header {
 
 #department h1 a {
 	font-family: "Roboto", Arial, sans-serif;
-	font-weight : 400;
+	font-weight: 400;
 	color: #fff;
 	text-decoration: none;
 }
@@ -616,13 +616,14 @@ header {
 
 p span {
 	font: 16px/1.7em "Roboto", Arial, sans-serif !important;
-	font-weight : 400;
+	font-weight: 400;
 }
 
 p.error,
 #form_response_banner {
 	display: inline-block;
 }
+
 input[type="text"],
 input:not([type]),
 textarea {
@@ -808,7 +809,7 @@ tbody>tr>td {
 .banner_text {
 	font: 48px/1.2em "Poppins", Impact, sans-serif;
 	font-weight: 700;
-	color: #5e81ac ;
+	color: #5e81ac;
 	text-shadow: 2px 2px 0px #3b4252;
 	margin: 0 0 1rem 1rem;
 	position: relative;
@@ -836,8 +837,38 @@ tbody>tr>td {
 }
 
 .copyleft {
-		transform: rotate(180deg);
-		display: inline-block;
-		position: relative;
-		color: #1a1f36;
-	}
+	transform: rotate(180deg);
+	display: inline-block;
+	position: relative;
+	color: #1a1f36;
+}
+
+datalist {
+	position: absolute;
+	max-height: 20em;
+	border: 0 none;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+datalist option {
+	font-size: 0.8em;
+	padding: 0.3em 1em;
+	background-color: #ccc;
+	cursor: pointer;
+}
+
+/* option active styles */
+datalist option:hover,
+datalist option:focus {
+	color: #fff;
+	background-color: #036;
+	outline: 0 none;
+}
+
+#browserdata option {
+	font-size: 1.8em;
+	padding: 0.3em 1em;
+	background-color: #ccc;
+	cursor: pointer;
+}
