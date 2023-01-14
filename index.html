@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <meta name="description" content="Wild Chicken University" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.85">
+  <link rel="stylesheet" href="./style.css" media="" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <script type="text/javascript" src="./assets/script.js" defer="defer"></script>
+  <title>Wild Chicken University</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="main">
+      <div class="header">
+        <h1 class="title"><a href="#"><img src="./assets/Wild_Chicken_White.svg"
+              alt="Wild Chicken University" style="height:6rem; padding-top:2.3rem; padding-left:1rem;"></a></h1>
+      </div>
+
+      <div class="content">
+
+        <div class="tab">
+          <button class="tablinks active" onclick="openTab(event, 'admission')">Admission</button>
+          <button class="tablinks" onclick="openTab(event, 'news')">News</button>
+          <button class="tablinks" onclick="openTab(event, 'certificate')">Certificate</button>
+          <button class="tablinks" onclick="openTab(event, 'about')">About</button>
+        </div>
+        
+        <section id="news" class="tabcontent">
+          <h2 class="title">News</h2>
+
+          <table>
+            <tbody>
+              <tr>
+                <th>Date</th>
+                <th>Info</th>
+              </tr>
+              <tr>
+                <td class="date">01.14.2023</td>
+                <td>
+                  We heard about some students using ChatGPT in their application essay, guess we WCU dont have to worry
+                  about that since we don't require any essay at all.
+                </td>
+              </tr>
+              <tr>
+                <td class="date">02.15.2022</td>
+                <td>Worrying about the <a
+                    href="https://www.berkeleyside.org/2022/02/14/uc-berkeley-enrollment-drop-court-of-appeal-ruling">lower
+                    court order</a> that requires UC Berkeley to freeze student enrollment at the same level as 2020-21?
+                  Consider Wild Chicken University!</td>
+              </tr>
+              <tr>
+                <td class="date">02.15.2022</td>
+                <td>Apologies to all the folks that contacted WCU. I am busy preparing for something, and I don't have
+                  enough time for a complete redesign of this website.</td>
+              </tr>
+              <tr>
+                <td class="date">01.13.2022</td>
+                <td>We are now a proud member of the <a href="https://github.com/U4Group">U4 Group of GitHub Research
+                    Universities</a>.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p></p>
+        </section>
+
+        <section id="admission" class="tabcontent" style="display: block;">
+          <h2 class="title">Admission</h2>
+
+          <div>
+            <button class="headline" onclick="window.open('http://admission.wcu.edu.pl','_blank')">
+              Apply now for FALL 2023 admission
+            </button>
+          </div>
+          <p>
+            We realize you've been anxiously awaiting your decision from Wild Chicken and
+            want to let you know that your application status will never be "under review".
+            (You might realize that this is copied from UC Berkeley's email)
+          </p>
+          <p>
+            We do understand how bad you feel when you get a rejection letter from the university,
+            that's why we won't say “We regret that we are unable to offer you admission.”
+          </p>
+          <p> <b>NO</b> fees💰️ to apply. <b>NO</b> supplements📝 to submit. <b>NO</b> extra essays to write.
+            <br> Screw flywire, nobody likes your currency conversion rate
+          </p>
+          <p>
+            Good Luck on your college app!
+          </p>
+          <div class="action"><button class="default"
+              onclick="window.location.href='./admission/index.html'">ADMISSION PORTAL</button></div>
+          <div class="action"><button class="default" onclick="window.location.href='./review.html'">What Our Students
+              Say</button></div>
+
+          <p></p>
+        </section>
+
+        <section id="certificate" class="tabcontent">
+          <h2 class="title"> Too old for universities? Get your free diploma then</h2>
+          <p>our diploma is recognized by members of the <a href="https://github.com/U4Group">U4 Group of GitHub
+              Research
+              Universities</a>; and probably all the McDonald's with a working ice cream machine.
+          </p>
+          <p> A diploma is a document awarded by an educational institution (such as a college or university) testifying
+            the recipient has graduated by successfully completing their courses of studies. Historically, it has
+            also referred to a charter or official document of diplomacy. (source: <a
+              href="https://en.wikipedia.org/wiki/Diploma">wikipedia</a>) </p>
+          <div class="action"><button class="default"
+              onclick="window.location.href='./diploma/index.html'">DIPLOMA GENERATOR</button></div>
+
+        </section>
+
+        <section id="about" class="tabcontent">
+          <h2 class="title">About</h2>
+          <p>
+            Wild Chicken University (also known as a diploma mill or degree
+            mill) is an organization that awards academic degrees and diplomas
+            with substandard or no academic study and without recognition by
+            official educational accrediting bodies. The purchaser can then
+            claim to hold an academic degree, and the organization is motivated
+            by making a profit. These degrees are often awarded based on vaguely
+            construed life experience. Some such organizations claim
+            accreditation by non-recognized/unapproved accrediting bodies set up
+            for the purposes of providing a veneer of authenticity. While the
+            terms "degree mill" and "diploma mill" are commonly used
+            interchangeably, within the academic community a distinction is
+            sometimes drawn: <br />
+          <ul>
+            <li>
+              A "degree mill" issues "real" diplomas from non regionally
+              accredited "universities", which may be legal in some states but
+              are generally illegitimate universities.
+            </li>
+            <li>
+              A "diploma mill" issues counterfeit diplomas which bear the
+              names of legitimate universities.
+            </li>
+          </ul>
+          <br />
+          Copied from: <a href="https://www.facebook.com/Wild-Chicken-University-170013173058220/about">Wild Chicken
+            University on Facebook(or should we call it Meta?)</a>
+          </p>
+        </section>
+
+        <section id="mascot">
+          <h2 class="title">Mascot</h2>
+          <p>We've made a mascot for Wild Chicken University. Of course, it is a chicken 🐔️.
+            <br> Note that your browser must support WebGL.
+          <div class="action"><button class="default" onclick="window.location.href='https://mascot.wcu.edu.pl'">SEE OUR
+              MASCOT</button></div>
+          </p>
+        </section>
+
+
+
+        <section id="non-sense">
+          <h2 class="title">Why this simple HTML site?</h2>
+          <p>What else are you expecting from Wild Chicken University? React.js/Vue.js?</p>
+          <p>No money to fund our devs(lol just me)</p>
+        </section>
+
+        <section id="donation">
+          <h2 class="title">Donation?</h2>
+          <p> Donations with <b>no strings attached</b> are always appreciated. <br></p>
+          <p><span class="longstring">Our XMR address:
+              82msVko36MjhAcmSfeEGExUbLvyRMnS7kCYUa7ZHZNeTUWMHm69HhndKYFJSnEgjM9JypkeaLqgtWD46xBkpzJ2J4xddHap</span>
+
+          </p>
+        </section>
+
+        <section id="disclaimers">
+          <h2 class="title">Disclaimers</h2>
+          <p>
+          <ul>
+            <li>
+              The material embodied in this website is provided to you "as-is" and
+              without warranty of any kind, express, implied or otherwise, including
+              without limitation, any warranty of fitness for a particular purpose.
+              In no event shall the Wild Chicken University be liable to you or anyone else
+              for any direct, special, incidental, indirect or consequential damages
+              of any kind, or any damages whatsoever, including without limitation,
+              loss of profit, loss of use, savings or revenue, or the claims of
+              third parties, whether or not the Wild Chicken University has been
+              advised of the possibility of such loss, however caused and on any
+              theory of liability, arising out of or in connection with the
+              possession, use or performance of this website. We are <b>NOT</b> affiliated with any educational
+              institution. Files downloaded from WildChicken <b>DOES NOT</b> have ANY legal effect. We are <b>NOT</b>
+              responsible any files downloaded from this site.</li>
+            <li>Our logo is borrowed from UPenn; signed by our beloved director of admission, Colonel Harland David
+              Sanders, the founder of KFC(cuz we are chicken university).</li>
+            <li>The design for the admission portal is mostly copied from Northwestern since they rejected me. And I
+              thought this can be a joke to me </li>
+            <li>The content of the admission offer is copied from Stanford as I am too lazy to write them myself.</li>
+            <li>The content of the rejection letter is copied from Northwestern since they are my ed school and they
+              rejected me lmfao</li>
+            <li>The logo and the web design(and everything also) was a parody, which according to <strong><a
+                  href="https://www.legislation.gov.uk/uksi/2014/2356/regulation/5/made">Section 30A of the
+                  CDPA</a></strong> fair dealing with a copyrighted work for the purposes of caricature, parody, or
+              pastiche is allowed.</li>
+            <li>If you no longer wish to continue your application to Wild Chicken, you can go <a
+                href="https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-4-piece.html" target="_blank">BUY</a>
+              some <strong>Chicken McNuggets®</strong>.</li>
+            <li><b>NO</b> chickens🐓️ were harmed during the creation of this website.</li>
+            <li><b>NOTHING, except the hash-tag part at the very beginning of this page, ON THIS PAGE IS SERIOUS</b>
+            </li>
+          </ul>
+
+          </p>
+        </section>
+
+        <section>
+          <h2 class="title">#⬜️️</h2>
+          <img style="width: 20%;" src="./assets/img/duty.jpg" />
+          <p></p>
+        </section>
+
+      </div>
+      </section>
+
+      <iframe src="footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+
+      <script src="https://utteranc.es/client.js" repo="WildChickenUniversity/WildChickenUniversity" issue-term="title"
+        label="ADMISSION COMMENT" theme="github-light" crossorigin="anonymous" async>
+        </script>
+    </div>
+
+  </div>
+</body>
+
+</html>
