@@ -17,7 +17,7 @@
     />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link rel="shortcut icon" href="./assets/favicon.svg" />
-    <link href="./assets/admissions.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/portal.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wild Chicken Applicant Status Portal</title>
@@ -28,10 +28,10 @@
       <div id="top-bar">
         <div class="contain-1120 group">
           <div id="left">
-            <a href="https://wcu.edu.pl"
+            <a href="./index.html"
               ><img
                 alt="Wild Chicken University"
-                src="../assets/Wild_Chicken_White.svg"
+                src="./assets/Wild_Chicken_White.svg"
               /><span class="hide-label">Wild Chicken University</span></a
             >
           </div>
@@ -65,7 +65,7 @@
             </ul>
           </div>
         </div>
-        <form action="result.html" method="GET">
+        <form action="admission-result.html" method="GET">
           <p class="success">
             To get your admission letter, please enter your first name and last
             name.
@@ -166,25 +166,8 @@
           possession, use or performance of this website. We are <b>NOT</b> affiliated with any educational institution. Files downloaded from WildChicken <b>DOES NOT</b> have ANY legal effect. We are <b>NOT</b> responsible any files downloaded from this site.</p>
 
         <br />
-        <div class="footer">
-          <br /><br />
-          <hr />
-          Wild Chicken University is committed to a policy of
-          non-discrimination.
-          <a href="https://wcu.edu.pl/privacy.html"> Privacy Policy </a>
-          <br />
-          If you no longer wish to continue your application to Wild Chicken,
-          you can go
-          <a
-            href="https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-4-piece.html"
-            target="_blank"
-            >BUY
-          </a>
-          some Chicken McNuggets®. <br />
-          Copyleft <span class="copyleft">©</span>
-          <a href="https://github.com/WildChickenUniversity">Wild Chicken University</a>,
-          licensed under GPL v3. Assets have their own licenses.
-        </div>
+        <iframe src="footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+
         <div style="clear: both"></div>
       </main>
     </div>
