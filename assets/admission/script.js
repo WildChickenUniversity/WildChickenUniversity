@@ -7,10 +7,10 @@ async function fillForm(fname, lname, admitted, graduate) {
   let decision = admitted ? "Accept" : "Decline";
   if (graduate) {
     formUrl = admitted ?
-      "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/admission/assets/template_master.pdf" : "https://cdn.jsdelivr.net/gh/WildChickenUniversity/admission/assets/template_master_reject.pdf";
+      "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/admission/template_master.pdf" : "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/admission/template_master_reject.pdf";
   } else {
     formUrl = admitted ?
-      "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/admission/assets/template.pdf" : "https://cdn.jsdelivr.net/gh/WildChickenUniversity/admission/assets/template_reject.pdf";      
+      "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/admission/template.pdf" : "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/admission/template_reject.pdf";      
   }
   console.log(`template url: ${formUrl}`)
 

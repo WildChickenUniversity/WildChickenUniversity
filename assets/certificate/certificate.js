@@ -2,10 +2,10 @@ const { PDFDocument, StandardFonts } = PDFLib;
 const myDate = new Date();
 async function fillForm(fname, lname, major) {
   // Fetch the PDF with form fields
-  const formUrl = "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/diploma/assets/template_diploma.pdf"
+  const formUrl = "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/certificate/template_diploma.pdf"
   // const formUrl = "https://raw.githubusercontent.com/WildChickenUniversity/WildChickenUniversity/master/assets/template_diploma.pdf"
   const englishUnicode = /^[0-9a-zA-Z\s]+$/;
-  console.log(`Is user input in pure English: ${englishUnicode.test(major)}`);
+  console.log(`English only: ${englishUnicode.test(major)}`);
   const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
   const pdfDoc = await PDFDocument.load(formPdfBytes);
   const fontkit = window.fontkit;
