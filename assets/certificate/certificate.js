@@ -13,12 +13,12 @@ async function fillForm(fname, lname, major) {
   
   // Copyright (c) 2018, Fredrick R. Brennan (<copypaste@kittens.ph>)
   // https://github.com/ctrlcctrlv/chomsky, licensed under  OFL-1.1
-  const chomskyFontUrl = "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/diploma/assets/fonts/Chomsky.woff2";
+  const chomskyFontUrl = "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/certificate/fonts/Chomsky.woff2";
   const chomskyFontByte = await fetch(chomskyFontUrl).then(res => res.arrayBuffer());
   const chomskyFont = await pdfDoc.embedFont(chomskyFontByte);
   
   // Google Noto Serif Simplified Chinese 900
-  const sourceHanSerifUrl = "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/diploma/assets/fonts/noto-serif-sc-v16-chinese-simplified-900.woff2";
+  const sourceHanSerifUrl = "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/certificate/fonts/noto-serif-sc-v16-chinese-simplified-900.woff2";
   const sourceHanSerifByte = await fetch(sourceHanSerifUrl).then(res => res.arrayBuffer());
   const sourceHanSerif = await pdfDoc.embedFont(sourceHanSerifByte);
 
