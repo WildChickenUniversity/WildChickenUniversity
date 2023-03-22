@@ -72,7 +72,7 @@ async function fillForm(fname, lname, major) {
   nameField.setText(name);
 
   majorField.updateAppearances(font);
-  nameField.updateAppearances(chomskyFont);
+  nameField.updateAppearances(font);
 
   // Flatten the form fields
   form.flatten();
