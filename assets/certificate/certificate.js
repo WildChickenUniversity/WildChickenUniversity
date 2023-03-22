@@ -23,7 +23,7 @@ async function fillForm(fname, lname, major) {
 
   // Google Noto Serif Simplified Chinese 900
   const sourceHanSerifUrl =
-    "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity@test_font/assets/certificate/fonts/Chomsky.otf";
+    "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity@test_font/assets/certificate/fonts/noto-serif-sc-v16-chinese-simplified-900.ttf";
   const sourceHanSerifByte = await fetch(sourceHanSerifUrl).then((res) =>
     res.arrayBuffer()
   );
