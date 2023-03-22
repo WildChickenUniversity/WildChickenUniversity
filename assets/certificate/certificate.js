@@ -1,4 +1,4 @@
-const { PDFDocument, StandardFonts } = PDFLib;
+const { PDFDocument, StandardFonts, PDFFont, PDFField } = PDFLib;
 const myDate = new Date();
 async function fillForm(fname, lname, major) {
   // Fetch the PDF with form fields
@@ -15,18 +15,20 @@ async function fillForm(fname, lname, major) {
   // Copyright (c) 2018, Fredrick R. Brennan (<copypaste@kittens.ph>)
   // https://github.com/ctrlcctrlv/chomsky, licensed under  OFL-1.1
   const chomskyFontUrl =
-    "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity@test_font/assets/certificate/fonts/Chomsky.otf";
+    "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/certificate/fonts/Chomsky.otf";
   const chomskyFontByte = await fetch(chomskyFontUrl).then((res) =>
     res.arrayBuffer()
   );
+
   const chomskyFont = await pdfDoc.embedFont(chomskyFontByte);
 
   // Google Noto Serif Simplified Chinese 900
   const sourceHanSerifUrl =
-    "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity@test_font/assets/certificate/fonts/noto-serif-sc-v16-chinese-simplified-900.ttf";
+    "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/certificate/fonts/noto-serif-sc-v16-chinese-simplified-900.ttf";
   const sourceHanSerifByte = await fetch(sourceHanSerifUrl).then((res) =>
     res.arrayBuffer()
   );
+
   const sourceHanSerif = await pdfDoc.embedFont(sourceHanSerifByte);
 
   // if user input in English, then use chomskyFont.
@@ -46,11 +48,29 @@ async function fillForm(fname, lname, major) {
   // Get all fields in the PDF by their names
   const majorField = form.getTextField("major");
   const nameField = form.getTextField("name");
+  const name = `${fname} ${lname}`;
+
+  // idiot-proof
+  // just please don't enter a super long major name :)
+  const widthMajorField = 450;
+  const widthNameField = 350;
+  const widthMajor = major.length * 40;
+  const widthName = name.length * 40;
+  if (widthMajorField < widthMajor) {
+    let fontSizeMajor = widthMajorField / major.length;
+    console.log(`new font size for major: ${fontSizeMajor}`);
+    majorField.setFontSize(fontSizeMajor);
+  }
+  if (widthNameField < widthName) {
+    let fontSizeName = widthNameField / major.length;
+    console.log(`new font size for name: ${fontSizeName}`);
+    majorField.setFontSize(fontSizeName);
+  }
 
   // Fill in the name field
   majorField.setText(major);
-  nameField.setText(`${fname} ${lname}`);
-  const fontSize = 31;
+  nameField.setText(name);
+
   majorField.updateAppearances(font);
   nameField.updateAppearances(chomskyFont);
 
