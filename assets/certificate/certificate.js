@@ -6,7 +6,6 @@ async function fillForm(fname, lname, major) {
     "https://cdn.jsdelivr.net/gh/WildChickenUniversity/WildChickenUniversity/assets/certificate/template_diploma.pdf";
   // const formUrl = "https://raw.githubusercontent.com/WildChickenUniversity/WildChickenUniversity/master/assets/template_diploma.pdf"
   const englishUnicode = /^[0-9a-zA-Z\s]+$/;
-  console.log(`English only: ${englishUnicode.test(major)}`);
   const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
   const pdfDoc = await PDFDocument.load(formPdfBytes);
   const fontkit = window.fontkit;
@@ -31,18 +30,6 @@ async function fillForm(fname, lname, major) {
 
   const sourceHanSerif = await pdfDoc.embedFont(sourceHanSerifByte);
 
-  // if user input in English, then use chomskyFont.
-  const font = englishUnicode.test(major) ? chomskyFont : sourceHanSerif;
-
-  console.log(
-    `Today is ${myDate
-      .toDateString()
-      .substring(
-        4
-      )}, generating for ${fname} ${lname} with major ${major} and font ${
-      font.name
-    }`
-  );
   // Get the form containing all the fields
   const form = pdfDoc.getForm();
   // Get all fields in the PDF by their names
@@ -58,12 +45,10 @@ async function fillForm(fname, lname, major) {
   const widthName = name.length * 40;
   if (widthMajorField < widthMajor) {
     let fontSizeMajor = widthMajorField / major.length;
-    console.log(`new font size for major: ${fontSizeMajor}`);
     majorField.setFontSize(fontSizeMajor);
   }
   if (widthNameField < widthName) {
     let fontSizeName = widthNameField / major.length;
-    console.log(`new font size for name: ${fontSizeName}`);
     majorField.setFontSize(fontSizeName);
   }
 
@@ -71,8 +56,12 @@ async function fillForm(fname, lname, major) {
   majorField.setText(major);
   nameField.setText(name);
 
-  majorField.updateAppearances(font);
-  nameField.updateAppearances(font);
+  majorField.updateAppearances(
+    englishUnicode.test(major) ? chomskyFont : sourceHanSerif
+  );
+  nameField.updateAppearances(
+    englishUnicode.test(name) ? chomskyFont : sourceHanSerif
+  );
 
   // Flatten the form fields
   form.flatten();
