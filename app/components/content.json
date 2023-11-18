@@ -1,0 +1,36 @@
+{
+  "admitted-undergraduate": {
+    "p1": "Congratulations! It is with great pleasure that I offer you admission to the Wild Chicken University!",
+    "p2": "Your thoughtful application and remarkable accomplishments convinced us that you have the intellectual energy, imagination and talent to flourish at Wild Chicken. Among the over 20,000 applications we read, your distinguished record of academic excellence and personal achievement stood out. We are thrilled to welcome you to the Wild Chicken community and look forward to the unique and extraordinary contributions we know you will make to the intellectual and extracurricular life of our campus.",
+    "p3": "The exciting next step is now yours. As Wild Chicken is probably only one of several options you will consider in the coming weeks, I hope you will use the time to learn more about us. We invite you to participate in Admit Weekend, a three-day program that will introduce you to the intellectual vibrancy and dynamic campus life that define Wild Chicken. Information about that event is enclosed. Whatever decision you make, we ask that you complete the enclosed enrollment response card and return it to us by the postmark deadline of May 2. Should you decide to matriculate at Wild Chicken – and we sincerely hope you do – we will send enrollment information to you in late May.",
+    "p4": "While we have every reason to believe you will complete this school year successfully, remember that your admission is contingent upon your continued strong performance in the program you presented to us in your application.",
+    "p5": "Once again, I extend my congratulation on your admission to Wild Chicken and welcome you to the Wild Chicken family."
+  },
+  "admitted-graduate": {
+    "p1": "I am pleased to inform you that the Graduate Admissions Committee for the Wild Chicken Department at Wild Chicken University has reviewed your application to the Master of Chicken program and has decided to offer you admission. Your admission to the program is effective for one year commencing",
+    "p2": "Upon successful completion of at least two core graduate courses in the program, you may transfer a maximum of two graduate level courses (8 credits) with a grade of C or higher, for credit towards your degree, including any courses that you may have taken or plan to take at Wild Chicken University. No credit is allowed for courses used to fulfill another degree, and all transfer credits require program approval. Minimum passing grade for a course in the graduate program is Z (0.0), but a minimum grade average of B (3.0) must be maintained to remain in good academic standing and to graduate. ",
+    "p3": "If you plan to attend the program on a part-time basis, you should complete all of your degree requirements within a maximum of five years.",
+    "p4": "Your admission offer is effective for one your commencing with the start of the academic semester that you originally applied for. Once your acceptance has been received, you will be established as a graduate degree candidate with the Registrar's Office of the University.",
+    "p5": "I look forward to your participation in our program and my best wishes for success in your future studies."
+  },
+  "rejected-undergraduate": {
+    "p1": "The admission committee has concluded its evaluation of Early Decision applicants to Wild Chicken University. Unfortunately, we are unable to offer you a place in the first-year class. Since Wild Chicken was your top choice, we understand this news is very disappointing.",
+    "p2": "Given the relatively small size of the incoming class and the strength of the applicant pool, we cannot admit all of the qualified applicants who apply to Wild Chicken. You should not feel our decision reflects negatively on you or your potential as a college student. We simply are unable to admit all of the students who present a solid record of achievement. ",
+    "p3": "While we have every reason to believe you will complete this school year successfully, remember that your admission is contingent upon your continued strong performance in the program you presented to us in your application.",
+    "p4": "Our admission committee reviews each application carefully in our efforts to shape an incoming class. Unfortunately, we cannot provide explanations about individual admission decisions; however, A Statement from the Dean, linked to this letter, may answer some of your questions about our admission process.",
+    "p5": "The admission committee appreciates the time and effort you put into applying to Wild Chicken. We wish you every success as you pursue your education."
+  },
+  "rejected-graduate": {
+    "p1": "Thank you for your interest in the Wild Chicken Department at the Wild Chicken University, and for your application to our master program. We received over 114514 applications and the department could only recommend 89 of admission. We are writing to thank you for allowing us to review your work and to inform you that, unfortunately, we are unable to offer you a position in or incoming master class.",
+    "p2": "The admissions process attracted many compelling applications, including yous, making the final decisions very difficult. In the end, we based our decision on the program fit and it is not a reflection of and perceived weaknesses on the part of any applicants.",
+    "p3": "We appreciate your interest and your understanding, and wish you the best in your future academic endeavors.",
+    "p4": "You should now apply for a job at Kintuchy Fried Chicken.",
+    "p5": ""
+  },
+  "footer": {
+    "closing": "Sincerely,",
+    "signature": "harland_sanders_signature.svg",
+    "printed": "Colonel Harland Sanders",
+    "title": "Director of Admission"
+  }
+}
