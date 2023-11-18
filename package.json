@@ -12,12 +12,15 @@
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.0.3",
+    "@pdf-lib/fontkit": "^1.1.1",
     "@react-pdf/renderer": "^3.1.14",
     "@types/mdx": "^2.0.10",
+    "fontkit": "^2.0.2",
     "next": "14.0.3",
     "pdf-lib": "^1.17.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -26,6 +29,7 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
+    "eslint-plugin-mdx": "^2.2.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"

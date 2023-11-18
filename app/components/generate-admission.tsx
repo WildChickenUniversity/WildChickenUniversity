@@ -1,6 +1,7 @@
 import { PDFDocument, StandardFonts, PDFFont } from "pdf-lib";
 // sorry guys, im just tooo stupid to use react-pdf
 import content from "./content.json";
+import downloadPDF from "./download-pdf";
 
 type AdmissionProps = {
   username: string;
@@ -54,14 +55,6 @@ const fillParagraph = (
     }
   }
   return newParagraphs.join("\n\n");
-};
-
-const downloadPDF = (pdfBytes: any, fileName: string) => {
-  const blob = new Blob([pdfBytes], { type: "application/pdf" });
-  const link = document.createElement("a");
-  link.href = window.URL.createObjectURL(blob);
-  link.download = fileName;
-  link.click();
 };
 
 async function createAdmissionPDF({
@@ -162,7 +155,10 @@ async function createAdmissionPDF({
 
   const pdfBytes = await pdfDoc.save();
 
-  downloadPDF(pdfBytes, `WCU_Admission_Decision_${username}.pdf`);
+  downloadPDF(
+    pdfBytes,
+    `WCU_Admission_Decision_${username.split(" ").join("_")}.pdf`
+  );
 }
 
 export default createAdmissionPDF;

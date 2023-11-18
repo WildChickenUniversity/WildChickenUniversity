@@ -22,3 +22,37 @@ home {
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
+
+.copyleft {
+  transform: rotate(180deg);
+  display: inline-block;
+  position: relative;
+}
+
+.underline-animation {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  /* Use the text color */
+  transition: width 0.2s ease-in-out;
+}
+
+.underline-animation:hover::after {
+  width: 100%;
+}
+
+.mdx-layout h1 {
+  color: blue;
+  /* Example style */
+  font-size: 2em;
+  /* Example style */
+}

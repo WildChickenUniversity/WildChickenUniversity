@@ -1,0 +1,77 @@
+import { PDFDocument, StandardFonts, PDFFont, PDFField } from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit";
+import downloadPDF from "./download-pdf";
+
+type DiplomaProps = {
+  username: string;
+  major: string;
+};
+
+async function generateDiploma({ username, major }: DiplomaProps) {
+  // Fetch the PDF with form fields
+  const formUrl = "/template_diploma.pdf";
+  // const formUrl = "https://raw.githubusercontent.com/WildChickenUniversity/WildChickenUniversity/master/assets/template_diploma.pdf"
+  const englishUnicode = /^[0-9a-zA-Z\s]+$/;
+  const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
+  const pdfDoc = await PDFDocument.load(formPdfBytes);
+  pdfDoc.registerFontkit(fontkit);
+
+  // Copyright (c) 2018, Fredrick R. Brennan (<copypaste@kittens.ph>)
+  // https://github.com/ctrlcctrlv/chomsky, licensed under  OFL-1.1
+  const chomskyFontUrl = "/fonts/Chomsky.otf";
+  const chomskyFontByte = await fetch(chomskyFontUrl).then((res) =>
+    res.arrayBuffer()
+  );
+
+  const chomskyFont = await pdfDoc.embedFont(chomskyFontByte);
+
+  // Google Noto Serif Simplified Chinese 900
+  const sourceHanSerifUrl =
+    "fonts/noto-serif-sc-v16-chinese-simplified-900.ttf";
+  const sourceHanSerifByte = await fetch(sourceHanSerifUrl).then((res) =>
+    res.arrayBuffer()
+  );
+
+  const sourceHanSerif = await pdfDoc.embedFont(sourceHanSerifByte);
+
+  // Get the form containing all the fields
+  const form = pdfDoc.getForm();
+  // Get all fields in the PDF by their names
+  const majorField = form.getTextField("major");
+  const nameField = form.getTextField("name");
+
+  // idiot-proof
+  // just please don't enter a super long major name :)
+  const widthMajorField = 450;
+  const widthNameField = 350;
+  const widthMajor = major.length * 40;
+  const widthName = username.length * 40;
+  if (widthMajorField < widthMajor) {
+    let fontSizeMajor = widthMajorField / major.length;
+    majorField.setFontSize(fontSizeMajor);
+  }
+  if (widthNameField < widthName) {
+    let fontSizeName = widthNameField / major.length;
+    majorField.setFontSize(fontSizeName);
+  }
+
+  // Fill in the name field
+  majorField.setText(major);
+  nameField.setText(username);
+
+  majorField.updateAppearances(
+    englishUnicode.test(major) ? chomskyFont : sourceHanSerif
+  );
+  nameField.updateAppearances(
+    englishUnicode.test(username) ? chomskyFont : sourceHanSerif
+  );
+
+  // Flatten the form fields
+  form.flatten();
+  // Serialize the PDFDocument to bytes (a Uint8Array)
+  const pdfBytes = await pdfDoc.save();
+  // Trigger the browser to download the PDF document
+  downloadPDF(pdfBytes, `WCU_Diploma_${username.split(" ").join("_")}.pdf`);
+}
+
+export default generateDiploma;
