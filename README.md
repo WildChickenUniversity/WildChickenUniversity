@@ -7,7 +7,8 @@
  - [x] Darkmode support
  - [x] mdx page styling
  - [ ] (potentially) email forwarding with wcu.edu.pl domain 
- - [ ] Comment Section Migration
+ - [x] Comment Section Migration
+ - [ ] Customizable Diploma (this gonna require more template design)
 
  ------
 
