@@ -22,7 +22,7 @@ export default function Admission() {
           Wild Chicken Admission Portal
         </h2>
         <form onSubmit={handleSumbit} className="bg-white dark:bg-gray-950">
-          <div className="mdx-content mb-8 font-sm text-gray-500 dark:text-gray-300">
+          <div className="mdx-layout mb-8 font-sm text-gray-500 dark:text-gray-300">
             <BS />
           </div>
           <div className="mb-4">

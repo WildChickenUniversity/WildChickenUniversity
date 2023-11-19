@@ -8,7 +8,8 @@
  - [x] mdx page styling
  - [ ] (potentially) email forwarding with wcu.edu.pl domain 
  - [x] Comment Section Migration
- - [ ] Customizable Diploma (this gonna require more template design)
+ - [x] Customizable Diploma (this gonna require more template design)
+ - [ ] Privacy Policy and About rework
 
  ------
 
