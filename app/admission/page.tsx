@@ -15,14 +15,14 @@ export default function Admission() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white dark:bg-gray-900">
+    <div className="flex justify-center items-center min-h-screen bg-white dark:bg-gray-950">
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
         <NavPath path="admission" />
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
           Wild Chicken Admission Portal
         </h2>
-        <form onSubmit={handleSumbit} className="bg-white ">
-          <div className="mb-8 font-sm text-gray-500 dark:text-gray-400 ">
+        <form onSubmit={handleSumbit} className="bg-white dark:bg-gray-950">
+          <div className="mdx-content mb-8 font-sm text-gray-500 dark:text-gray-300">
             <BS />
           </div>
           <div className="mb-4">
@@ -45,7 +45,7 @@ export default function Admission() {
                 type="checkbox"
                 onChange={(e) => setAdmitted(e.target.checked)}
               />
-              <span className="text-sm">Admitted</span>
+              <span className="text-sm dark:text-gray-300">Admitted</span>
             </label>
             <label className="md:w-2/3 block text-gray-500 font-sm">
               <input
@@ -54,7 +54,7 @@ export default function Admission() {
                 type="checkbox"
                 onChange={(e) => setGraduate(e.target.checked)}
               />
-              <span className="text-sm">Graduate</span>
+              <span className="text-sm  dark:text-gray-300">Graduate</span>
             </label>
           </div>
           <div className="flex items-center justify-between">

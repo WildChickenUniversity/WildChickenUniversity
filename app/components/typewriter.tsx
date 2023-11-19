@@ -1,13 +1,18 @@
-import dynamic from "next/dynamic";
+import { TypeAnimation } from "react-type-animation";
 
-const Typewriter = dynamic(() => import("typewriter-effect"), { ssr: false });
-
-const TypewriterWrapper = () => (
-  <Typewriter
-    onInit={(typewriter) => {
-      typewriter.typeString("Hello World!").start();
-    }}
-  />
-);
-
-export default TypewriterWrapper;
+export default function TWrapper() {
+  return (
+    <TypeAnimation
+      sequence={[
+        "Possible things made impossible",
+        2000,
+        "Possible things made chicken",
+        2000,
+      ]}
+      wrapper="p"
+      speed={50}
+      style={{ display: "inline-block" }}
+      repeat={Infinity}
+    />
+  );
+}

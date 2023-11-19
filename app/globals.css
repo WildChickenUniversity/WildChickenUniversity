@@ -16,6 +16,13 @@
   }
 }
 
+@layer base {
+  body {
+    @apply dark:bg-gray-950 bg-white
+  }
+}
+
+
 home {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
@@ -55,4 +62,8 @@ home {
   /* Example style */
   font-size: 2em;
   /* Example style */
+}
+
+.mdx-content p {
+  padding: 0.4em;
 }

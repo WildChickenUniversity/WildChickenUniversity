@@ -4,7 +4,7 @@ type NavPathProps = {
 
 const NavPath = ({ path }: NavPathProps) => {
   return (
-    <div className="pb-8">
+    <div className="dark:text-white pb-8">
       /{" "}
       <a href="/" className="underline-animation">
         🐔

@@ -23,14 +23,14 @@ export default function Diploma() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white dark:bg-gray-900">
+    <div className="flex justify-center items-center min-h-screen bg-white dark:bg-gray-950">
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
         <NavPath path="certificate" />
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
           Too old for universities?
         </h2>
-        <form onSubmit={handleSumbit} className="bg-white ">
-          <div className="mb-8 font-sm text-gray-500 dark:text-gray-400 ">
+        <form onSubmit={handleSumbit} className="bg-white dark:bg-gray-950">
+          <div className="mb-8 font-sm text-gray-500 dark:text-gray-300 ">
             <p>
               Our diploma is recognized by members of the{" "}
               <a
@@ -55,25 +55,25 @@ export default function Diploma() {
               </sup>
             </p>
           </div>
-          <div className="mb-4">
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+          <div className="mb-4 ">
+            <label className="block mb-2  text-sm font-medium text-gray-900 dark:text-gray-300">
               Full Name
             </label>
             <input
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-5/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
               name="username"
               type="text"
               placeholder="Enter your name here to get your offer!"
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div className="mb-4">
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-              Major
-            </label>
-            {
+          <div className="flex mb-4 items-center">
+            <div className="flex-grow">
+              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Major
+              </label>
               <select
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                className="mb-2 relative inline-block w-5/12 appearance-none shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                 name="major"
                 value={major}
                 onChange={(e) => {
@@ -89,18 +89,18 @@ export default function Diploma() {
                 <option value="胶水粘不了胶水的胶水">
                   胶水粘不了胶水的胶水
                 </option>
-                <option value="other">Other (Enter whatever you want)</option>
+                <option value="other">Other</option>
               </select>
-            }
-            {enableCustomMajor && (
-              <input
-                className="mt-2 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                name="customMajor"
-                value={customMajor}
-                placeholder="Enter your major"
-                onChange={(e) => setCustomMajor(e.target.value)}
-              />
-            )}
+              {enableCustomMajor && (
+                <input
+                  className="relative ml-4 inline-block shadow-sm w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  name="customMajor"
+                  value={customMajor}
+                  placeholder="Enter your major"
+                  onChange={(e) => setCustomMajor(e.target.value)}
+                />
+              )}
+            </div>
           </div>
           <div className="flex items-center justify-between">
             <button
