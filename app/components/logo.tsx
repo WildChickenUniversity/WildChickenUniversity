@@ -28,7 +28,6 @@ const Chicken: React.FC = () => {
         <a className="underline-animation" href="https://github.com/U4Group">
           U4 Group of GitHub Research Universities
         </a>
-        .
       </div>
       <div className="dark:text-gray-300 font-semibold text-center text-sm mt-2">
         <TWrapper />

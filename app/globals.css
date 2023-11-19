@@ -113,3 +113,32 @@ home {
   background-color: black;
   transition: width 0.2s ease-in-out;
 }
+
+
+.top-banner {
+  background-color: #d08770;
+  /* Example background color */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  /* Ensures the banner stays on top */
+}
+
+.banner-content h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  @apply font-semibold
+}
+
+@media (max-width: 600px) {
+  .banner-content h1 {
+    font-size: 15px;
+    /* Smaller font size for mobile */
+  }
+}
