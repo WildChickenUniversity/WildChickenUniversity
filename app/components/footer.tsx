@@ -13,18 +13,26 @@ export default function Footer() {
         </span>
         <ul className="max-w-screen-lg flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-300 sm:mt-0">
           <li>
-            <a href="/about" className="hover:underline me-4 md:me-6">
+            <a href="/pages/about" className="hover:underline me-4 md:me-6">
               About
             </a>
           </li>
           <li>
-            <a href="/no-no" className="hover:underline me-4 md:me-6">
+            <a
+              href="/pages/disclaimer"
+              className="hover:underline me-4 md:me-6"
+            >
               Disclaimer
             </a>
           </li>
           <li>
-            <a href="/privacy" className="hover:underline me-4 md:me-6">
-              Privacy Policy
+            <a href="/pages/privacy" className="hover:underline me-4 md:me-6">
+              Privacy
+            </a>
+          </li>
+          <li>
+            <a href="/pages/review" className="hover:underline me-4 md:me-6">
+              Review
             </a>
           </li>
           <li>
