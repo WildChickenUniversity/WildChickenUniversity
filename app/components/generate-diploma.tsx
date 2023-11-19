@@ -5,9 +5,10 @@ import downloadPDF from "./download-pdf";
 type DiplomaProps = {
   username: string;
   major: string;
+  degree: string;
 };
 
-async function generateDiploma({ username, major }: DiplomaProps) {
+async function generateDiploma({ username, major, degree }: DiplomaProps) {
   // Fetch the PDF with form fields
   const formUrl = "/template_diploma.pdf";
   // const formUrl = "https://raw.githubusercontent.com/WildChickenUniversity/WildChickenUniversity/master/assets/template_diploma.pdf"
@@ -39,16 +40,23 @@ async function generateDiploma({ username, major }: DiplomaProps) {
   // Get all fields in the PDF by their names
   const majorField = form.getTextField("major");
   const nameField = form.getTextField("name");
+  const degreeField = form.getTextField("degree");
 
   // idiot-proof
   // just please don't enter a super long major name :)
   const widthMajorField = 450;
+  const widthDegreeField = 450;
   const widthNameField = 350;
   const widthMajor = major.length * 40;
   const widthName = username.length * 40;
+  const widthDegree = degree.length * 40;
   if (widthMajorField < widthMajor) {
     let fontSizeMajor = widthMajorField / major.length;
     majorField.setFontSize(fontSizeMajor);
+  }
+  if (widthNameField < widthName) {
+    let fontSizeName = widthNameField / major.length;
+    majorField.setFontSize(fontSizeName);
   }
   if (widthNameField < widthName) {
     let fontSizeName = widthNameField / major.length;
@@ -58,12 +66,16 @@ async function generateDiploma({ username, major }: DiplomaProps) {
   // Fill in the name field
   majorField.setText(major);
   nameField.setText(username);
+  degreeField.setText(degree);
 
   majorField.updateAppearances(
     englishUnicode.test(major) ? chomskyFont : sourceHanSerif
   );
   nameField.updateAppearances(
     englishUnicode.test(username) ? chomskyFont : sourceHanSerif
+  );
+  degreeField.updateAppearances(
+    englishUnicode.test(degree) ? chomskyFont : sourceHanSerif
   );
 
   // Flatten the form fields

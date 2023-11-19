@@ -6,20 +6,28 @@ import NavPath from "../components/nav-path";
 export default function Diploma() {
   const [username, setUsername] = useState("");
   const [major, setMajor] = useState("");
+  const [degree, setDegree] = useState("Bachelor of Chicken");
   const [customMajor, setCustomMajor] = useState("");
   const [enableCustomMajor, setEnableCustomMajor] = useState(false);
-
+  const [customDegree, setCustomDegree] = useState("");
+  const [enableCustomDegree, setEnableCustomDegree] = useState(false);
   const handleSumbit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const majorField: string =
       enableCustomMajor && customMajor !== "" ? customMajor : major;
-    await createDiplomaPDF({ username, major: majorField });
+    await createDiplomaPDF({ username, major: majorField, degree });
   };
 
-  const handleSelectChange = async (value: string) => {
+  const handleSelectChangeMajor = async (value: string) => {
     setMajor(value);
     // Show the input field if the user selects "other"
     setEnableCustomMajor(value === "other");
+  };
+
+  const handleSelectChangeDegree = async (value: string) => {
+    setDegree(value);
+    // Show the input field if the user selects "other"
+    setEnableCustomDegree(value === "other");
   };
 
   return (
@@ -77,7 +85,7 @@ export default function Diploma() {
                 name="major"
                 value={major}
                 onChange={(e) => {
-                  handleSelectChange(e.target.value);
+                  handleSelectChangeMajor(e.target.value);
                   setMajor(e.target.value);
                 }}
               >
@@ -98,6 +106,38 @@ export default function Diploma() {
                   value={customMajor}
                   placeholder="Enter your major"
                   onChange={(e) => setCustomMajor(e.target.value)}
+                />
+              )}
+            </div>
+          </div>
+          <div className="flex mb-4 items-center">
+            <div className="flex-grow">
+              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Degree
+              </label>
+              <select
+                className="mb-2 relative inline-block w-5/12 appearance-none shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                name="degree"
+                value={degree}
+                onChange={(e) => {
+                  handleSelectChangeDegree(e.target.value);
+                  setDegree(e.target.value);
+                }}
+              >
+                <option value="Bachelor of Chicken">Bachelor of Chicken</option>
+                <option value="Master of Chicken">Master of Chicken</option>
+                <option value="Doctor of Philosophy">
+                  Doctor of Philosophy
+                </option>
+                <option value="other">Other</option>
+              </select>
+              {enableCustomDegree && (
+                <input
+                  className="relative ml-4 inline-block shadow-sm w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  name="customDegree"
+                  value={customDegree}
+                  placeholder="Enter your degree"
+                  onChange={(e) => setCustomDegree(e.target.value)}
                 />
               )}
             </div>
