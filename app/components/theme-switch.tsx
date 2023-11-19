@@ -13,6 +13,22 @@ const Button = () => {
     setIsClient(true);
   }, []);
 
+  useEffect(() => {
+    if (document.querySelector(".utterances-frame")) {
+      const iframe =
+        document.querySelector<HTMLIFrameElement>(".utterances-frame");
+
+      if (!iframe) {
+        return;
+      }
+      const t = currentTheme === "light" ? "github-light" : "github-dark";
+      iframe?.contentWindow?.postMessage(
+        { type: "set-theme", theme: t },
+        "https://utteranc.es"
+      );
+    }
+  }, [currentTheme]);
+
   return (
     isClient && (
       <button

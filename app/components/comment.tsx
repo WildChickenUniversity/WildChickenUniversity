@@ -1,5 +1,7 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
+
 {
   /* <script src="https://utteranc.es/client.js" repo="WildChickenUniversity/wcu-nextjs" issue-term="title"
         label="ADMISSION COMMENT" theme="github-light" crossorigin="anonymous" async>
@@ -7,15 +9,17 @@ import { useEffect, useState, useRef } from "react";
 }
 
 export default function Comment() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const { systemTheme, theme, setTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const t = currentTheme === "light" ? "github-light" : "github-dark";
 
   const ref = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
+    const existingScript = document.getElementById("utterances-script");
+    if (existingScript) return;
+
     const scriptElement = document.createElement("script");
+    scriptElement.id = "utterances-script";
     scriptElement.async = true;
     scriptElement.crossOrigin = "anonymous";
     scriptElement.src = "https://utteranc.es/client.js";
@@ -26,7 +30,7 @@ export default function Comment() {
       "repo",
       "WildChickenUniversity/WildChickenUniversity"
     );
-    scriptElement.setAttribute("theme", "github-light");
+    scriptElement.setAttribute("theme", t);
 
     ref.current?.appendChild(scriptElement);
   }, []);
