@@ -1,5 +1,4 @@
-![logo](https://wcu.edu.pl/assets/Wild_Chicken.svg)
-Welcome to the **Official** GitHub repo of [Wild Chicken University](https://wcu.edu.pl).
+![logo](https://wcu.edu.pl/Wild_Chicken.svg) Welcome to the **Official** GitHub repo of [Wild Chicken University](https://wcu.edu.pl).
 
 This is the home page of our website, we are planning on redesign it.
 
@@ -13,9 +12,9 @@ Our logo is borrowed from [UPenn](https://upenn.edu); signed by director of admi
 
 The content of the admission offer is copied from Stanford as I am too lazy to write them myself.
 
-**No chickens were harmed during the creation of this website.** 
+**No chickens were harmed during the creation of this website.**
 
-We are NOT affiliated with any educational institution. Files downloaded from WildChicken **DOES NOT** have ANY legal effect. 
+We are NOT affiliated with any educational institution. Files downloaded from WildChicken **DOES NOT** have ANY legal effect.
 
 Wild Chicken is always looking for donation, if you would like to donate:
 
@@ -23,10 +22,9 @@ Wild Chicken is always looking for donation, if you would like to donate:
 
 Copyleft © Snorlax, licensed under [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]. Assets have their own licenses(normally copylefted).
 
-
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
 --- Chinese Version Below ---
 
-爲了讓無家可歸的孤兒們feel better，寫下了這個頁面，獲取免費的錄取通知書
+爲了讓無家可歸的孤兒們 feel better，寫下了這個頁面，獲取免費的錄取通知書
