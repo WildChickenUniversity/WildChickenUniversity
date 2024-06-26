@@ -17,7 +17,11 @@ export default function Diploma() {
       enableCustomMajor && customMajor !== "" ? customMajor : major;
     const degreeField: string =
       enableCustomDegree && customDegree !== "" ? customDegree : degree;
-    await createDiplomaPDF({ username, major: majorField, degree: degreeField });
+    await createDiplomaPDF({
+      username,
+      major: majorField,
+      degree: degreeField,
+    });
   };
 
   const handleSelectChangeMajor = async (value: string) => {
@@ -99,6 +103,7 @@ export default function Diploma() {
                 <option value="胶水粘不了胶水的胶水">
                   胶水粘不了胶水的胶水
                 </option>
+                <option value="个人练习生">个人练习生</option>
                 <option value="other">Other</option>
               </select>
               {enableCustomMajor && (

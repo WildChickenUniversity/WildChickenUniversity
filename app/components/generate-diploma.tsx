@@ -50,17 +50,18 @@ async function generateDiploma({ username, major, degree }: DiplomaProps) {
   const widthMajor = major.length * 40;
   const widthName = username.length * 40;
   const widthDegree = degree.length * 40;
+
   if (widthMajorField < widthMajor) {
     let fontSizeMajor = widthMajorField / major.length;
     majorField.setFontSize(fontSizeMajor);
   }
   if (widthNameField < widthName) {
-    let fontSizeName = widthNameField / major.length;
-    majorField.setFontSize(fontSizeName);
+    let fontSizeName = widthNameField / username.length;
+    nameField.setFontSize(fontSizeName);
   }
-  if (widthNameField < widthName) {
-    let fontSizeName = widthNameField / major.length;
-    majorField.setFontSize(fontSizeName);
+  if (widthDegreeField < widthDegree) {
+    let fontSizeDegree = widthDegreeField / degree.length;
+    degreeField.setFontSize(fontSizeDegree);
   }
 
   // Fill in the name field
