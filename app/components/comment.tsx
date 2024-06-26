@@ -9,12 +9,13 @@ import { useTheme } from "next-themes";
 }
 
 export default function Comment() {
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { systemTheme, theme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const t = currentTheme === "light" ? "github-light" : "github-dark";
-
   const ref = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
+    if (!currentTheme) return;
+
     const existingScript = document.getElementById("utterances-script");
     if (existingScript) return;
 
@@ -30,13 +31,10 @@ export default function Comment() {
       "repo",
       "WildChickenUniversity/WildChickenUniversity"
     );
-    scriptElement.setAttribute(
-      "theme",
-      currentTheme === "light" ? "github-light" : "github-dark"
-    );
+    scriptElement.setAttribute("theme", t);
 
     ref.current?.appendChild(scriptElement);
-  }, []);
+  }, [currentTheme, t]);
 
   return <div ref={ref} />;
 }
