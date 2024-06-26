@@ -30,7 +30,10 @@ export default function Comment() {
       "repo",
       "WildChickenUniversity/WildChickenUniversity"
     );
-    scriptElement.setAttribute("theme", t);
+    scriptElement.setAttribute(
+      "theme",
+      currentTheme === "light" ? "github-light" : "github-dark"
+    );
 
     ref.current?.appendChild(scriptElement);
   }, []);
