@@ -1,11 +1,9 @@
 "use client";
 import getYear from "./components/get-year";
 import Chicken from "./components/logo";
-import Banner from "./components/banner";
 export default function Home() {
   return (
     <main className="home flex min-h-screen flex-col items-center justify-between p-24">
-      <Banner />
       <Chicken />
 
       <div className="dark:text-gray-300 mb-3 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
