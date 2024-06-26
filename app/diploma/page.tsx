@@ -15,7 +15,9 @@ export default function Diploma() {
     event.preventDefault();
     const majorField: string =
       enableCustomMajor && customMajor !== "" ? customMajor : major;
-    await createDiplomaPDF({ username, major: majorField, degree });
+    const degreeField: string =
+      enableCustomDegree && customDegree !== "" ? customDegree : degree;
+    await createDiplomaPDF({ username, major: majorField, degree: degreeField });
   };
 
   const handleSelectChangeMajor = async (value: string) => {
