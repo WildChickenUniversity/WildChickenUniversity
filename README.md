@@ -9,7 +9,7 @@ ToDos:
 - [ ] (potentially) email forwarding with wcu.edu.pl domain
 - [x] Comment Section Migration
 - [x] Customizable Diploma (this gonna require more template design)
-- [ ] Privacy Policy and About rework
+- [x] Privacy Policy and About rework
 
 ---
 
@@ -17,11 +17,11 @@ ToDos:
 
 We offer **FREE** admission offers in PDF. This is not a REAL admission offer, but it can certainly make you feel better since you've got “somewhere” to go. Head over to [admission portal](https://admission.wcu.edu.pl) to get your admission offer today!
 
-We also offer **FREE** diploma in PDF. This is not a REAL diploma, but it can certainly make you feel better since you've "graduated". Head over to [diploma generator](https://certificate.wcu.edu.pl) to get your diploma today!
+We also offer **FREE** diploma in PDF. This is not a REAL diploma, but it can certainly make you feel better since you've "graduated". Head over to [diploma generator](https://wcu.edu.pl/diploma) to get your diploma today!
 
 **No chickens were harmed during the creation of this website.**
 
-We are NOT affiliated with any educational institution. Please read the [disclaimer page](https://wcu.edu.pl/disclaimer) before you do anything stupid.
+We are NOT affiliated with any educational institution. Please read the [disclaimer page](https://wcu.edu.pl/pages/disclaimer) before you do anything stupid.
 
 Copyleft © WildChickenUniversity, licensed under ![license-gplv3](https://img.shields.io/badge/license-GPLv3-blue). Assets have their own license.
 
