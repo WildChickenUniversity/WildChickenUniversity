@@ -4,9 +4,15 @@ export default function TWrapper() {
   return (
     <TypeAnimation
       sequence={[
-        "Possible things made impossible",
+        "Possible Things Made Impossible",
         2000,
-        "Possible things made chicken",
+        "Confirmed Rumors",
+        2000,
+        "Organized Chaos",
+        2000,
+        "Expected Suprises",
+        2000,
+        "Effortless Challenges",
         2000,
       ]}
       wrapper="p"

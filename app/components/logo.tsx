@@ -23,7 +23,7 @@ const Chicken: React.FC = () => {
         priority
       />
 
-      <div className="dark:text-gray-300 font-semibold text-center text-sm mt-2">
+      <div className="dark:text-gray-300 font-semibold text-center text-sm mt-5">
         Member of{" "}
         <a className="underline-animation" href="https://github.com/U4Group">
           U4 Group of GitHub Research Universities

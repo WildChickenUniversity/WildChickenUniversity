@@ -11,12 +11,16 @@ export default function Diploma() {
   const [enableCustomMajor, setEnableCustomMajor] = useState(false);
   const [customDegree, setCustomDegree] = useState("");
   const [enableCustomDegree, setEnableCustomDegree] = useState(false);
-  const [majors, setMajors] = useState<string[]>([]);
 
+  const [majors, setMajors] = useState<string[]>([]);
+  const [degrees, setDegrees] = useState<string[]>([]);
   useEffect(() => {
-    fetch("/majors.json")
+    fetch("/diploma.json")
       .then((response) => response.json())
-      .then((data) => setMajors(data))
+      .then((data) => {
+        setMajors(data.majors);
+        setDegrees(data.degrees);
+      })
       .catch((error) => console.error("Error fetching majors:", error));
   }, []);
 
@@ -105,7 +109,7 @@ export default function Diploma() {
                 }}
               >
                 <option value=""></option>
-                <option value="other">Other (Customized Major)</option>
+                <option value="other">Customized Major</option>
                 {majors.map((majorOption, index) => (
                   <option key={index} value={majorOption}>
                     {majorOption}
@@ -137,12 +141,12 @@ export default function Diploma() {
                   setDegree(e.target.value);
                 }}
               >
-                <option value="Bachelor of Chicken">Bachelor of Chicken</option>
-                <option value="Master of Chicken">Master of Chicken</option>
-                <option value="Doctor of Philosophy">
-                  Doctor of Philosophy
-                </option>
-                <option value="other">Other</option>
+                <option value="other">Customized Degree</option>
+                {degrees.map((degreeOption, index) => (
+                  <option key={index} value={degreeOption}>
+                    {degreeOption}
+                  </option>
+                ))}
               </select>
               {enableCustomDegree && (
                 <input
