@@ -83,14 +83,14 @@ export default function Diploma() {
             </p>
           </div>
           <div className="mb-4 ">
-            <label className="block mb-2  text-sm font-medium text-gray-900 dark:text-gray-300">
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
               Full Name
             </label>
             <input
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-5/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block  w-full sm:w-5/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
               name="username"
               type="text"
-              placeholder="Enter your name here to get your offer!"
+              placeholder="Enter your name"
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
@@ -100,7 +100,7 @@ export default function Diploma() {
                 Major
               </label>
               <select
-                className="mb-2 relative inline-block w-5/12 appearance-none shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                className="mb-2 relative inline-block w-full sm:w-5/12 appearance-none shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                 name="major"
                 value={major}
                 onChange={(e) => {
@@ -118,7 +118,7 @@ export default function Diploma() {
               </select>
               {enableCustomMajor && (
                 <input
-                  className="relative ml-4 inline-block shadow-sm w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  className="relative inline-block shadow-sm w-full sm:w-5/12 sm:ml-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   name="customMajor"
                   value={customMajor}
                   placeholder="Enter your major"
@@ -133,7 +133,7 @@ export default function Diploma() {
                 Degree
               </label>
               <select
-                className="mb-2 relative inline-block w-5/12 appearance-none shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                className="mb-2 relative inline-block w-full sm:w-5/12 appearance-none shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                 name="degree"
                 value={degree}
                 onChange={(e) => {
@@ -150,7 +150,7 @@ export default function Diploma() {
               </select>
               {enableCustomDegree && (
                 <input
-                  className="relative ml-4 inline-block shadow-sm w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  className="relative inline-block shadow-sm w-full sm:w-5/12 sm:ml-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   name="customDegree"
                   value={customDegree}
                   placeholder="Enter your degree"
