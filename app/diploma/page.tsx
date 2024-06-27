@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import createDiplomaPDF from "../components/generate-diploma";
 import NavPath from "../components/nav-path";
 
@@ -11,6 +11,15 @@ export default function Diploma() {
   const [enableCustomMajor, setEnableCustomMajor] = useState(false);
   const [customDegree, setCustomDegree] = useState("");
   const [enableCustomDegree, setEnableCustomDegree] = useState(false);
+  const [majors, setMajors] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetch("/majors.json")
+      .then((response) => response.json())
+      .then((data) => setMajors(data))
+      .catch((error) => console.error("Error fetching majors:", error));
+  }, []);
+
   const handleSumbit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const majorField: string =
@@ -96,15 +105,12 @@ export default function Diploma() {
                 }}
               >
                 <option value=""></option>
-                <option value="用猪肉养猪的研究">用猪肉养猪的研究</option>
-                <option value="西瓜培育">西瓜培育</option>
-                <option value="专业炸鸡烹饪">专业炸鸡烹饪</option>
-                <option value="野鸡产后护理">野鸡产后护理</option>
-                <option value="胶水粘不了胶水的胶水">
-                  胶水粘不了胶水的胶水
-                </option>
-                <option value="个人练习生">个人练习生</option>
-                <option value="other">Other</option>
+                <option value="other">Other (Customized Major)</option>
+                {majors.map((majorOption, index) => (
+                  <option key={index} value={majorOption}>
+                    {majorOption}
+                  </option>
+                ))}
               </select>
               {enableCustomMajor && (
                 <input
