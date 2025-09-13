@@ -181,9 +181,17 @@
   padding-left: 1.5em;
 }
 
+.mdx-layout button a::after {
+  all: unset;
+}
+
 .mdx-layout li {
   list-style-type: disc;
   list-style-position: outside;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+}
+
+.mdx-layout blockquote {
+  @apply my-6 border-l-4 pl-4 italic text-gray-600 border-gray-300 dark:text-gray-300 dark:border-gray-600;
 }

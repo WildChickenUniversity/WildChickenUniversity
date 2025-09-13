@@ -8,7 +8,6 @@ ToDos:
 - [ ] code cleanup
 - [x] shadcn integration
 
-
 ---
 
 ![logo](https://wcu.edu.pl/images/Wild_Chicken.svg) Welcome to the **Official** GitHub repo of [Wild Chicken University](https://wcu.edu.pl). We are a proud member of [U4 Group of GitHub Research Universities](https://github.com/U4Group).
