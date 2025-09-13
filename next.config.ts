@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
     mdxRs: true, // Use Rust-based MDX compiler for faster builds
   },
   output: "export",
+  images: {
+    unoptimized: true,
+  },
 };
 
 const withMDX = createMDX({
