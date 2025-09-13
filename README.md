@@ -11,9 +11,9 @@ ToDos:
 
 ---
 
-![logo](https://wcu.edu.gr/Wild_Chicken.svg) Welcome to the **Official** GitHub repo of [Wild Chicken University](https://wcu.edu.pl). We are a proud member of [U4 Group of GitHub Research Universities](https://github.com/U4Group).
+![logo](https://wcu.edu.pl/images/Wild_Chicken.svg) Welcome to the **Official** GitHub repo of [Wild Chicken University](https://wcu.edu.pl). We are a proud member of [U4 Group of GitHub Research Universities](https://github.com/U4Group).
 
-We offer **FREE** admission offers in PDF. This is not a REAL admission offer, but it can certainly make you feel better since you've got “somewhere” to go. Head over to [admission portal](https://admission.wcu.edu.pl) to get your admission offer today!
+We offer **FREE** admission offers in PDF. This is not a REAL admission offer, but it can certainly make you feel better since you've got “somewhere” to go. Head over to [admission portal](https://wcu.edu.pl/admission) to get your admission offer today!
 
 We also offer **FREE** diploma in PDF. This is not a REAL diploma, but it can certainly make you feel better since you've "graduated". Head over to [diploma generator](https://wcu.edu.pl/diploma) to get your diploma today!
 
