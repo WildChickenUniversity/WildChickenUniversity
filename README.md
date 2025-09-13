@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is the redesigned portal for Wild Chicken University. Currently still working in progress.
 
-## Getting Started
+The new website is available at: https://wcu.edu.pl
 
-First, run the development server:
+ToDos:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [ ] recreating diploma with pdflib to use woff2 fonts
+- [ ] code cleanup
+- [x] shadcn integration
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![logo](https://wcu.edu.gr/Wild_Chicken.svg) Welcome to the **Official** GitHub repo of [Wild Chicken University](https://wcu.edu.pl). We are a proud member of [U4 Group of GitHub Research Universities](https://github.com/U4Group).
 
-## Learn More
+We offer **FREE** admission offers in PDF. This is not a REAL admission offer, but it can certainly make you feel better since you've got “somewhere” to go. Head over to [admission portal](https://admission.wcu.edu.pl) to get your admission offer today!
 
-To learn more about Next.js, take a look at the following resources:
+We also offer **FREE** diploma in PDF. This is not a REAL diploma, but it can certainly make you feel better since you've "graduated". Head over to [diploma generator](https://wcu.edu.pl/diploma) to get your diploma today!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**No chickens were harmed during the creation of this website.**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+We are NOT affiliated with any educational institution. Please read the [disclaimer page](https://wcu.edu.pl/pages/disclaimer) before you do anything stupid.
 
-## Deploy on Vercel
+Copyleft © WildChickenUniversity, licensed under ![license-gplv3](https://img.shields.io/badge/license-GPLv3-blue). Assets have their own license.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+--- Chinese Version Below ---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+爲了讓無家可歸的孤兒們 feel better，寫下了這個頁面，獲取免費的錄取通知書
