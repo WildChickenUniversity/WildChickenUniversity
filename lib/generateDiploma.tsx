@@ -24,7 +24,7 @@ async function generateDiploma({ username, major, degree }: DiplomaProps) {
     res.arrayBuffer()
   );
 
-  const chomskyFont = await pdfDoc.embedFont(chomskyFontByte);
+  const chomskyFont = await pdfDoc.embedFont(chomskyFontByte, { subset: true });
 
   // Google Noto Serif Simplified Chinese 900
   const sourceHanSerifUrl = "/fonts/NotoSerifSC-Bold.ttf";
@@ -32,7 +32,9 @@ async function generateDiploma({ username, major, degree }: DiplomaProps) {
     res.arrayBuffer()
   );
 
-  const sourceHanSerif = await pdfDoc.embedFont(sourceHanSerifByte);
+  const sourceHanSerif = await pdfDoc.embedFont(sourceHanSerifByte, {
+    subset: true,
+  });
 
   // Get the form containing all the fields
   const form = pdfDoc.getForm();
