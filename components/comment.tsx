@@ -17,8 +17,7 @@ export default function Comment() {
     setMounted(true);
   }, []);
 
-  const utterancesTheme =
-    (resolvedTheme || theme) === "dark" ? "github-dark" : "github-light";
+  const giscusTheme = (resolvedTheme || theme) === "dark" ? "dark" : "light";
 
   useEffect(() => {
     if (!mounted || !ref.current) {
@@ -28,26 +27,39 @@ export default function Comment() {
     const container = ref.current;
 
     const scriptElement = document.createElement("script");
-    scriptElement.src = "https://utteranc.es/client.js";
+    scriptElement.src = "https://giscus.app/client.js";
     scriptElement.async = true;
     scriptElement.crossOrigin = "anonymous";
 
-    scriptElement.setAttribute(
-      "repo",
-      "WildChickenUniversity/WildChickenUniversity"
-    );
-    scriptElement.setAttribute("issue-term", "title");
-    scriptElement.setAttribute("label", "WCU Comment");
-    scriptElement.setAttribute("theme", utterancesTheme);
+    const attributes = {
+      "data-repo": "WildChickenUniversity/WildChickenUniversity",
+      "data-repo-id": "R_kgDOGUpEIQ",
+      "data-mapping": "number",
+      "data-term": "17",
+      "data-reactions-enabled": "1",
+      "data-emit-metadata": "0",
+      "data-input-position": "top",
+      "data-theme": giscusTheme,
+      "data-lang": "en",
+      "data-loading": "lazy",
+    };
+
+    Object.entries(attributes).forEach(([key, value]) => {
+      scriptElement.setAttribute(key, value);
+    });
 
     container.innerHTML = "";
 
     container.appendChild(scriptElement);
-  }, [mounted, utterancesTheme]);
+  }, [mounted, giscusTheme]);
 
   if (!mounted) {
     return <div className="min-h-[200px]" />;
   }
 
-  return <div className="min-h-[200px]" ref={ref} />;
+  return (
+    <div className="flex flex-col items-center justify-center mx-auto max-w-screen-lg w-full p-4">
+      <div className="w-full max-w-2xl" ref={ref} />
+    </div>
+  );
 }
