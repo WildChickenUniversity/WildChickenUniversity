@@ -9,7 +9,7 @@ import Bread from "@/lib/bread";
 import DiplomaForm, { formSchema } from "./components/diplomaForm";
 import { SendDiploma } from "./components/sendDiploma";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { AlertCircleIcon } from "lucide-react";
+import { AlertCircleIcon, CircleDollarSign } from "lucide-react";
 import Link from "next/link";
 
 type DiplomaData = {
@@ -60,9 +60,27 @@ export default function Diploma() {
                 <AlertTitle>Heads up!</AlertTitle>
                 <AlertDescription>
                   <p>
-                    Information will be send to Cloudflare endpoint for email
-                    processing, refer to{" "}
-                    <Link href="/pages/privacy">privacy policy</Link>
+                    Information will be send to Cloudflare for email processing,
+                    see{" "}
+                    <b>
+                      <Link href="/pages/privacy">Privacy Policy</Link>
+                    </b>
+                  </p>
+                </AlertDescription>
+              </Alert>
+              <Alert className="mb-4">
+                <CircleDollarSign />
+                <AlertTitle>Best Time Ever</AlertTitle>
+                <AlertDescription>
+                  <p>
+                    Like many universities, we do not have enough funding (pun
+                    maybe intended). We are{" "}
+                    <u>
+                      <Link href="https://resend.com/docs/knowledge-base/resend-sending-limits#free-account-daily-and-monthly-sending-limits">
+                        limited
+                      </Link>
+                    </u>{" "}
+                    to send 3000 emails per month and 100 emails per day.
                   </p>
                 </AlertDescription>
               </Alert>
