@@ -1,8 +1,8 @@
 import Typewriter from "typewriter-effect";
-import { Monomakh } from "next/font/google";
+import { Tinos } from "next/font/google";
 
-const font = Monomakh({
-  weight: "400",
+const font = Tinos({
+  weight: "700",
   style: "normal",
   subsets: ["latin"],
   display: "swap",

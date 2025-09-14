@@ -12,9 +12,9 @@ export default function Footer() {
           <span className="inline-block rotate-180">&copy;</span>{" "}
           {new Date().getFullYear()}{" "}
           <Link href="/" className="hover:underline">
-            Wild Chicken University.
-          </Link>{" "}
-          Assets have their own license.
+            Wild Chicken University
+          </Link>
+          ; Assets have their own license.
         </span>
         <nav
           aria-label="Footer"

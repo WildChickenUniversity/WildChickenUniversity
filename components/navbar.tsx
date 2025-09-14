@@ -18,8 +18,10 @@ import Link from "next/link";
 import ModeToggle from "@/components/modeToggle";
 import Chicken from "@/app/components/chicken";
 import { navbarPaths } from "@/lib/menuEntries";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const router = useRouter();
   return (
     <header className="sticky top-0 z-10 bg-background border-b">
       <div className="flex h-16 w-full items-center justify-between px-4 md:px-6">
@@ -62,8 +64,9 @@ const Navbar = () => {
               >
                 {Object.entries(navbarPaths).map(([title, path]) => (
                   <DropdownMenuItem
-                    className="cursor-pointer px-4 py-3 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors font-medium text-base focus:bg-accent focus:text-accent-foreground"
+                    className="cursor-pointer px-4 py-3 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors text-sm font-medium text-base focus:bg-accent focus:text-accent-foreground"
                     key={title}
+                    onClick={() => router.push(path)}
                   >
                     <Link href={path}>{title}</Link>
                   </DropdownMenuItem>
