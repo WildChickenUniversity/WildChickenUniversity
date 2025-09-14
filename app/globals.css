@@ -195,3 +195,9 @@
 .mdx-layout blockquote {
   @apply my-6 border-l-4 pl-4 italic text-gray-600 border-gray-300 dark:text-gray-300 dark:border-gray-600;
 }
+
+.mdx-layout code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
