@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { z } from "zod";
 import createDiplomaPDF from "@/lib/generateDiploma";
 import DiplomaText from "./components/diplomaText.mdx";
@@ -7,9 +7,20 @@ import Navbar from "@/components/navbar";
 import { usePathname } from "next/navigation";
 import Bread from "@/lib/bread";
 import DiplomaForm, { formSchema } from "./components/diplomaForm";
+import { SendDiploma } from "./components/sendDiploma";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertCircleIcon } from "lucide-react";
+import Link from "next/link";
+
+type DiplomaData = {
+  username: string;
+  major: string;
+  degree: string;
+};
 
 export default function Diploma() {
   const pathname = usePathname();
+  const [diplomaData, setDiplomaData] = useState<DiplomaData | null>(null);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const majorField: string = values.enableCustomMajor
@@ -18,11 +29,13 @@ export default function Diploma() {
     const degreeField: string = values.enableCustomDegree
       ? values.customDegree!
       : values.degree!;
-    await createDiplomaPDF({
+    const data = {
       username: values.username,
       major: majorField,
       degree: degreeField,
-    });
+    };
+    await createDiplomaPDF(data);
+    setDiplomaData(data);
   }
 
   return (
@@ -40,6 +53,31 @@ export default function Diploma() {
           <div className="border rounded-md p-6">
             <DiplomaForm onSubmit={onSubmit} />
           </div>
+          {diplomaData && (
+            <div className="mt-4 border rounded-md p-6">
+              <Alert variant="destructive" className="mb-4">
+                <AlertCircleIcon />
+                <AlertTitle>Heads up!</AlertTitle>
+                <AlertDescription>
+                  <p>
+                    Information will be send to Cloudflare endpoint for email
+                    processing, refer to{" "}
+                    <Link href="/pages/privacy">privacy policy</Link>
+                  </p>
+                </AlertDescription>
+              </Alert>
+              <div className="text-center ">
+                <p className="mb-4 font-semibold">
+                  Your diploma has been generated and downloaded!
+                </p>
+                <SendDiploma
+                  username={diplomaData.username}
+                  major={diplomaData.major}
+                  degree={diplomaData.degree}
+                />{" "}
+              </div>
+            </div>
+          )}
         </div>
       </main>
     </div>
