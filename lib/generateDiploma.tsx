@@ -19,7 +19,7 @@ async function generateDiploma({ username, major, degree }: DiplomaProps) {
 
   // Copyright (c) 2018, Fredrick R. Brennan (<copypaste@kittens.ph>)
   // https://github.com/ctrlcctrlv/chomsky, licensed under  OFL-1.1
-  const chomskyFontUrl = "/fonts/Chomsky.otf";
+  const chomskyFontUrl = "/fonts/Chomsky.ttf";
   const chomskyFontByte = await fetch(chomskyFontUrl).then((res) =>
     res.arrayBuffer()
   );
