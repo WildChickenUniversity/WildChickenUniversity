@@ -13,6 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
+import Alumni from "@/app/components/alumini";
 
 export const formSchema = z.object({
   username: z.string().min(1, {
@@ -38,6 +39,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSubmit }) => {
 
   return (
     <Form {...form}>
+      <Alumni />
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
         <FormField
           control={form.control}

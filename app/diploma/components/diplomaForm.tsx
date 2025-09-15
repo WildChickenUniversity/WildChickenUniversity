@@ -23,6 +23,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import Link from "next/link";
 import diplomaData from "@/lib/diploma.json";
+import Alumni from "@/app/components/alumini";
 
 export const formSchema = z
   .object({
@@ -98,6 +99,7 @@ const DiplomaForm: React.FC<DiplomaFormProps> = ({ onSubmit }) => {
 
   return (
     <Form {...form}>
+      <Alumni />
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
         <FormField
           control={form.control}
