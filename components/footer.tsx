@@ -11,8 +11,15 @@ export default function Footer() {
         <span className="text-sm text-gray-500 text-center md:text-left">
           <span className="inline-block rotate-180">&copy;</span>{" "}
           {new Date().getFullYear()}{" "}
-          <Link href="/" className="hover:underline">
+          <Link
+            href="https://github.com/WildChickenUniversity/WildChickenUniversity"
+            className="hover:underline"
+          >
             Wild Chicken University
+          </Link>{" "}
+          by{" "}
+          <Link href="https://github.com/Mr-Sheep" className="hover:underline">
+            Mr-Sheep
           </Link>
           ; Assets have their own license.
         </span>
