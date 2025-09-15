@@ -29,4 +29,5 @@ export const navbarPaths: Record<string, string> = {
   Achievements: "/pages/achievements",
   Review: "/review",
   About: "/pages/about",
+  Alumni: "/pages/alumni",
 };

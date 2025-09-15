@@ -10,11 +10,14 @@ const Alumni = () => {
       <AlertDescription>
         <p>
           If you would like to show case Wild Chicken University on your GitHub
-          profile page, please open an issue
-          <Link href="https://github.com/WildChickenUniversity/WildChickenUniversity/issues/new">
-            {" "}
-            here{" "}
+          profile page, please open an issue{" "}
+          <Link
+            className="font-bold hover:underline"
+            href="https://github.com/WildChickenUniversity/WildChickenUniversity/issues/new"
+          >
+            here
           </Link>
+          .
         </p>
       </AlertDescription>
     </Alert>
