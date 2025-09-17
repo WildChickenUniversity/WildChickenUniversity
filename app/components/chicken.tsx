@@ -28,15 +28,7 @@ const Chicken: FC<ChickenProps> = ({ size = "large", className = "" }) => {
         width={width}
         height={height}
         priority
-        className="object-contain dark:hidden"
-      />
-      <Image
-        src="/images/Wild_Chicken_White.svg"
-        alt="WCU Logo"
-        width={width}
-        height={height}
-        priority
-        className="object-contain hidden dark:block"
+        className="object-contain dark:[content:url('/images/Wild_Chicken_White.svg')]"
       />
     </div>
   );

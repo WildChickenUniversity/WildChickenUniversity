@@ -1,15 +1,23 @@
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image"
 
 ## Once a Chicker, Forever a Chicker
 
-
+<Image
+        src="/images/WCU_Alumni.svg"
+        alt="WCU Alumni"
+        width={500}
+        height={500}
+        priority
+        className="object-contain dark:[content:url('/images/WCU_Alumni_White.svg')]"
+      />
 
 ### GitHub
 
 If you would like to show case Wild Chicken University on your GitHub profile page, please open an issue 
-using the alumni application template in our github repo to request an invite to the organization.
+using the **"Alumni Application"** template in our github repo to request an invite to the organization.
 
 
 <Button variant="default">[Github](https://github.com/WildChickenUniversity/WildChickenUniversity/issues/new?template=apply.md)</Button>
@@ -17,6 +25,8 @@ using the alumni application template in our github repo to request an invite to
 If your application is accepted, you will receive an offer email with an invitation link to the Alumni team. 
 Alternatively, you can try [this link](https://github.com/orgs/WildChickenUniversity/invitation?via_email=1).
 If neither worked for you, plesae contact us directly.
+
+If you accidentally created an empty issue, please close it and open a new ticket using the provided template.
 
 <Separator />
 

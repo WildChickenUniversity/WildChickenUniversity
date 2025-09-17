@@ -23,7 +23,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import Link from "next/link";
 import diplomaData from "@/lib/diploma.json";
-import Alumni from "@/app/components/alumini";
+import Alumni from "@/app/components/alumni";
 
 export const formSchema = z
   .object({
