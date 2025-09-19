@@ -6,7 +6,7 @@ const Alumni = () => {
   return (
     <Alert variant="default" className="mb-4">
       <GraduationCap />
-      <AlertTitle>Alumini</AlertTitle>
+      <AlertTitle>Alumni</AlertTitle>
       <AlertDescription>
         <p>
           If you would like to show case Wild Chicken University on your GitHub
