@@ -1,9 +1,9 @@
 import { AlertCircleIcon } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import {
-    Alert,
-    AlertDescription,
-    AlertTitle,
+  Alert,
+  AlertDescription,
+  AlertTitle,
 } from "@/components/ui/alert"
 
 # Privacy Policy
@@ -49,13 +49,13 @@ If you have any questios about our privacy policy, feel free to contact us. Not 
 
 Thank you for choosing Wild Chicken University, where your data is as safe as an egg in a barn.
 
-<Separator />
+<Separator className="my-4" />
 
 ## Exception: Diploma Email Sending
 
-The diploma email sending services is hosted on cloudflare workers with its source code available on [github](https://github.com/WildChickenUniversity/DiplomaEmailCF). 
+The diploma email sending services is hosted on Cloudflare workers with its source code available on [github](https://github.com/WildChickenUniversity/DiplomaEmailCF). 
 
-To prevent abusive use of the service, we added cloudflare turnsile (aka a better captcha) before you can submit the form.
+To prevent abusive use of the service, we added [Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/) (aka a better captcha) before you can submit the form.
 
 Before you can submit the form, a request will be sent to the Turnstile endpoint for verification. For more details, please refer to the [Turnstile Privacy Addendum](https://www.cloudflare.com/turnstile-privacy-policy/).
 
