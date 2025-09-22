@@ -14,7 +14,13 @@ const TypewriterWrapper = () => {
     <div className={`mt-2 ${font.className}`}>
       <Typewriter
         options={{
-          strings: ["Possible Things Made Impossible", "Effortless Challenges"],
+          strings: [
+            "Possible Things Made Impossible",
+            "Effortless Challenges",
+            "Ranked QS #0 for Decades",
+            "US News Best National University #0",
+            `World University Rankings ${new Date().getFullYear()} TOP 0`,
+          ],
           autoStart: true,
           loop: true,
           delay: 75,
