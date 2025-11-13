@@ -1,0 +1,20 @@
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  automate_invite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Invite on label
+        uses: vj-abigo/invite-on-label@v1.4
+        with:
+          organization: GitHub-Org
+          label: apply-wcu
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          comment: |
+            Welcome to the Wild Chicken Univeristy!
+
+          Note that we assume you read the [disclaimer](https://wcu.edu.pl/pages/disclaimer) carefully :)
+        env:
+          INVITE_TOKEN: ${{ secrets.GH_INVITE_TO_ORG }}
