@@ -15,6 +15,7 @@ jobs:
           comment: |
             Welcome to the Wild Chicken Univeristy!
 
-          Note that we assume you read the [disclaimer](https://wcu.edu.pl/pages/disclaimer) carefully :)
+            Note that we assume you read the [disclaimer](https://wcu.edu.pl/pages/disclaimer) carefully :)
+          existingMemberMessage: "You are already an alumni, please DO NOT create multiple requests or else we will be forced to remove you."
         env:
           INVITE_TOKEN: ${{ secrets.GH_INVITE_TO_ORG }}
