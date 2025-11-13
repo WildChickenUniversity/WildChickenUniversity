@@ -11,7 +11,7 @@ jobs:
       - name: Invite on label
         uses: vj-abigo/invite-on-label@v1.4
         with:
-          organization: GitHub-Org
+          organization: WildChickenUniversity
           label: apply-wcu
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           comment: |
