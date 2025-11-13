@@ -3,19 +3,20 @@ description: "Wild Chicken Unviersity Alumni Application"
 title: "Alumni Application"
 labels: ['apply-wcu']
 
-- type: markdown
-  attributes: 
-    value: |
-      I want to register and become a Wild Chicken University Alumni.
+body:
+  - type: markdown
+    attributes: 
+      value: |
+        I want to register and become a Wild Chicken University Alumni.
 
-- type: checkboxes
-  attributes:
-    label: Disclaimer
-    description: The disclaimer helps keep WCU away from potential abusive/fraudulent uses.
-    options:
-      - label: I agree to the I would not receive educational benefits from WCU and have read the [Disclaimer](https://wcu.edu.pl/pages/disclaimer) carefully.
-        required: true
+  - type: checkboxes
+    attributes:
+      label: Disclaimer
+      description: The disclaimer helps keep WCU away from potential abusive/fraudulent uses.
+      options:
+        - label: I agree that I would not receive educational benefits from WCU and have read the [Disclaimer](https://wcu.edu.pl/pages/disclaimer) carefully.
+          required: true
 
-- type: markdown
-  attributes:
-    value: "Thanks for completing the application form"
+  - type: markdown
+    attributes:
+      value: "Thanks for completing the application form :)"
