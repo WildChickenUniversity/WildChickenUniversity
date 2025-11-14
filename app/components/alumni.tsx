@@ -13,7 +13,7 @@ const Alumni = () => {
           profile page, please open an issue{" "}
           <Link
             className="font-bold hover:underline"
-            href="https://github.com/WildChickenUniversity/WildChickenUniversity/issues/new?template=apply.md"
+            href="https://github.com/WildChickenUniversity/WildChickenUniversity/issues/new?template=apply.yaml"
           >
             here
           </Link>
