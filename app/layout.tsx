@@ -27,7 +27,7 @@ export const metadata: Metadata = {
       width: 1200,
       height: 630,
       alt: "Wild Chicken University",
-      type: "image/svg+xml"
+      type: "image/png"
     }]
   }
 };
