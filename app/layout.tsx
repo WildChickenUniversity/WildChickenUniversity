@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Wild Chicken University",
   description: "Possible things made impossible",
+  keywords: ["wcu", "wild chicken university", "Wild Chicken", "野鸡大学", "野雞大學"]
 };
 
 export default function RootLayout({
