@@ -61,7 +61,7 @@ async function createAdmissionPDF({
   const fontSize = 12;
   const lineHeight = 15;
   const maxWidth = 550;
-  let yOffset = 630;
+  let yOffset = 620;
 
   const admissionType = admitted
     ? graduate
@@ -99,13 +99,26 @@ async function createAdmissionPDF({
     height: 58.5,
   });
 
-  page.drawText(`Dear ${username},`, {
+
+  page.drawText(new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }), {
     x: 50,
     y: 660,
     size: fontSize,
     font: timesRomanFont,
+  })
+
+  page.drawText(`Dear ${username},`, {
+    x: 50,
+    y: 640,
+    size: fontSize,
+    font: timesRomanFont,
     maxWidth: maxWidth,
   });
+
   lines.forEach((line) => {
     page.drawText(line, {
       x: 50,
@@ -120,7 +133,7 @@ async function createAdmissionPDF({
   const footer = content["footer"];
   page.drawText(`${footer.closing}`, {
     x: 50,
-    y: 300,
+    y: 290,
     size: fontSize,
     font: timesRomanFont,
   });
@@ -128,14 +141,14 @@ async function createAdmissionPDF({
   // 381 * 1643
   page.drawImage(signatureImage, {
     x: 50,
-    y: 260,
+    y: 250,
     width: 164.3,
     height: 38.1,
   });
 
   page.drawText(`${footer.printed}\n${footer.title}`, {
     x: 50,
-    y: 250,
+    y: 240,
     size: fontSize,
     font: timesRomanFont,
   });
