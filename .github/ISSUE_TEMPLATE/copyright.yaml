@@ -1,0 +1,19 @@
+name: Content removal
+description: remove your review from the website
+title: "[Content Removal]: "
+labels: ["copyright"]
+type: task
+body: 
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this removal request!
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Content to be removed
+      description: Please provide a screenshot or copy paste the section you would want us to remove. Note these should be from the review section and you must prove your identity as the copyright owner.
+      value: "details here"
+    validations:
+      required: true

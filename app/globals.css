@@ -137,6 +137,14 @@
   @apply text-xl font-semibold leading-normal my-3;
 }
 
+.mdx-layout h4 {
+  @apply text-lg font-semibold leading-normal my-3;
+}
+
+.mdx-layout h5 {
+  @apply text-base font-semibold leading-normal my-1;
+}
+
 .mdx-layout img {
   width: 50%;
   @apply mt-2 mb-2;
@@ -189,7 +197,6 @@
   list-style-type: disc;
   list-style-position: outside;
   padding-top: 0.5em;
-  padding-bottom: 0.5em;
 }
 
 .mdx-layout blockquote {
@@ -200,4 +207,8 @@
   overflow-wrap: anywhere;
   word-break: break-word;
   white-space: pre-wrap;
+}
+
+.mdx-layout hr {
+  @apply my-5 border-t-4 border-dotted border-b-gray-900;
 }

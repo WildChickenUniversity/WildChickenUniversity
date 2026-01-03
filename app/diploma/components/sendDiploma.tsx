@@ -121,8 +121,8 @@ export function SendDiploma({ username, major, degree }: SendDiplomaProps) {
                 {loading ? "Sending..." : "Send"}
               </Button>
             </DialogFooter>
-
-            {result && <p className="text-sm text-center mt-2">{result}</p>}
+             <p className="font-mono text-xs text-center">reminder: check your spam box</p>
+            {result && <p className="text-sm text-center mt-1">{result}</p>}
           </form>
         </Form>
         <Turnstile ref={turnstileRef} onToken={setToken} />

@@ -1,27 +1,28 @@
 import { AlertCircleIcon } from "lucide-react"
-import { Separator } from "@/components/ui/separator"
 import {
   Alert,
   AlertDescription,
   AlertTitle,
 } from "@/components/ui/alert"
 
-# Privacy Policy
+## Privacy Policy
 
 <Alert variant="destructive">
         <AlertCircleIcon />
         <AlertTitle>Heads up!</AlertTitle>
         <AlertDescription>
           The information below applies to all sections of this website, with the exception of the Diploma Email Sending service. 
-          For details regarding that service, please refer to its dedicated section below.
+          For details regarding that service, please refer to its dedicated section §6 below.
         </AlertDescription>
       </Alert>
 
-TL,DR: Wild Chicken University is a FRONT-END ONLY project
+**TL,DR: Wild Chicken University is a FRONT-END ONLY project**
 
 We cannot see any of your information. We CANNOT upload any of your data to our servers. Actually, we don't even have any servers.
 
-### Data Collection and Storage
+---
+
+### §1 Data Collection and Storage
 
 Your data stays with you. We collect absolutely nothing. We're like that nosy neighbor who just moved in but is too shy to ask you anything.
 
@@ -30,28 +31,38 @@ Luckily, our storage capabilities are as impressive as a chicken trying to fly.
 
 Pleaes, however, note that the commenting system we are using (utteranc.es) has it's own privacy policy. Pleaes read it carefully [here](https://github.com/utterance/utterances/blob/master/PRIVACY-POLICY.md) should you have any question.
 
-### How We Use Your Information
+---
+
+### §2 How We Use Your Information
 
 We don't. We can't. We won't. Even if we had servers, our non-existent IT department, like many other big universities, 
 wouldn't know what to do with your data. However, we are planning on training our chicken to type. We share your data with no one. Not because we're super ethical (though we absolutely are), but because there's nothing for us to share.
 
-### Data Security
+---
+
+### §3 Data Security
 
 No data means no security breaches, no leaks. **100% Secure**.
 
-### Changes to This Policy
+---
+
+### §4 Changes to This Policy
 
 If, in some bizarre twist of fate, we ever get servers or start collecting data, we'll let you know. Until then, please feel free to enjoy the peace of mind knowing your data is safe from us.
 
-### Contact
+---
+
+### §5 Contact
 
 If you have any questios about our privacy policy, feel free to contact us. Not that we have any contact info to give you, but if we did, we'd probably suggest sending a carrier pigeion OR implementing [RFC1149](https://www.rfc-editor.org/rfc/rfc1149).
 
 Thank you for choosing Wild Chicken University, where your data is as safe as an egg in a barn.
 
-<Separator className="my-4" />
+---
 
-## Exception: Diploma Email Sending
+### §6 Exception
+
+#### §6.1 Diploma Email Sending
 
 The diploma email sending services is hosted on Cloudflare workers with its source code available on [github](https://github.com/WildChickenUniversity/DiplomaEmailCF). 
 
@@ -70,3 +81,7 @@ The information transmitted includes:
 - Your email address
 - Your major and degree
 - The Turnstile token
+
+#### §6.2 Discussion Section
+
+The discussion section is powered by [giscus](https://giscus.app/). You will need an GitHub account to use, which is subjected to [GitHub Privacy Policy](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) 

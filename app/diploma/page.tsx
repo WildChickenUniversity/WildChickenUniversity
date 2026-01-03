@@ -86,7 +86,7 @@ export default function Diploma() {
               </Alert>
               <div className="text-center ">
                 <p className="mb-4 font-semibold">
-                  Your diploma has been generated and downloaded!
+                  Your diploma has been generated!
                 </p>
                 <SendDiploma
                   username={diplomaData.username}

@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import Navbar from "@/components/navbar";
 import Disclaimer from "./mdx/disclaimer.mdx";
 
@@ -14,6 +13,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+
+import Autoplay from "embla-carousel-autoplay";
 
 // hacky way to import all reviews in mdx directory
 const importAll = (r: __WebpackModuleApi.RequireContext) => {
@@ -42,7 +43,14 @@ export default function Review() {
           <h2 className="text-2xl font-bold my-1">Reviews</h2>
 
           <div className="my-4">
-            <Carousel opts={{ align: "start", loop: true }}>
+            <Carousel
+              plugins={[
+                Autoplay({
+                  delay: 4000,
+                }),
+              ]}
+              opts={{ align: "start", loop: true }}
+            >
               <CarouselContent>
                 {reviews.map((ReviewComponent, index) => (
                   <CarouselItem key={index} className="md:basis-1/2">
