@@ -185,6 +185,10 @@
   transition: width 0.2s ease-in-out;
 }
 
+:is(.dark .mdx-layout) a::after {
+  background-color: white;
+}
+
 .mdx-layout ul {
   padding-left: 1.5em;
 }

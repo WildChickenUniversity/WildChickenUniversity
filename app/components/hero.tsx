@@ -8,8 +8,8 @@ import Section from "./section";
 const Hero = () => {
   const router = useRouter();
   return (
-    <Section className="min-h-[calc(100vh-6rem)] flex flex-col items-center py-20">
-      <div className="md:mt-6 flex items-center justify-center">
+    <Section className="min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-20">
+      <div className="flex items-center justify-center">
         <div className="text-center max-w-2xl">
           <div className="max-w-xl mx-auto">
             <Chicken />
