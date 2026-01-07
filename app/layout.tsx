@@ -17,18 +17,28 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Wild Chicken University",
   description: "Possible things made impossible",
-  keywords: ["wcu", "wild chicken university", "Wild Chicken", "野鸡大学", "野雞大學"],
+  keywords: [
+    "wcu",
+    "wild chicken university",
+    "Wild Chicken",
+    "野鸡大学",
+    "野雞大學",
+    "威尔德切肯大学",
+    "万尔德齐肯大学官网",
+  ],
   openGraph: {
     title: "Wild Chicken University",
     description: "Possible things made impossible",
     url: "https://wcu.edu.pl",
-    images: [{
-      url: "https://wcu.edu.pl/images/opengraph.png",
-      width: 1200,
-      height: 630,
-      alt: "Wild Chicken University",
-      type: "image/png"
-    }]
+    images: [
+      {
+        url: "https://wcu.edu.pl/images/opengraph.png",
+        width: 1200,
+        height: 630,
+        alt: "Wild Chicken University",
+        type: "image/png",
+      },
+    ],
   },
   metadataBase: new URL("https://wcu.edu.pl"),
 };
@@ -50,7 +60,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex flex-col min-h-screen">
-            <main className="flex-grow">{children}</main>
+            <main className="grow">{children}</main>
           </div>
           <Footer />
         </ThemeProvider>
