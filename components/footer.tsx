@@ -1,12 +1,10 @@
 "use client";
 import Link from "next/link";
 import ModeToggle from "@/components/modeToggle";
-import Comment from "./comment";
 
 export default function Footer() {
   return (
-    <footer className="w-full mx-auto p-4">
-      <Comment />
+    <footer className="w-full mx-auto p-6">
       <div className="max-w-screen-lg w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <span className="text-sm text-gray-500 text-center md:text-left">
           <span className="inline-block rotate-180">&copy;</span>{" "}
@@ -21,7 +19,11 @@ export default function Footer() {
           <Link href="https://github.com/Mr-Sheep" className="hover:underline">
             Mr-Sheep
           </Link>
-          ; Assets have their own license.
+          ;{" "}
+          <Link href="/pages/disclaimer" className="hover:underline">
+            Assets
+          </Link>{" "}
+          have their own license.
         </span>
         <nav
           aria-label="Footer"

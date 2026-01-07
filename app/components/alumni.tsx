@@ -1,26 +1,15 @@
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { GraduationCap } from "lucide-react";
-import Link from "next/link";
-
 const Alumni = () => {
   return (
-    <Alert variant="default" className="mb-4">
-      <GraduationCap />
-      <AlertTitle>Alumni</AlertTitle>
-      <AlertDescription>
+    <div id="reviews" className="w-full py-12 xs:py-20 px-6">
+      <div className="h-full w-full">
+        <h2 className="mb-12 text-3xl md:text-4xl font-bold text-center tracking-tight px-6">
+          Alumni
+        </h2>
         <p>
-          If you would like to show case Wild Chicken University on your GitHub
-          profile page, please open an issue{" "}
-          <Link
-            className="font-bold hover:underline"
-            href="https://github.com/WildChickenUniversity/WildChickenUniversity/issues/new?template=apply.yaml"
-          >
-            here
-          </Link>
-          .
+          TO DO...
         </p>
-      </AlertDescription>
-    </Alert>
+      </div>
+    </div>
   );
 };
 

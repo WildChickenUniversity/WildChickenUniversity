@@ -58,8 +58,13 @@ export default function Comment() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center mx-auto max-w-screen-lg w-full p-4">
-      <div className="w-full max-w-2xl" ref={ref} />
+    <div className="flex flex-col items-center justify-center mx-auto max-w-screen-lg w-full p-4 py-12 xs:py-20 px-6 ">
+      <h2 className="mb-12 text-3xl md:text-4xl font-bold text-center tracking-tight px-6">
+        Comments
+      </h2>
+      <div className="w-full max-w-2xl" ref={ref}>
+        <div className="text-center text-muted-foreground py-8">Loading Giscus...</div>
+      </div>
     </div>
   );
 }

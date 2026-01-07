@@ -16,7 +16,7 @@ import {
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import ModeToggle from "@/components/modeToggle";
-import Chicken from "@/app/components/chicken";
+import { WCUFavicon } from "@/app/components/chicken";
 import { navbarPaths } from "@/lib/menuEntries";
 import { useRouter } from "next/navigation";
 
@@ -27,7 +27,7 @@ const Navbar = () => {
       <div className="flex h-16 w-full items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-4">
           <Link href="/" aria-label="Home" className="pt-4">
-            <Chicken size="small" />
+            <WCUFavicon />
           </Link>
 
           <NavigationMenu className="hidden md:flex">
@@ -60,11 +60,11 @@ const Navbar = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 align="end"
-                className="w-screen mt-2 p-2 bg-background/95 backdrop-blur-sm shadow-lg rounded-lg"
+                className="w-screen mt-2 p-2 bg-background/95 backdrop-blur-sm shadow-lg rounded-b-lg rounded-t-none border-0"
               >
                 {Object.entries(navbarPaths).map(([title, path]) => (
                   <DropdownMenuItem
-                    className="cursor-pointer px-4 py-3 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors text-sm font-medium text-base focus:bg-accent focus:text-accent-foreground"
+                    className="cursor-pointer px-4 py-3 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors text-base font-medium focus:bg-accent focus:text-accent-foreground"
                     key={title}
                     onClick={() => router.push(path)}
                   >

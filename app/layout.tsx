@@ -29,7 +29,8 @@ export const metadata: Metadata = {
       alt: "Wild Chicken University",
       type: "image/png"
     }]
-  }
+  },
+  metadataBase: new URL("https://wcu.edu.pl"),
 };
 
 export default function RootLayout({

@@ -1,38 +1,15 @@
 "use client";
 import Navbar from "@/components/navbar";
-import Disclaimer from "./mdx/disclaimer.mdx";
+import Disclaimer from "./disclaimer.mdx";
 
-import ReviewCard from "./components/reviewCard";
 import { usePathname } from "next/navigation";
 
 import Bread from "@/lib/bread";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-
-import Autoplay from "embla-carousel-autoplay";
-
-// hacky way to import all reviews in mdx directory
-const importAll = (r: __WebpackModuleApi.RequireContext) => {
-  const filePaths = r.keys();
-
-  const filteredPaths = filePaths.filter((path) => path !== "./disclaimer.mdx");
-
-  const sortedPaths = filteredPaths.sort((a, b) =>
-    a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
-  );
-
-  return sortedPaths.map((path) => r(path).default);
-};
-
-const reviews = importAll(require.context("./mdx", false, /\.mdx$/));
+import ReviewCarousel from "@/components/review/reviewCarousel";
 
 export default function Review() {
   const pathname = usePathname();
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -41,32 +18,10 @@ export default function Review() {
         <div className="w-full max-w-2xl">
           <Bread pathname={pathname} />
           <h2 className="text-2xl font-bold my-1">Reviews</h2>
-
-          <div className="my-4">
-            <Carousel
-              plugins={[
-                Autoplay({
-                  delay: 4000,
-                }),
-              ]}
-              opts={{ align: "start", loop: true }}
-            >
-              <CarouselContent>
-                {reviews.map((ReviewComponent, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2">
-                    <div className="p-1">
-                      <ReviewCard ReviewComponent={ReviewComponent} />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-
-            <div className="mdx-layout text-sm">
-              <Disclaimer />
-            </div>
+          <ReviewCarousel />
+          
+          <div className="mdx-layout text-sm">
+            <Disclaimer />
           </div>
         </div>
       </main>

@@ -13,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import Alumni from "@/app/components/alumni";
+import Alumni from "@/app/components/alumniNotice";
 
 export const formSchema = z.object({
   username: z.string().min(1, {
