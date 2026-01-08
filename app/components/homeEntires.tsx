@@ -42,7 +42,7 @@ export const menuEntries: Record<string, MenuEntry> = {
   About: {
     path: "/pages/about",
     tagline:
-      "When you join the Wild Chicken University, you are on your way to KFC, MCD, or, even better, Chick-fil-a!",
+      "When you join the Wild Chicken University, you are on your way to KFC, MCD, or, even better, Chick-fil-A or Max Burgers Aktiebolag!",
     icon: Info,
   },
   Review: {
@@ -54,13 +54,14 @@ export const menuEntries: Record<string, MenuEntry> = {
   Alumni: {
     path: "/alumni",
     tagline: "Once a Chicker, Forever a Chicker",
-    icon: ContactRound
+    icon: ContactRound,
   },
   Disclaimer: {
     path: "/pages/disclaimer",
-    tagline: "Pretty sure no one will actually read this, but we still decided to put it here.",
+    tagline:
+      "Pretty sure no one will actually read this, but we still decided to put it here.",
     icon: OctagonX,
-  }
+  },
 };
 
 const HomeEntires = ({

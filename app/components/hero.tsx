@@ -5,6 +5,9 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Section from "./section";
 
+const red = "#A41D21";
+const yellow = "#FFD200";
+
 const Hero = () => {
   const router = useRouter();
   return (
@@ -15,9 +18,14 @@ const Hero = () => {
             <Chicken />
           </div>
           <h1 className="mt-6 max-w-[20ch] text-4xl sm:text-5xl font-bold leading-[1.2] tracking-tight">
-            <span className="line-through">Possible?</span> things made IMPOSSIBLE
+            <span className="line-through">Possible?</span> things made
+            IMPOSSIBLE
           </h1>
-          <p className="mt-6 max-w-[60ch] xs:text-lg">
+          <h2 className="mt-4 max-w-[60ch] text-xl font-semibold">
+            Welcome to the <span style={{ color: red }}>Wild</span>{" "}
+            <span style={{ color: yellow }}>Chicken</span> University!
+          </h2>
+          <p className="mt-2 max-w-[60ch] xs:text-lg">
             We do understand how bad you feel when you get a rejection letter
             from the university, that's why we won't say "We regret that we are
             unable to offer you admission."
@@ -45,7 +53,11 @@ const Hero = () => {
               </Button>
             </div>
             <div className="font-mono text-xs text-center">
-              read our <Link className="font-bold underline" href="/pages/disclaimer">disclaimer</Link> before continue.
+              read our{" "}
+              <Link className="font-bold underline" href="/pages/disclaimer">
+                disclaimer
+              </Link>{" "}
+              before continue.
             </div>
           </div>
         </div>
