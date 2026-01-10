@@ -25,6 +25,7 @@
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-switch": "^1.2.6",
     "@tailwindcss/typography": "^0.5.19",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/fontkit": "^2.0.8",
     "@types/mdx": "^2.0.13",
     "@types/webpack-env": "^1.18.8",
@@ -66,5 +67,14 @@
   "overrides": {
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3"
+  },
+  "prettier": {
+    "plugins": [
+      "@trivago/prettier-plugin-sort-imports"
+    ],
+    "importOrder": [
+      "^@/.*$",
+      "^[./]"
+    ]
   }
 }

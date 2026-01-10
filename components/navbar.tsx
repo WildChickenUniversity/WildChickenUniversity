@@ -16,7 +16,7 @@ import {
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import ModeToggle from "@/components/modeToggle";
-import { WCUFavicon } from "@/app/components/chicken";
+import { WCUFavicon } from "@/app/components/home/chicken";
 import { navbarPaths } from "@/lib/menuEntries";
 import { useRouter } from "next/navigation";
 

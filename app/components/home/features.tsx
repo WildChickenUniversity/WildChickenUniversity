@@ -1,5 +1,4 @@
-import HomeEntires from "@/app/components/homeEntires";
-import { menuEntries } from "@/app/components/homeEntires";
+import { FeatureEntry, featureEntryKeys } from "@/app/components/home/featureEntry";
 import { Kavoon } from "next/font/google";
 import Section from "./section";
 
@@ -20,8 +19,8 @@ const Features = () => {
       titleClassName="text-3xl sm:text-4xl"
     >
       <div className="mx-auto mt-10 sm:mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {Object.entries(menuEntries).map(([title, config]) => (
-          <HomeEntires key={title} title={title} config={config} />
+        {Object.entries(featureEntryKeys).map(([title, config]) => (
+          <FeatureEntry key={title} title={title} config={config} />
         ))}
       </div>
     </Section>

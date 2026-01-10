@@ -1,3 +1,11 @@
+"use client";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import Alumni from "@/app/components/alumniNotice";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Form,
   FormControl,
@@ -7,13 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import Link from "next/link";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import Alumni from "@/app/components/alumniNotice";
+import createAdmissionPDF from "@/lib/generateAdmission";
 
 export const formSchema = z.object({
   username: z.string().min(1, {
@@ -23,11 +25,11 @@ export const formSchema = z.object({
   graduate: z.boolean().default(false),
 });
 
-interface AdmissionFormProps {
-  onSubmit: SubmitHandler<z.infer<typeof formSchema>>;
+async function onSubmit(values: z.infer<typeof formSchema>) {
+  await createAdmissionPDF(values);
 }
 
-const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSubmit }) => {
+const AdmissionForm: React.FC = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {

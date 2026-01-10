@@ -1,11 +1,10 @@
 "use client";
 
-import Navbar from "../components/navbar";
-import Hero from "./components/hero";
-import Features from "./components/features";
-import Reviews from "./components/reviews";
-import Comment from "./components/comment";
-import Alumni from "./components/alumni";
+import Comment from "@/components/comment";
+import Navbar from "@/components/navbar";
+import Features from "./components/home/features";
+import Hero from "./components/home/hero";
+import Reviews from "./components/home/reviews";
 
 export default function Home() {
   return (
@@ -14,7 +13,6 @@ export default function Home() {
       <div>
         <Hero />
         <Features />
-        {/* <Alumni /> */}
         <Reviews />
         <Comment />
       </div>

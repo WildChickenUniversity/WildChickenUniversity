@@ -27,7 +27,7 @@ const getAdmissionTagline = () => {
   return `Spring ${currentYear}`;
 };
 
-export const menuEntries: Record<string, MenuEntry> = {
+export const featureEntryKeys: Record<string, MenuEntry> = {
   Admission: {
     path: "/admission",
     tagline: `Apply for ${getAdmissionTagline()}, Wild Chicken offers scholarly* and professional* paths for learners at all stage of their educational journey`,
@@ -64,7 +64,7 @@ export const menuEntries: Record<string, MenuEntry> = {
   },
 };
 
-const HomeEntires = ({
+export const FeatureEntry = ({
   title,
   config,
 }: {
@@ -90,5 +90,3 @@ const HomeEntires = ({
     </div>
   );
 };
-
-export default HomeEntires;

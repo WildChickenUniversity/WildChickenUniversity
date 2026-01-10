@@ -18,14 +18,11 @@ const Section = ({
   className,
   innerClassName,
   title,
-  titleAs: TitleTag = "h2",
+  titleAs: TitleTag = "h1",
   titleClassName,
   children,
 }: SectionProps) => {
-  const outerClasses = joinClasses(
-    "w-full py-12 xs:py-20 px-6",
-    className,
-  );
+  const outerClasses = joinClasses("w-full py-12 xs:py-20 px-6", className);
   const titleClasses = joinClasses(
     "font-bold text-center tracking-tight",
     titleClassName,

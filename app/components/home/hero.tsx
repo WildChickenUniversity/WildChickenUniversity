@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { ArrowUpLeft, ArrowUpRight } from "lucide-react";
-import Chicken from "./chicken";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import Chicken from "./chicken";
 import Section from "./section";
 
 const red = "#A41D21";

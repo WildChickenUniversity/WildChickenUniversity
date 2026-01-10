@@ -1,8 +1,10 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
+import Alumni from "@/app/components/alumniNotice";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -21,9 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import Link from "next/link";
 import diplomaData from "@/lib/diploma.json";
-import Alumni from "@/app/components/alumniNotice";
 
 export const formSchema = z
   .object({

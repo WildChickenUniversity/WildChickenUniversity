@@ -1,5 +1,10 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState, useRef } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import Turnstile, { TurnstileRef } from "@/components/turnsile";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -9,10 +14,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -21,10 +22,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-
-import { useState, useRef } from "react";
-
-import Turnstile, { TurnstileRef } from "@/components/turnsile";
+import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
   email: z.email({ message: "Please enter a valid email." }),
@@ -121,7 +119,9 @@ export function SendDiploma({ username, major, degree }: SendDiplomaProps) {
                 {loading ? "Sending..." : "Send"}
               </Button>
             </DialogFooter>
-             <p className="font-mono text-xs text-center">reminder: check your spam box</p>
+            <p className="font-mono text-xs text-center">
+              reminder: check your spam box
+            </p>
             {result && <p className="text-sm text-center mt-1">{result}</p>}
           </form>
         </Form>
