@@ -1,12 +1,24 @@
+import type { ResolvingMetadata } from "next";
 import Breadcrumb from "@/components/breadcrumbWrapper";
+import buildMetadata from "@/components/buildMetadata";
 import Navbar from "@/components/navbar";
 import AdmissionForm from "./components/admissionForm";
 import AdmissionText from "./components/admissionText.mdx";
 import NoticeText from "./components/noticeText.mdx";
 
-export const metadata = {
-  title: "Admission",
-};
+export const generateMetadata = (_props: {}, parent: ResolvingMetadata) =>
+  buildMetadata(
+    {
+      title: "Admission",
+      keywords: [
+        "Wild Chicken Admission",
+        "Wild Chicken University Admission",
+        "野鸡大学录取通知书",
+        "野鸡大学录取通知书生成器",
+      ],
+    },
+    parent,
+  );
 
 export default function Admission() {
   return (

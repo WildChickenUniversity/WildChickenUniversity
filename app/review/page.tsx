@@ -1,11 +1,22 @@
+import type { ResolvingMetadata } from "next";
 import Breadcrumb from "@/components/breadcrumbWrapper";
+import buildMetadata from "@/components/buildMetadata";
 import Navbar from "@/components/navbar";
 import ReviewCarousel from "@/components/review/reviewCarousel";
 import Disclaimer from "./disclaimer.mdx";
 
-export const metadata = {
-  title: "Review",
-};
+export const generateMetadata = (_props: {}, parent: ResolvingMetadata) =>
+  buildMetadata(
+    {
+      title: "Review",
+      keywords: [
+        "Wild Chicken Univeristy Rating",
+        "野鸡大学评价",
+        "野鸡大学评分",
+      ],
+    },
+    parent,
+  );
 
 export default function Review() {
   return (

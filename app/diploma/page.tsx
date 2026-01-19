@@ -1,11 +1,23 @@
+import type { ResolvingMetadata } from "next";
 import Breadcrumb from "@/components/breadcrumbWrapper";
+import buildMetadata from "@/components/buildMetadata";
 import Navbar from "@/components/navbar";
 import DiplomaText from "./components/diplomaText.mdx";
 import DiplomaWrapper from "./components/diplomaWrapper";
 
-export const metadata = {
-  title: "Diploma",
-};
+export const generateMetadata = (_props: {}, parent: ResolvingMetadata) =>
+  buildMetadata(
+    {
+      title: "Diploma",
+      keywords: [
+        "Wild Chicken Diploma",
+        "Wild Chicken Certificate",
+        "野鸡大学文凭",
+        "野鸡大学毕业证",
+      ],
+    },
+    parent,
+  );
 
 export default function Diploma() {
   return (
