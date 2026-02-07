@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { z } from "zod";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import createDiplomaPDF from "@/lib/genDiploma";
+import createDiplomaPDF from "./generateDiploma";
 import DiplomaForm, { formSchema } from "./diplomaForm";
 import { SendDiploma } from "./sendDiploma";
 
@@ -13,6 +13,7 @@ type DiplomaData = {
   username: string;
   major: string;
   degree: string;
+  withHonors: boolean;
 };
 
 export default function DiplomaWrapper() {
@@ -29,6 +30,7 @@ export default function DiplomaWrapper() {
       username: values.username,
       major: majorField,
       degree: degreeField,
+      withHonors: values.withHonors,
     };
     await createDiplomaPDF(data);
     setDiplomaData(data);

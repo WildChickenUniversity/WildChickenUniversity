@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import createAdmissionPDF from "@/lib/generateAdmission";
+import createAdmissionPDF from "@/app/admission/components/generateAdmission";
 
 export const formSchema = z.object({
   username: z.string().min(1, {

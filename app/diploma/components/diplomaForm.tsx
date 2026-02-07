@@ -36,6 +36,7 @@ export const formSchema = z
     enableCustomDegree: z.boolean().default(false),
     degree: z.string().optional(),
     customDegree: z.string().optional(),
+    withHonors: z.boolean().default(false),
   })
   .superRefine((data, ctx) => {
     if (data.enableCustomMajor) {
@@ -91,6 +92,7 @@ const DiplomaForm: React.FC<DiplomaFormProps> = ({ onSubmit }) => {
       enableCustomDegree: false,
       degree: "Bachelor of Chicken",
       customDegree: "",
+      withHonors: false,
     },
   });
 
@@ -118,7 +120,7 @@ const DiplomaForm: React.FC<DiplomaFormProps> = ({ onSubmit }) => {
           )}
         />
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-3 gap-2">
           <FormField
             control={form.control}
             name="enableCustomMajor"
@@ -143,6 +145,24 @@ const DiplomaForm: React.FC<DiplomaFormProps> = ({ onSubmit }) => {
               <FormItem className="flex flex-row items-center justify-between">
                 <div className="space-y-0.5">
                   <FormLabel className="text-sm">Custom Degree</FormLabel>
+                </div>
+                <FormControl>
+                  <Switch
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="withHonors"
+            render={({ field }) => (
+              <FormItem className="flex flex-row items-center justify-between">
+                <div className="space-y-0.5">
+                  <FormLabel className="text-sm">With Honors</FormLabel>
                 </div>
                 <FormControl>
                   <Switch

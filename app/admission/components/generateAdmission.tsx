@@ -1,7 +1,7 @@
 import { PDFDocument, StandardFonts, PDFFont } from "pdf-lib";
 // sorry guys, im just tooo stupid to use react-pdf
-import content from "./content.json";
-import downloadPDF from "./downloadPDF";
+import content from "../../../lib/content.json";
+import downloadPDF from "../../../lib/downloadPDF";
 
 type AdmissionProps = {
   username: string;
