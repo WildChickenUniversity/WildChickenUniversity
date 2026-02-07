@@ -1,7 +1,7 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import Alumni from "@/app/components/alumniNotice";
 import { Button } from "@/components/ui/button";
@@ -25,11 +25,11 @@ export const formSchema = z.object({
   graduate: z.boolean(),
 });
 
-async function onSubmit(values: z.infer<typeof formSchema>) {
-  await createAdmissionPDF(values);
+interface AdmissionFormProps {
+  onSubmit?: SubmitHandler<z.infer<typeof formSchema>>;
 }
 
-const AdmissionForm: React.FC = () => {
+const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSubmit }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,7 +42,7 @@ const AdmissionForm: React.FC = () => {
   return (
     <Form {...form}>
       <Alumni />
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={form.handleSubmit(onSubmit ?? (async (values) => await createAdmissionPDF(values)))} className="space-y-5">
         <FormField
           control={form.control}
           name="username"

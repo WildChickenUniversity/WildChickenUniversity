@@ -28,13 +28,13 @@ const formSchema = z.object({
   email: z.email({ message: "Please enter a valid email." }),
 });
 
-type SendDiplomaProps = {
+type SendAdmissionProps = {
   username: string;
-  major: string;
-  degree: string;
+  admitted: boolean;
+  graduate: boolean;
 };
 
-export function SendDiploma({ username, major, degree }: SendDiplomaProps) {
+export function SendAdmission({ username, admitted, graduate }: SendAdmissionProps) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
@@ -58,11 +58,11 @@ export function SendDiploma({ username, major, degree }: SendDiplomaProps) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          type: "diploma",
+          type: "admission",
           email: values.email,
           username,
-          major,
-          degree,
+          admitted,
+          graduate,
           token,
         }),
       });
@@ -93,7 +93,7 @@ export function SendDiploma({ username, major, degree }: SendDiplomaProps) {
       </DialogTrigger>
       <DialogContent className="w-sm">
         <DialogHeader>
-          <DialogTitle>Send Diploma via Email</DialogTitle>
+          <DialogTitle>Send Admission Letter via Email</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">

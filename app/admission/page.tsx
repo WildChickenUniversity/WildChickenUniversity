@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import AdmissionForm from "./components/admissionForm";
 import AdmissionText from "./components/admissionText.mdx";
 import NoticeText from "./components/noticeText.mdx";
+import AdmissionWrapper from "./components/admissionWrapper";
 
 export const generateMetadata = (_props: {}, parent: ResolvingMetadata) =>
   buildMetadata(
@@ -33,9 +34,7 @@ export default function Admission() {
           <div className="mdx-layout font-sm mb-8">
             <AdmissionText />
           </div>
-          <div className="border rounded-md p-6">
-            <AdmissionForm />
-          </div>
+          <AdmissionWrapper />
           <div className="mdx-layout font-sm mt-8">
             <NoticeText />
           </div>
