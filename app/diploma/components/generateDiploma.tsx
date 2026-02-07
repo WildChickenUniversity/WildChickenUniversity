@@ -2,16 +2,17 @@ import BlobStream from "blob-stream";
 import PDFDocument from "pdfkit/js/pdfkit.standalone";
 import SVGtoPDF from "svg-to-pdfkit";
 import {
-  fetchSrc,
-  getDate,
-  getYear,
-  isEnglish,
-} from "@/app/diploma/components/diplomaUtils";
-import {
   drawChineseTextCentered,
   getChineseFontAlias,
   resolveChineseText,
 } from "@/app/diploma/components/fontUtils";
+import {
+  fetchSrc,
+  getDate,
+  getYear,
+  isEnglish,
+  downloadPDF,
+} from "@/lib/utils";
 
 type DiplomaProps = {
   username: string;
@@ -39,10 +40,14 @@ const generateDiploma = async ({
   const logo = await fetchSrc("/images/Wild_Chicken.svg").then((res) =>
     res.text(),
   );
+  const signatures = await fetchSrc("/images/signatures.svg").then((res) =>
+    res.text(),
+  );
+  const seal = await fetchSrc("/images/seal.svg").then((res) => res.text());
+
   SVGtoPDF(doc, logo, 306, 0, { width: 180, height: 94.5 });
   doc.moveDown();
 
-  
   const fontChomsky = await fetchSrc("/fonts/Chomsky.woff2").then((res) =>
     res.arrayBuffer(),
   );
@@ -151,23 +156,14 @@ const generateDiploma = async ({
     align: "center",
   });
 
-  const signatures = await fetchSrc("/images/signatures.svg").then((res) =>
-    res.text(),
-  );
   SVGtoPDF(doc, signatures, 0, 470, { width: 792, height: 122 });
 
-  const seal = await fetchSrc("/images/seal.svg").then((res) => res.text());
   SVGtoPDF(doc, seal, 356, 490, { width: 80, height: 80 });
-
-  
 
   doc.end();
   stream.on("finish", () => {
     const blob = stream.toBlob("application/pdf");
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = `WCU_Diploma_${username.split(" ").join("_")}.pdf`;
-    link.click();
+    downloadPDF(blob, `WCU_Diploma_${username.split(" ").join("_")}.pdf`);
   });
 };
 

@@ -1,7 +1,8 @@
-import { PDFDocument, StandardFonts, PDFFont } from "pdf-lib";
-// sorry guys, im just tooo stupid to use react-pdf
-import content from "../../../lib/content.json";
-import downloadPDF from "../../../lib/downloadPDF";
+import BlobStream from "blob-stream";
+import PDFDocument from "pdfkit/js/pdfkit.standalone";
+import SVGtoPDF from "svg-to-pdfkit";
+import { fetchSrc, downloadPDF } from "@/lib/utils";
+import content from "./content.json";
 
 type AdmissionProps = {
   username: string;
@@ -9,156 +10,81 @@ type AdmissionProps = {
   graduate: boolean;
 };
 
-// slightly modified solution from https://github.com/Hopding/pdf-lib/issues/20
-const fillParagraph = (
-  text: string,
-  font: PDFFont,
-  fontSize: number,
-  maxWidth: number
-): string => {
-  const paragraphs = text.split("\n");
-  const newParagraphs = [];
-
-  for (let index = 0; index < paragraphs.length; index++) {
-    const paragraph = paragraphs[index];
-    if (font.widthOfTextAtSize(paragraph, fontSize) > maxWidth) {
-      const words = paragraph.split(" ");
-      const newParagraph: string[][] = [];
-      let i = 0;
-      newParagraph[i] = [];
-      for (let k = 0; k < words.length; k++) {
-        const word = words[k];
-        newParagraph[i].push(word);
-        if (
-          font.widthOfTextAtSize(newParagraph[i].join(" "), fontSize) > maxWidth
-        ) {
-          newParagraph[i].splice(-1, 1); // Remove the last word
-          i++;
-          newParagraph[i] = [];
-          newParagraph[i].push(word);
-        }
-      }
-      newParagraphs.push(newParagraph.map((p) => p.join(" ")).join("\n"));
-    }
-  }
-  return newParagraphs.join("\n\n");
-};
-
 async function createAdmissionPDF({
   username,
   admitted,
   graduate,
 }: AdmissionProps) {
-  // Create a new PDF document
-  const pdfDoc = await PDFDocument.create();
+  // Create a new PDF document (LETTER size: 612 x 792)
+  const doc = new PDFDocument({ size: "LETTER" });
+  const stream = doc.pipe(BlobStream());
 
-  // Add a page to the document
-  const page = pdfDoc.addPage();
-  page.setSize(612.0, 792.0);
-
-  // Add some text to the page
-  const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
   const fontSize = 12;
-  const lineHeight = 15;
-  const maxWidth = 550;
-  let yOffset = 620;
 
   const admissionType = admitted
     ? graduate
       ? "admitted-graduate"
       : "admitted-undergraduate"
     : graduate
-    ? "rejected-graduate"
-    : "rejected-undergraduate";
+      ? "rejected-graduate"
+      : "rejected-undergraduate";
   const admissionParagraphs = content[admissionType] as {
     [key: string]: string;
   };
 
-  const combinedText = Object.keys(admissionParagraphs)
-    .map((admissionType) => admissionParagraphs[admissionType])
-    .join("\n");
-
-  const filledText = fillParagraph(combinedText, timesRomanFont, 12, 500);
-
-  const lines = filledText.split("\n");
-
-  const bannerImageBytes = await fetch("/images/Wild_Chicken.png").then((res) =>
-    res.arrayBuffer()
+  // Load images
+  const logo = await fetchSrc("/images/Wild_Chicken.svg").then((res) =>
+    res.text(),
   );
-  const signatureBytes = await fetch(
-    "/images/harland_sanders_signature.png"
-  ).then((res) => res.arrayBuffer());
-  const bannerImage = await pdfDoc.embedPng(new Uint8Array(bannerImageBytes));
-  const signatureImage = await pdfDoc.embedPng(new Uint8Array(signatureBytes));
+  const signatures = await fetchSrc(
+    "/images/harland_sanders_signature.svg",
+  ).then((res) => res.text());
+  // https://github.com/pdfkit/pdfkit/issues/149
+  SVGtoPDF(doc, logo, 72, 40, { width: 180, height: 94.5 });
 
-  // original banner size: 1170 * 4170
-  page.drawImage(bannerImage, {
-    x: 50,
-    y: 680,
-    width: 208.5,
-    height: 58.5,
-  });
+  doc.moveDown(4);
 
+  // Add date
+  doc
+    .font("Times-Roman")
+    .fontSize(fontSize)
+    .text(
+      new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }),
+    );
+  doc.moveDown(0.5);
 
-  page.drawText(new Date().toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  }), {
-    x: 50,
-    y: 660,
-    size: fontSize,
-    font: timesRomanFont,
-  })
+  doc.text(`Dear ${username},`);
 
-  page.drawText(`Dear ${username},`, {
-    x: 50,
-    y: 640,
-    size: fontSize,
-    font: timesRomanFont,
-    maxWidth: maxWidth,
-  });
-
-  lines.forEach((line) => {
-    page.drawText(line, {
-      x: 50,
-      y: yOffset,
-      size: fontSize,
-      font: timesRomanFont,
-      maxWidth: maxWidth,
-    });
-    yOffset -= lineHeight; // Move down for the next line
+  // main content
+  doc.moveDown(0.5);
+  Object.keys(admissionParagraphs).forEach((key) => {
+    const paragraph = admissionParagraphs[key];
+    if (paragraph) {
+      doc.text(paragraph, { align: "justify" });
+      doc.moveDown(0.5);
+    }
   });
 
   const footer = content["footer"];
-  page.drawText(`${footer.closing}`, {
-    x: 50,
-    y: 290,
-    size: fontSize,
-    font: timesRomanFont,
+  doc.text(footer.closing);
+
+  // add signature image
+  doc.moveDown(1);
+  const signatureY = doc.y;
+  SVGtoPDF(doc, signatures, 72, signatureY, { width: 200, height: 70 });
+
+  doc.end();
+  stream.on("finish", () => {
+    const blob = stream.toBlob("application/pdf");
+    downloadPDF(
+      blob,
+      `WCU_Admission_Decision_${username.split(" ").join("_")}.pdf`,
+    );
   });
-
-  // 381 * 1643
-  page.drawImage(signatureImage, {
-    x: 50,
-    y: 250,
-    width: 164.3,
-    height: 38.1,
-  });
-
-  page.drawText(`${footer.printed}\n${footer.title}`, {
-    x: 50,
-    y: 240,
-    size: fontSize,
-    font: timesRomanFont,
-  });
-
-  const pdfBytes = await pdfDoc.save();
-
-  downloadPDF(
-    pdfBytes,
-    `WCU_Admission_Decision_${username.split(" ").join("_")}.pdf`
-  );
 }
 
 export default createAdmissionPDF;
