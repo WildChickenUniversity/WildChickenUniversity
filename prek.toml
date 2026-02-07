@@ -48,3 +48,14 @@ name = "Prettier"
 language = "bun"
 entry = "bunx prettier --write"
 files = "\\.(tsx?|jsx?|json|md|css)$"
+
+# Next.js build check
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "next-build"
+name = "Next.js build"
+language = "bun"
+entry = "bun run build"
+pass_filenames = false
