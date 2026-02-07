@@ -1,7 +1,7 @@
 import BlobStream from "blob-stream";
 import PDFDocument from "pdfkit/js/pdfkit.standalone";
 import SVGtoPDF from "svg-to-pdfkit";
-import { fetchSrc, downloadPDF } from "@/lib/utils";
+import { downloadPDF } from "@/lib/utils";
 import content from "./content.json";
 
 type AdmissionProps = {
@@ -33,12 +33,11 @@ async function createAdmissionPDF({
   };
 
   // Load images
-  const logo = await fetchSrc("/images/Wild_Chicken.svg").then((res) =>
-    res.text(),
-  );
-  const signatures = await fetchSrc(
-    "/images/harland_sanders_signature.svg",
-  ).then((res) => res.text());
+  const [logo, signatures] = await Promise.all([
+    fetch(`/images/Wild_Chicken.svg`).then((res) => res.text()),
+    fetch(`/images/harland_sanders_signature.svg`).then((res) => res.text()),
+  ]);
+
   // https://github.com/pdfkit/pdfkit/issues/149
   SVGtoPDF(doc, logo, 72, 40, { width: 180, height: 94.5 });
 

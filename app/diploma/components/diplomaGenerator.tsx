@@ -37,20 +37,15 @@ const generateDiploma = async ({
   // Reset fill color for text
   doc.fillColor("black");
 
-  const logo = await fetchSrc("/images/Wild_Chicken.svg").then((res) =>
-    res.text(),
-  );
-  const signatures = await fetchSrc("/images/signatures.svg").then((res) =>
-    res.text(),
-  );
-  const seal = await fetchSrc("/images/seal.svg").then((res) => res.text());
+  const [logo, signatures, seal, fontChomsky] = await Promise.all([
+    fetch(`/images/Wild_Chicken.svg`).then((res) => res.text()),
+    fetch(`/images/signatures.svg`).then((res) => res.text()),
+    fetch(`/images/seal.svg`).then((res) => res.text()),
+    fetch(`/fonts/Chomsky.woff2`).then((res) => res.arrayBuffer()),
+  ]);
 
-  SVGtoPDF(doc, logo, 306, 0, { width: 180, height: 94.5 });
-  doc.moveDown();
-
-  const fontChomsky = await fetchSrc("/fonts/Chomsky.woff2").then((res) =>
-    res.arrayBuffer(),
-  );
+  SVGtoPDF(doc, logo, 324, 42, { width: 144, height: 75.6 });
+  doc.moveDown(2.8);
 
   doc.registerFont("chomsky", fontChomsky);
 
@@ -87,7 +82,7 @@ const generateDiploma = async ({
   doc.font("Times-Roman").text("WILD CHICKEN UNIVERSITY", {
     align: "center",
   });
-  doc.moveDown(0.5);
+  doc.moveDown(0.2);
 
   doc.fontSize(30);
   if (isEnglish(username)) {
@@ -119,7 +114,7 @@ const generateDiploma = async ({
   doc.font("Times-Roman").text("ON", {
     align: "center",
   });
-  doc.moveDown(0.2);
+  doc.moveDown(0.05);
 
   doc.fontSize(30);
   if (isEnglish(major)) {
@@ -129,14 +124,16 @@ const generateDiploma = async ({
   } else {
     drawChineseTextCentered(doc, major, chineseFontAliases, "chomsky");
   }
-  doc.moveDown(0.2);
 
-  doc.fontSize(18);
   if (withHonors) {
+    doc.moveDown(0.02);
+    doc.fontSize(16);
     doc.font("chomsky").text("with High Honors", {
       align: "center",
     });
-    doc.moveDown(0.2);
+    doc.moveDown(0.5);
+  } else {
+    doc.moveDown(0.5);
   }
 
   doc.fontSize(12);
