@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { z } from "zod";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import createDiplomaPDF from "@/lib/generateDiploma";
+import createDiplomaPDF from "@/lib/genDiploma";
 import DiplomaForm, { formSchema } from "./diplomaForm";
 import { SendDiploma } from "./sendDiploma";
 
