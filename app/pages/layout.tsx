@@ -8,7 +8,7 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      <main className="flex flex-col items-center justify-center mx-auto max-w-screen-lg w-full p-4">
+      <main className="flex flex-col items-center justify-center mx-auto max-w-5xl w-full p-4">
         <div className="w-full max-w-2xl ">
           <Breadcrumb />
           <div className={`mdx-layout`}>{children}</div>

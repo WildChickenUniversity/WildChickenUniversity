@@ -49,7 +49,7 @@ export default function Comment() {
   }, [giscusTheme]);
 
   return (
-    <div className="flex flex-col items-center justify-center mx-auto max-w-screen-lg w-full p-4 py-12 xs:py-20 px-6 ">
+    <div className="flex flex-col items-center justify-center mx-auto max-w-5xl w-full p-4 py-12 xs:py-20 px-6 ">
       <h1 className="mb-12 text-3xl md:text-4xl font-bold text-center tracking-tight px-6">
         Comments
       </h1>
