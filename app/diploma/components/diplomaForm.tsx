@@ -30,13 +30,13 @@ export const formSchema = z
     username: z.string().min(1, {
       message: "Username must be at least 1 character.",
     }),
-    enableCustomMajor: z.boolean().default(false),
+    enableCustomMajor: z.boolean(),
     major: z.string().optional(),
     customMajor: z.string().optional(),
-    enableCustomDegree: z.boolean().default(false),
+    enableCustomDegree: z.boolean(),
     degree: z.string().optional(),
     customDegree: z.string().optional(),
-    withHonors: z.boolean().default(false),
+    withHonors: z.boolean(),
   })
   .superRefine((data, ctx) => {
     if (data.enableCustomMajor) {

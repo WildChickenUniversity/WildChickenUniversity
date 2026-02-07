@@ -21,8 +21,8 @@ export const formSchema = z.object({
   username: z.string().min(1, {
     message: "Username must be at least 1 characters.",
   }),
-  admitted: z.boolean().default(false),
-  graduate: z.boolean().default(false),
+  admitted: z.boolean(),
+  graduate: z.boolean(),
 });
 
 async function onSubmit(values: z.infer<typeof formSchema>) {
