@@ -1,6 +1,7 @@
 import BlobStream from "blob-stream";
 import PDFDocument from "pdfkit/js/pdfkit.standalone";
 import SVGtoPDF from "svg-to-pdfkit";
+import { v4 as uuidv4 } from "uuid";
 import {
   drawChineseTextCentered,
   getChineseFontAlias,
@@ -28,7 +29,26 @@ const generateDiploma = async ({
   withHonors,
 }: DiplomaProps) => {
   // LETTER (612.00 X 792.00)
-  const doc = new PDFDocument({ size: "LETTER", layout: "landscape" });
+  const doc = new PDFDocument({
+    size: "LETTER",
+    layout: "landscape",
+    pdfVersion: "1.7",
+    compress: true,
+    info: {
+      Title: "Diploma",
+      Author: "Wild Chicken University",
+      Subject: "Diploma",
+    },
+    ownerPassword: `${uuidv4()}`,
+    permissions: {
+      printing: "highResolution",
+      modifying: false,
+      annotating: true,
+      copying: true,
+      contentAccessibility: true,
+      documentAssembly: false,
+    },
+  });
   const stream = doc.pipe(BlobStream());
 
   // Set background color

@@ -1,6 +1,7 @@
 import BlobStream from "blob-stream";
 import PDFDocument from "pdfkit/js/pdfkit.standalone";
 import SVGtoPDF from "svg-to-pdfkit";
+import { v4 as uuidv4 } from "uuid";
 import { downloadPDF } from "@/lib/utils";
 import content from "./content.json";
 
@@ -16,7 +17,26 @@ async function createAdmissionPDF({
   graduate,
 }: AdmissionProps) {
   // Create a new PDF document (LETTER size: 612 x 792)
-  const doc = new PDFDocument({ size: "LETTER" });
+  const doc = new PDFDocument({
+    size: "LETTER",
+    layout: "portrait",
+    pdfVersion: "1.7",
+    compress: true,
+    info: {
+      Title: "Admission Letter",
+      Author: "Wild Chicken University",
+      Subject: "Admission Letter",
+    },
+    ownerPassword: `${uuidv4()}`,
+    permissions: {
+      printing: "highResolution",
+      modifying: false,
+      annotating: true,
+      copying: true,
+      contentAccessibility: true,
+      documentAssembly: false,
+    },
+  });
   const stream = doc.pipe(BlobStream());
 
   const fontSize = 12;
