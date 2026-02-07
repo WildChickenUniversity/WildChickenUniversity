@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import {
   forwardRef,
   useEffect,
@@ -7,14 +8,13 @@ import {
   useRef,
   useState,
 } from "react";
-import { useTheme } from "next-themes";
 
 declare global {
   interface Window {
     turnstile: {
       render: (
         container: string | HTMLElement,
-        params: TurnstileParams
+        params: TurnstileParams,
       ) => string | undefined;
       reset: (widgetId: string) => void;
       remove: (widgetId: string) => void;
@@ -53,10 +53,6 @@ const Turnstile = forwardRef<TurnstileRef, TurnstileProps>(
     const [mounted, setMounted] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const widgetIdRef = useRef<string | null>(null);
-
-    useEffect(() => {
-      setMounted(true);
-    }, []);
 
     const turnstileTheme =
       (resolvedTheme || theme) === "dark" ? "dark" : "light";
@@ -130,7 +126,7 @@ const Turnstile = forwardRef<TurnstileRef, TurnstileProps>(
     }
 
     return <div ref={containerRef} />;
-  }
+  },
 );
 
 Turnstile.displayName = "Turnstile";

@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState, useRef } from "react";
+import { type FormEvent, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import Turnstile, { TurnstileRef } from "@/components/turnsile";
@@ -34,7 +34,11 @@ type SendAdmissionProps = {
   graduate: boolean;
 };
 
-export function SendAdmission({ username, admitted, graduate }: SendAdmissionProps) {
+export function SendAdmission({
+  username,
+  admitted,
+  graduate,
+}: SendAdmissionProps) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
@@ -86,6 +90,13 @@ export function SendAdmission({ username, admitted, graduate }: SendAdmissionPro
     setLoading(false);
   }
 
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const isValid = await form.trigger("email");
+    if (!isValid) return;
+    await onSubmit(form.getValues());
+  };
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -96,7 +107,7 @@ export function SendAdmission({ username, admitted, graduate }: SendAdmissionPro
           <DialogTitle>Send Admission Letter via Email</DialogTitle>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleFormSubmit} className="space-y-4">
             <FormField
               control={form.control}
               name="email"

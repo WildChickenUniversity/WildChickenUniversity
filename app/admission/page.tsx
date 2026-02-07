@@ -1,11 +1,11 @@
 import type { ResolvingMetadata } from "next";
 import Breadcrumb from "@/components/breadcrumbWrapper";
 import buildMetadata from "@/components/buildMetadata";
+import Comment from "@/components/comment";
 import Navbar from "@/components/navbar";
-import AdmissionForm from "./components/admissionForm";
 import AdmissionText from "./components/admissionText.mdx";
-import NoticeText from "./components/noticeText.mdx";
 import AdmissionWrapper from "./components/admissionWrapper";
+import NoticeText from "./components/noticeText.mdx";
 
 export const generateMetadata = (_props: {}, parent: ResolvingMetadata) =>
   buildMetadata(
@@ -40,6 +40,7 @@ export default function Admission() {
           </div>
         </div>
       </main>
+      <Comment />
     </div>
   );
 }

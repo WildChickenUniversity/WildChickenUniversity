@@ -5,7 +5,7 @@ import ModeToggle from "@/components/modeToggle";
 export default function Footer() {
   return (
     <footer className="w-full mx-auto p-6">
-      <div className="max-w-screen-lg w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="max-w-5xl w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <span className="text-sm text-gray-500 text-center md:text-left">
           <span className="inline-block rotate-180">&copy;</span>{" "}
           {new Date().getFullYear()}{" "}

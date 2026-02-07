@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
 import { useTheme } from "next-themes";
+import { useEffect, useRef } from "react";
 
 /* Original Utterances script reference:
   <script src="https://utteranc.es/client.js" repo="WildChickenUniversity/wcu-nextjs" issue-term="title"
@@ -10,17 +10,12 @@ import { useTheme } from "next-themes";
 
 export default function Comment() {
   const { theme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const giscusTheme = (resolvedTheme || theme) === "dark" ? "dark" : "light";
 
   useEffect(() => {
-    if (!mounted || !ref.current) {
+    if (!ref.current) {
       return;
     }
 
@@ -51,11 +46,7 @@ export default function Comment() {
     container.innerHTML = "";
 
     container.appendChild(scriptElement);
-  }, [mounted, giscusTheme]);
-
-  if (!mounted) {
-    return <div className="min-h-[200px]" />;
-  }
+  }, [giscusTheme]);
 
   return (
     <div className="flex flex-col items-center justify-center mx-auto max-w-screen-lg w-full p-4 py-12 xs:py-20 px-6 ">
@@ -63,7 +54,9 @@ export default function Comment() {
         Comments
       </h1>
       <div className="w-full max-w-2xl" ref={ref}>
-        <div className="text-center text-muted-foreground py-8">Loading Giscus...</div>
+        <div className="text-center text-muted-foreground py-8">
+          Loading Giscus...
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import Breadcrumb from "@/components/breadcrumbWrapper";
+import Comment from "@/components/comment";
 import Navbar from "@/components/navbar";
 
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
@@ -13,6 +14,7 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
           <div className={`mdx-layout`}>{children}</div>
         </div>
       </main>
+      <Comment />
     </div>
   );
 }

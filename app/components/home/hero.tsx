@@ -27,8 +27,8 @@ const Hero = () => {
           </h2>
           <p className="mt-2 max-w-[60ch] xs:text-lg">
             We do understand how bad you feel when you get a rejection letter
-            from the university, that's why we won't say "We regret that we are
-            unable to offer you admission."
+            from the university, that&apos;s why we won&apos;t say &quot;We
+            regret that we are unable to offer you admission.&quot;
           </p>
           <div className="mt-12 flex flex-col items-center gap-4">
             <div className="flex-col flex sm:flex-row gap-4 sm:justify-center">

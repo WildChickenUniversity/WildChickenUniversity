@@ -1,6 +1,7 @@
 import type { ResolvingMetadata } from "next";
 import Breadcrumb from "@/components/breadcrumbWrapper";
 import buildMetadata from "@/components/buildMetadata";
+import Comment from "@/components/comment";
 import Navbar from "@/components/navbar";
 import ReviewCarousel from "@/components/review/reviewCarousel";
 import Disclaimer from "./disclaimer.mdx";
@@ -34,6 +35,7 @@ export default function Review() {
           </div>
         </div>
       </main>
+      <Comment />
     </div>
   );
 }

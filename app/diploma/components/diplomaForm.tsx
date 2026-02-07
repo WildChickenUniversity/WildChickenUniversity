@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm, useWatch } from "react-hook-form";
 import { z } from "zod";
 import Alumni from "@/app/components/alumniNotice";
 import { Button } from "@/components/ui/button";
@@ -96,8 +96,14 @@ const DiplomaForm: React.FC<DiplomaFormProps> = ({ onSubmit }) => {
     },
   });
 
-  const watchEnableCustomMajor = form.watch("enableCustomMajor");
-  const watchEnableCustomDegree = form.watch("enableCustomDegree");
+  const watchEnableCustomMajor = useWatch({
+    control: form.control,
+    name: "enableCustomMajor",
+  });
+  const watchEnableCustomDegree = useWatch({
+    control: form.control,
+    name: "enableCustomDegree",
+  });
 
   return (
     <Form {...form}>

@@ -1,0 +1,50 @@
+# Exclusions
+exclude = "^(\\.next/|node_modules/|out/|build/|dist/|\\.cache/)"
+
+# pre-commit hooks
+[[repos]]
+repo = "https://github.com/pre-commit/pre-commit-hooks"
+rev = "v6.0.0"
+hooks = [
+  { id = "trailing-whitespace" },
+  { id = "end-of-file-fixer" },
+  { id = "check-yaml" },
+  { id = "check-json" },
+  { id = "check-merge-conflict" },
+  { id = "check-added-large-files" },
+]
+
+# TS type checking
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "tsc"
+name = "TypeScript type check"
+language = "bun"
+entry = "bunx tsc --noEmit"
+files = "\\.tsx?$"
+pass_filenames = false
+
+# ESLint
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "eslint"
+name = "ESLint"
+language = "bun"
+entry = "bun run lint"
+files = "\\.[jt]sx?$"
+pass_filenames = false
+
+# Prettier
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "prettier"
+name = "Prettier"
+language = "bun"
+entry = "bunx prettier --write"
+files = "\\.(tsx?|jsx?|json|md|css)$"

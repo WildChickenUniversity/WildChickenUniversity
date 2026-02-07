@@ -1,6 +1,7 @@
 import type { ResolvingMetadata } from "next";
 import Breadcrumb from "@/components/breadcrumbWrapper";
 import buildMetadata from "@/components/buildMetadata";
+import Comment from "@/components/comment";
 import Navbar from "@/components/navbar";
 import DiplomaText from "./components/diplomaText.mdx";
 import DiplomaWrapper from "./components/diplomaWrapper";
@@ -35,6 +36,7 @@ export default function Diploma() {
           <DiplomaWrapper />
         </div>
       </main>
+      <Comment />
     </div>
   );
 }
