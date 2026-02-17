@@ -11,7 +11,7 @@ export default function NotFound() {
         please enjoy this lovely cat picture :&#41;
       </p>
       <Image
-        src="https://http.cat/418"
+        src="/images/418.webp"
         alt="418"
         width={600}
         height={480}
