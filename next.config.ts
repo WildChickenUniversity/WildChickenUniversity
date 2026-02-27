@@ -1,4 +1,5 @@
 import createMDX from "@next/mdx";
+import { execSync } from "child_process";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -10,6 +11,11 @@ const nextConfig: NextConfig = {
   output: "export",
   images: {
     unoptimized: true,
+  },
+  env: {
+    NEXT_PUBLIC_GIT_COMMIT: execSync("git rev-parse --short HEAD")
+      .toString()
+      .trim(),
   },
 };
 
