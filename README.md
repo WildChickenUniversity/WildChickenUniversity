@@ -1,15 +1,3 @@
-This is the redesigned portal for Wild Chicken University. Currently still working in progress.
-
-The new website is available at: https://wcu.edu.pl
-
-ToDos:
-
-- [ ] recreating diploma with pdflib to use woff2 fonts
-- [ ] code cleanup
-- [x] shadcn integration
-
----
-
 ![logo](https://wcu.edu.pl/images/Wild_Chicken.svg) Welcome to the **Official** GitHub repo of [Wild Chicken University](https://wcu.edu.pl). We are a proud member of [U4 Group of GitHub Research Universities](https://github.com/U4Group).
 
 We offer **FREE** admission offers in PDF. This is not a REAL admission offer, but it can certainly make you feel better since you've got “somewhere” to go. Head over to [admission portal](https://wcu.edu.pl/admission) to get your admission offer today!
@@ -25,3 +13,25 @@ Copyleft © WildChickenUniversity, licensed under ![license-gplv3](https://img.s
 --- Chinese Version Below ---
 
 爲了讓無家可歸的孤兒們 feel better，寫下了這個頁面，獲取免費的錄取通知書
+
+## Building your own Wild Chicken University
+
+### Prerequisites
+
+- [bun](https://bun.sh/) — package manager and runtime
+- [prek](https://github.com/j178/prek) — pre-commit hook runner
+
+hooks can be configured in `prek.toml`
+
+### Development
+
+```sh
+bun install
+bun run dev
+```
+
+### Building
+
+```sh
+bun run build
+```
