@@ -14,18 +14,6 @@ hooks = [
   { id = "check-added-large-files" },
 ]
 
-# TS type checking
-[[repos]]
-repo = "local"
-
-[[repos.hooks]]
-id = "tsc"
-name = "TypeScript type check"
-language = "bun"
-entry = "bunx tsc --noEmit"
-files = "\\.tsx?$"
-pass_filenames = false
-
 # Oxlint
 [[repos]]
 repo = "local"
@@ -34,7 +22,7 @@ repo = "local"
 id = "oxlint"
 name = "Oxlint"
 language = "bun"
-entry = "bunx oxlint"
+entry = "bun run lint"
 files = "\\.[jt]sx?$"
 pass_filenames = false
 
@@ -46,8 +34,8 @@ repo = "local"
 id = "oxfmt"
 name = "Oxfmt"
 language = "bun"
-entry = "bunx oxfmt"
-files = "\\.(tsx?|jsx?|json|md|css)$"
+entry = "bun run fmt"
+files = "\\.(tsx?|jsx?|json|md|mdx|css)$"
 
 # Next.js build check
 [[repos]]
