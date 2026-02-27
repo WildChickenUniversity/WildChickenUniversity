@@ -16,7 +16,9 @@ type AdmissionData = {
 };
 
 export default function AdmissionWrapper() {
-  const [admissionData, setAdmissionData] = useState<AdmissionData | null>(null);
+  const [admissionData, setAdmissionData] = useState<AdmissionData | null>(
+    null,
+  );
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const data = {

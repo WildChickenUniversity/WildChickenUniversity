@@ -6838,7 +6838,7 @@ export type ResolvedChineseFont = {
 
 export const resolveChineseText = async (
   input: string,
-  fetchSrc: (src: string) => Promise<Response>
+  fetchSrc: (src: string) => Promise<Response>,
 ): Promise<ResolvedChineseFont[]> => {
   const fontFiles = getFontFilesForText(input);
   const fonts = await Promise.all(

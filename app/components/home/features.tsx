@@ -1,4 +1,7 @@
-import { FeatureEntry, featureEntryKeys } from "@/app/components/home/featureEntry";
+import {
+  FeatureEntry,
+  featureEntryKeys,
+} from "@/app/components/home/featureEntry";
 import { Kavoon } from "next/font/google";
 import Section from "./section";
 

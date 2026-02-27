@@ -17,7 +17,7 @@ const importAll = (r: __WebpackModuleApi.RequireContext) => {
   const filePaths = r.keys();
 
   const sortedPaths = filePaths.sort((a, b) =>
-    a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
+    a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }),
   );
 
   return sortedPaths.map((path) => r(path).default);

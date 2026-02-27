@@ -26,27 +26,27 @@ entry = "bunx tsc --noEmit"
 files = "\\.tsx?$"
 pass_filenames = false
 
-# ESLint
+# Oxlint
 [[repos]]
 repo = "local"
 
 [[repos.hooks]]
-id = "eslint"
-name = "ESLint"
+id = "oxlint"
+name = "Oxlint"
 language = "bun"
-entry = "bun run lint"
+entry = "bunx oxlint"
 files = "\\.[jt]sx?$"
 pass_filenames = false
 
-# Prettier
+# Oxfmt
 [[repos]]
 repo = "local"
 
 [[repos.hooks]]
-id = "prettier"
-name = "Prettier"
+id = "oxfmt"
+name = "Oxfmt"
 language = "bun"
-entry = "bunx prettier --write"
+entry = "bunx oxfmt"
 files = "\\.(tsx?|jsx?|json|md|css)$"
 
 # Next.js build check

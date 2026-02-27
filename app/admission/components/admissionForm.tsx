@@ -42,7 +42,12 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSubmit }) => {
   return (
     <Form {...form}>
       <Alumni />
-      <form onSubmit={form.handleSubmit(onSubmit ?? (async (values) => await createAdmissionPDF(values)))} className="space-y-5">
+      <form
+        onSubmit={form.handleSubmit(
+          onSubmit ?? (async (values) => await createAdmissionPDF(values)),
+        )}
+        className="space-y-5"
+      >
         <FormField
           control={form.control}
           name="username"

@@ -5,9 +5,7 @@ const Alumni = () => {
         <h1 className="mb-12 text-3xl md:text-4xl font-bold text-center tracking-tight px-6">
           Alumni
         </h1>
-        <p>
-          TO DO...
-        </p>
+        <p>TO DO...</p>
       </div>
     </div>
   );

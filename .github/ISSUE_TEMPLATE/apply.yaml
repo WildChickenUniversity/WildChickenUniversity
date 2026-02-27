@@ -1,11 +1,11 @@
 name: "Alumni Application"
 description: "Wild Chicken Unviersity Alumni Application"
 title: "Alumni Application"
-labels: ['apply-wcu']
+labels: ["apply-wcu"]
 
 body:
   - type: markdown
-    attributes: 
+    attributes:
       value: |
         I want to register and become a Wild Chicken University Alumni.
 

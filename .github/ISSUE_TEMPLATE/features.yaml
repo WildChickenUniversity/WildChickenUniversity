@@ -3,7 +3,7 @@ description: File a feature request.
 title: "[Feature]: "
 labels: ["feature"]
 type: feature
-body: 
+body:
   - type: markdown
     attributes:
       value: |

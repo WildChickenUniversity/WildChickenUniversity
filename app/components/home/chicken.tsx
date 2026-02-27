@@ -16,9 +16,7 @@ const sizeConfig = {
 
 export const WCUFavicon: FC<ChickenProps> = ({ className = "" }) => {
   return (
-    <div
-      className={`relative flex justify-center ${className} mb-4`}
-    >
+    <div className={`relative flex justify-center ${className} mb-4`}>
       <Image
         src="/images/favicon.svg"
         alt="WCU Favicon"
@@ -30,7 +28,6 @@ export const WCUFavicon: FC<ChickenProps> = ({ className = "" }) => {
     </div>
   );
 };
-
 
 const Chicken: FC<ChickenProps> = ({ size = "large", className = "" }) => {
   const { width, height } = sizeConfig[size];

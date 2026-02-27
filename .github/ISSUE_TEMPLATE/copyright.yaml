@@ -3,7 +3,7 @@ description: remove your review from the website
 title: "[Content Removal]: "
 labels: ["copyright"]
 type: task
-body: 
+body:
   - type: markdown
     attributes:
       value: |

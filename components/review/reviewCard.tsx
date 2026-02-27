@@ -26,7 +26,7 @@ export default function ReviewCard({
         <CardContent
           className={cn(
             "flex flex-col h-120 max-h-screen justify-between",
-            className
+            className,
           )}
         >
           {/* This div will show the preview and fade out */}
