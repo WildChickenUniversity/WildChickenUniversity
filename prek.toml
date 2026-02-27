@@ -35,7 +35,7 @@ id = "oxfmt"
 name = "Oxfmt"
 language = "bun"
 entry = "bun run fmt"
-files = "\\.(tsx?|jsx?|json|md|mdx|css)$"
+files = "\\.(tsx?|jsx?|json|mdx?|css|html)$"
 
 # Next.js build check
 [[repos]]
