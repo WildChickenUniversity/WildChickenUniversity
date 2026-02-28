@@ -4,7 +4,14 @@ import Link from "next/link";
 import { z } from "zod";
 import Alumni from "@/app/components/alumniNotice";
 import { Button } from "@/components/ui/button";
-import { Field, FieldError, FieldLabel } from "@/components/ui/field";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+  FieldTitle,
+} from "@/components/ui/field";
 import { Switch } from "@/components/ui/switch";
 import { Input } from "@/components/ui/input";
 import createAdmissionPDF from "@/app/admission/components/admissionLetterGenerator";
@@ -73,57 +80,43 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSubmit }) => {
         <div className="grid gap-4 md:grid-cols-2">
           <form.Field name="admitted">
             {(field) => (
-              <Field
-                className="flex items-center justify-between rounded-xl border bg-white px-4 py-3"
-                orientation="horizontal"
-              >
-                <div className="min-w-0">
-                  <FieldLabel
-                    className="text-sm font-medium"
-                    htmlFor={field.name}
-                  >
-                    Admitted
-                  </FieldLabel>
-                  <p className="text-xs text-muted-foreground">
-                    Your future is yours to control.
-                  </p>
-                </div>
-
-                <Switch
-                  id={field.name}
-                  name={field.name}
-                  checked={field.state.value}
-                  onCheckedChange={field.handleChange}
-                />
-              </Field>
+              <FieldLabel htmlFor={field.name}>
+                <Field orientation="horizontal">
+                  <FieldContent>
+                    <FieldTitle>Admitted</FieldTitle>
+                    <FieldDescription>
+                      Your future is yours to control.
+                    </FieldDescription>
+                  </FieldContent>
+                  <Switch
+                    id={field.name}
+                    name={field.name}
+                    checked={field.state.value}
+                    onCheckedChange={field.handleChange}
+                  />
+                </Field>
+              </FieldLabel>
             )}
           </form.Field>
 
           <form.Field name="graduate">
             {(field) => (
-              <Field
-                className="flex items-center justify-between rounded-xl border bg-white px-4 py-3"
-                orientation="horizontal"
-              >
-                <div className="min-w-0">
-                  <FieldLabel
-                    className="text-sm font-medium"
-                    htmlFor={field.name}
-                  >
-                    Graduate level
-                  </FieldLabel>
-                  <p className="text-xs text-muted-foreground">
-                    Generate a graduate-level offer.
-                  </p>
-                </div>
-
-                <Switch
-                  id={field.name}
-                  name={field.name}
-                  checked={field.state.value}
-                  onCheckedChange={field.handleChange}
-                />
-              </Field>
+              <FieldLabel htmlFor={field.name}>
+                <Field orientation="horizontal">
+                  <FieldContent>
+                    <FieldTitle>Graduate level</FieldTitle>
+                    <FieldDescription>
+                      Generate a graduate-level offer.
+                    </FieldDescription>
+                  </FieldContent>
+                  <Switch
+                    id={field.name}
+                    name={field.name}
+                    checked={field.state.value}
+                    onCheckedChange={field.handleChange}
+                  />
+                </Field>
+              </FieldLabel>
             )}
           </form.Field>
         </div>

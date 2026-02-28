@@ -5,7 +5,14 @@ import Link from "next/link";
 import { z } from "zod";
 import Alumni from "@/app/components/alumniNotice";
 import { Button } from "@/components/ui/button";
-import { Field, FieldError, FieldLabel } from "@/components/ui/field";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+  FieldTitle,
+} from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -127,70 +134,57 @@ const DiplomaForm: React.FC<DiplomaFormProps> = ({ onSubmit }) => {
         <div className="grid md:grid-cols-3 gap-2">
           <form.Field name="enableCustomMajor">
             {(field) => (
-              <Field
-                className="flex items-center justify-between rounded-xl border bg-white px-4 py-3"
-                orientation="horizontal"
-              >
-                <div className="min-w-0">
-                  <FieldLabel className="text-sm" htmlFor={field.name}>
-                    Custom Major
-                  </FieldLabel>
-                  <p className="text-xs text-muted-foreground">
-                    Define it below
-                  </p>
-                </div>
-                <Switch
-                  id={field.name}
-                  name={field.name}
-                  checked={field.state.value}
-                  onCheckedChange={field.handleChange}
-                />
-              </Field>
+              <FieldLabel htmlFor={field.name}>
+                <Field orientation="horizontal">
+                  <FieldContent>
+                    <FieldTitle>Custom Major</FieldTitle>
+                    <FieldDescription>try everything</FieldDescription>
+                  </FieldContent>
+                  <Switch
+                    id={field.name}
+                    name={field.name}
+                    checked={field.state.value}
+                    onCheckedChange={field.handleChange}
+                  />
+                </Field>
+              </FieldLabel>
             )}
           </form.Field>
           <form.Field name="enableCustomDegree">
             {(field) => (
-              <Field
-                className="flex items-center justify-between rounded-xl border bg-white px-4 py-3"
-                orientation="horizontal"
-              >
-                <div className="min-w-0">
-                  <FieldLabel className="text-sm" htmlFor={field.name}>
-                    Custom Degree
-                  </FieldLabel>
-                  <p className="text-xs text-muted-foreground">
-                    Define it below
-                  </p>
-                </div>
-                <Switch
-                  id={field.name}
-                  name={field.name}
-                  checked={field.state.value}
-                  onCheckedChange={field.handleChange}
-                />
-              </Field>
+              <FieldLabel htmlFor={field.name}>
+                <Field orientation="horizontal">
+                  <FieldContent>
+                    <FieldTitle>Custom Degree</FieldTitle>
+                    <FieldDescription>you are special?</FieldDescription>
+                  </FieldContent>
+                  <Switch
+                    id={field.name}
+                    name={field.name}
+                    checked={field.state.value}
+                    onCheckedChange={field.handleChange}
+                  />
+                </Field>
+              </FieldLabel>
             )}
           </form.Field>
 
           <form.Field name="withHonors">
             {(field) => (
-              <Field
-                className="flex items-center justify-between rounded-xl border bg-white px-4 py-3"
-                orientation="horizontal"
-              >
-                <div className="min-w-0">
-                  <FieldLabel className="text-sm" htmlFor={field.name}>
-                    With Honors
-                  </FieldLabel>
-                  <p className="text-xs text-muted-foreground">GPA too high?</p>
-                </div>
-                <Switch
-                  id={field.name}
-                  name={field.name}
-                  checked={field.state.value}
-                  onCheckedChange={field.handleChange}
-                />
-              </Field>
+              <FieldLabel htmlFor={field.name}>
+                <Field orientation="horizontal">
+                  <FieldContent>
+                    <FieldTitle>With Honors</FieldTitle>
+                    <FieldDescription>GPA too high?</FieldDescription>
+                  </FieldContent>
+                  <Switch
+                    id={field.name}
+                    name={field.name}
+                    checked={field.state.value}
+                    onCheckedChange={field.handleChange}
+                  />
+                </Field>
+              </FieldLabel>
             )}
           </form.Field>
         </div>
