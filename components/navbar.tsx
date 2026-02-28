@@ -15,13 +15,13 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 import ModeToggle from "@/components/modeToggle";
 import { WCUFavicon } from "@/app/components/home/chicken";
 import { navbarPaths } from "@/lib/menuEntries";
-import { useRouter } from "next/navigation";
 
 const Navbar = () => {
-  const router = useRouter();
+  const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-10 bg-background border-b">
       <div className="flex h-16 w-full items-center justify-between px-4 md:px-6">
@@ -52,7 +52,7 @@ const Navbar = () => {
           </div>
 
           <div className="md:hidden">
-            <DropdownMenu>
+            <DropdownMenu open={open} onOpenChange={setOpen}>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6" />
@@ -66,7 +66,8 @@ const Navbar = () => {
                   <DropdownMenuItem
                     className="cursor-pointer px-4 py-3 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors text-base font-medium focus:bg-accent focus:text-accent-foreground"
                     key={title}
-                    onClick={() => router.push(path)}
+                    asChild
+                    onSelect={() => setOpen(false)}
                   >
                     <Link href={path}>{title}</Link>
                   </DropdownMenuItem>
