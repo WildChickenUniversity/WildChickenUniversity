@@ -13,7 +13,7 @@ const kavoon = Kavoon({
 const Features = () => {
   return (
     <Section
-      className="h-full"
+      className="min-h-[calc(100vh-6rem)] h-full"
       title={
         <>
           Effortless <span className={kavoon.className}>Challenges</span>
