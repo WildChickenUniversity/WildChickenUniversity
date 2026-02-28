@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   experimental: {
-    mdxRs: true, // Use Rust-based MDX compiler for faster builds
+    mdxRs: false,
   },
   output: "export",
   images: {
@@ -20,7 +20,9 @@ const nextConfig: NextConfig = {
 };
 
 const withMDX = createMDX({
-  // Add markdown plugins here, as desired
+  options: {
+    rehypePlugins: ["rehype-slug"],
+  },
 });
 
 // Merge MDX config with Next.js config

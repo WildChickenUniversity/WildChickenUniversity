@@ -126,19 +126,19 @@
 }
 
 .mdx-layout h1 {
-  @apply text-2xl font-bold leading-normal my-1;
+  @apply text-2xl font-bold leading-normal py-3;
 }
 
 .mdx-layout h2 {
-  @apply text-2xl font-bold leading-normal my-1;
+  @apply text-2xl font-bold leading-normal py-3;
 }
 
 .mdx-layout h3 {
-  @apply text-xl font-semibold leading-normal my-3;
+  @apply text-xl font-semibold leading-normal py-3;
 }
 
 .mdx-layout h4 {
-  @apply text-lg font-semibold leading-normal my-3;
+  @apply text-lg font-semibold leading-normal py-3;
 }
 
 .mdx-layout h5 {
@@ -174,19 +174,8 @@
   @apply font-semibold;
 }
 
-.mdx-layout a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: black;
-  transition: width 0.2s ease-in-out;
-}
-
-:is(.dark .mdx-layout) a::after {
-  background-color: white;
+.mdx-layout a:hover {
+  text-decoration: underline;
 }
 
 .mdx-layout ul {

@@ -42,7 +42,9 @@ export default function AdmissionWrapper() {
               <p>
                 Information will be send to Cloudflare for email processing, see{" "}
                 <b>
-                  <Link href="/pages/privacy">Privacy Policy</Link>
+                  <Link href="/pages/privacy#61-diplomaadmission-letter-email-sending">
+                    Privacy Policy
+                  </Link>
                 </b>
               </p>
             </AlertDescription>

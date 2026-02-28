@@ -26,7 +26,10 @@ export default function Footer() {
               Mr-Sheep
             </Link>
             ;{" "}
-            <Link href="/pages/disclaimer" className="hover:underline">
+            <Link
+              href="/pages/disclaimer#2-wild-chicken-univeristy-logo"
+              className="hover:underline"
+            >
               Assets
             </Link>{" "}
             have their own licenses.
