@@ -8,6 +8,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import createAdmissionPDF from "./admissionLetterGenerator";
 import AdmissionForm, { formSchema } from "./admissionForm";
 import { SendAdmission } from "./admissionSend";
+import { Button } from "@/components/ui/button";
 
 type AdmissionData = {
   username: string;
@@ -32,11 +33,8 @@ export default function AdmissionWrapper() {
 
   return (
     <>
-      <div className="border rounded-md p-6">
-        <AdmissionForm onSubmit={onSubmit} />
-      </div>
       {admissionData && (
-        <div className="mt-4 border rounded-md p-6">
+        <div className="mb-4 border rounded-md p-6">
           <Alert variant="destructive" className="mb-4">
             <AlertCircleIcon />
             <AlertTitle>Heads up!</AlertTitle>
@@ -74,7 +72,20 @@ export default function AdmissionWrapper() {
               admitted={admissionData.admitted}
               graduate={admissionData.graduate}
             />{" "}
+            <Button
+              onClick={() => {
+                setAdmissionData(null);
+              }}
+              variant="secondary"
+            >
+              Get Another Letter
+            </Button>
           </div>
+        </div>
+      )}
+      {!admissionData && (
+        <div className="border rounded-md p-6">
+          <AdmissionForm onSubmit={onSubmit} />
         </div>
       )}
     </>

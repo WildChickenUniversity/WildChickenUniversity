@@ -1,19 +1,11 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "@tanstack/react-form";
 import Link from "next/link";
-import { SubmitHandler, useForm, useWatch } from "react-hook-form";
 import { z } from "zod";
 import Alumni from "@/app/components/alumniNotice";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -28,7 +20,7 @@ import diplomaData from "@/lib/diploma.json";
 export const formSchema = z
   .object({
     username: z.string().min(1, {
-      message: "Username must be at least 1 character.",
+      message: "Name must be at least 1 character.",
     }),
     enableCustomMajor: z.boolean(),
     major: z.string().optional(),
@@ -76,206 +68,253 @@ export const formSchema = z
   });
 
 interface DiplomaFormProps {
-  onSubmit: SubmitHandler<z.infer<typeof formSchema>>;
+  onSubmit: (values: z.infer<typeof formSchema>) => void | Promise<void>;
 }
 
 const DiplomaForm: React.FC<DiplomaFormProps> = ({ onSubmit }) => {
   const { majors, degrees } = diplomaData;
+  const defaultValues: z.input<typeof formSchema> = {
+    username: "",
+    enableCustomMajor: false,
+    major: "",
+    customMajor: "",
+    enableCustomDegree: false,
+    degree: "Bachelor of Chicken",
+    customDegree: "",
+    withHonors: false,
+  };
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-      enableCustomMajor: false,
-      major: "",
-      customMajor: "",
-      enableCustomDegree: false,
-      degree: "Bachelor of Chicken",
-      customDegree: "",
-      withHonors: false,
+  const form = useForm({
+    defaultValues,
+    validators: {
+      onSubmit: formSchema,
+    },
+    onSubmit: async ({ value }) => {
+      await onSubmit(value);
     },
   });
 
-  const watchEnableCustomMajor = useWatch({
-    control: form.control,
-    name: "enableCustomMajor",
-  });
-  const watchEnableCustomDegree = useWatch({
-    control: form.control,
-    name: "enableCustomDegree",
-  });
-
   return (
-    <Form {...form}>
+    <>
       <Alumni />
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Full Name</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Enter your name to get your diploma!"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          void form.handleSubmit();
+        }}
+        className="space-y-5"
+      >
+        <form.Field name="username">
+          {(field) => (
+            <Field
+              data-invalid={field.state.meta.errors.length > 0 || undefined}
+            >
+              <FieldLabel htmlFor={field.name}>Full Name</FieldLabel>
+              <Input
+                id={field.name}
+                name={field.name}
+                value={field.state.value}
+                onBlur={field.handleBlur}
+                onChange={(event) => field.handleChange(event.target.value)}
+                placeholder="Enter your name to get your diploma!"
+              />
+              <FieldError errors={field.state.meta.errors} />
+            </Field>
           )}
-        />
+        </form.Field>
 
         <div className="grid md:grid-cols-3 gap-2">
-          <FormField
-            control={form.control}
-            name="enableCustomMajor"
-            render={({ field }) => (
-              <FormItem className="flex flex-row items-center justify-between">
-                <div className="space-y-0.5">
-                  <FormLabel className="text-sm">Custom Major</FormLabel>
+          <form.Field name="enableCustomMajor">
+            {(field) => (
+              <Field
+                className="flex items-center justify-between rounded-xl border bg-white px-4 py-3"
+                orientation="horizontal"
+              >
+                <div className="min-w-0">
+                  <FieldLabel className="text-sm" htmlFor={field.name}>
+                    Custom Major
+                  </FieldLabel>
+                  <p className="text-xs text-muted-foreground">
+                    Define it below
+                  </p>
                 </div>
-                <FormControl>
-                  <Switch
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-              </FormItem>
+                <Switch
+                  id={field.name}
+                  name={field.name}
+                  checked={field.state.value}
+                  onCheckedChange={field.handleChange}
+                />
+              </Field>
             )}
-          />
-          <FormField
-            control={form.control}
-            name="enableCustomDegree"
-            render={({ field }) => (
-              <FormItem className="flex flex-row items-center justify-between">
-                <div className="space-y-0.5">
-                  <FormLabel className="text-sm">Custom Degree</FormLabel>
+          </form.Field>
+          <form.Field name="enableCustomDegree">
+            {(field) => (
+              <Field
+                className="flex items-center justify-between rounded-xl border bg-white px-4 py-3"
+                orientation="horizontal"
+              >
+                <div className="min-w-0">
+                  <FieldLabel className="text-sm" htmlFor={field.name}>
+                    Custom Degree
+                  </FieldLabel>
+                  <p className="text-xs text-muted-foreground">
+                    Define it below
+                  </p>
                 </div>
-                <FormControl>
-                  <Switch
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-              </FormItem>
+                <Switch
+                  id={field.name}
+                  name={field.name}
+                  checked={field.state.value}
+                  onCheckedChange={field.handleChange}
+                />
+              </Field>
             )}
-          />
+          </form.Field>
 
-          <FormField
-            control={form.control}
-            name="withHonors"
-            render={({ field }) => (
-              <FormItem className="flex flex-row items-center justify-between">
-                <div className="space-y-0.5">
-                  <FormLabel className="text-sm">With Honors</FormLabel>
+          <form.Field name="withHonors">
+            {(field) => (
+              <Field
+                className="flex items-center justify-between rounded-xl border bg-white px-4 py-3"
+                orientation="horizontal"
+              >
+                <div className="min-w-0">
+                  <FieldLabel className="text-sm" htmlFor={field.name}>
+                    With Honors
+                  </FieldLabel>
+                  <p className="text-xs text-muted-foreground">GPA too high?</p>
                 </div>
-                <FormControl>
-                  <Switch
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-              </FormItem>
+                <Switch
+                  id={field.name}
+                  name={field.name}
+                  checked={field.state.value}
+                  onCheckedChange={field.handleChange}
+                />
+              </Field>
             )}
-          />
+          </form.Field>
         </div>
 
-        {watchEnableCustomMajor ? (
-          <FormField
-            control={form.control}
-            name="customMajor"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Custom Major</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="Enter your major"
-                    {...field}
-                    className="w-full"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        ) : (
-          <FormField
-            control={form.control}
-            name="major"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Major</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select a major" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {majors.map((majorOption, index) => (
-                      <SelectItem key={index} value={majorOption}>
-                        {majorOption}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        )}
+        <form.Subscribe
+          selector={(state) => ({
+            watchEnableCustomMajor: state.values.enableCustomMajor,
+            watchEnableCustomDegree: state.values.enableCustomDegree,
+          })}
+        >
+          {({ watchEnableCustomMajor, watchEnableCustomDegree }) => (
+            <>
+              {watchEnableCustomMajor ? (
+                <form.Field name="customMajor">
+                  {(field) => (
+                    <Field
+                      data-invalid={
+                        field.state.meta.errors.length > 0 || undefined
+                      }
+                    >
+                      <FieldLabel htmlFor={field.name}>Custom Major</FieldLabel>
+                      <Input
+                        id={field.name}
+                        name={field.name}
+                        value={field.state.value ?? ""}
+                        onBlur={field.handleBlur}
+                        onChange={(event) =>
+                          field.handleChange(event.target.value)
+                        }
+                        placeholder="Enter your major"
+                        className="w-full"
+                      />
+                      <FieldError errors={field.state.meta.errors} />
+                    </Field>
+                  )}
+                </form.Field>
+              ) : (
+                <form.Field name="major">
+                  {(field) => (
+                    <Field
+                      data-invalid={
+                        field.state.meta.errors.length > 0 || undefined
+                      }
+                    >
+                      <FieldLabel htmlFor={field.name}>Major</FieldLabel>
+                      <Select
+                        value={field.state.value ?? ""}
+                        onValueChange={field.handleChange}
+                      >
+                        <SelectTrigger className="w-full" id={field.name}>
+                          <SelectValue placeholder="Select a major" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {majors.map((majorOption, index) => (
+                            <SelectItem key={index} value={majorOption}>
+                              {majorOption}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FieldError errors={field.state.meta.errors} />
+                    </Field>
+                  )}
+                </form.Field>
+              )}
 
-        {watchEnableCustomDegree ? (
-          <FormField
-            control={form.control}
-            name="customDegree"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Custom Degree</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="Enter your degree"
-                    {...field}
-                    className="w-full"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        ) : (
-          <FormField
-            control={form.control}
-            name="degree"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Degree</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select a degree" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {degrees.map((degreeOption, index) => (
-                      <SelectItem key={index} value={degreeOption}>
-                        {degreeOption}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        )}
+              {watchEnableCustomDegree ? (
+                <form.Field name="customDegree">
+                  {(field) => (
+                    <Field
+                      data-invalid={
+                        field.state.meta.errors.length > 0 || undefined
+                      }
+                    >
+                      <FieldLabel htmlFor={field.name}>
+                        Custom Degree
+                      </FieldLabel>
+                      <Input
+                        id={field.name}
+                        name={field.name}
+                        value={field.state.value ?? ""}
+                        onBlur={field.handleBlur}
+                        onChange={(event) =>
+                          field.handleChange(event.target.value)
+                        }
+                        placeholder="Enter your degree"
+                        className="w-full"
+                      />
+                      <FieldError errors={field.state.meta.errors} />
+                    </Field>
+                  )}
+                </form.Field>
+              ) : (
+                <form.Field name="degree">
+                  {(field) => (
+                    <Field
+                      data-invalid={
+                        field.state.meta.errors.length > 0 || undefined
+                      }
+                    >
+                      <FieldLabel htmlFor={field.name}>Degree</FieldLabel>
+                      <Select
+                        value={field.state.value ?? ""}
+                        onValueChange={field.handleChange}
+                      >
+                        <SelectTrigger className="w-full" id={field.name}>
+                          <SelectValue placeholder="Select a degree" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {degrees.map((degreeOption, index) => (
+                            <SelectItem key={index} value={degreeOption}>
+                              {degreeOption}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FieldError errors={field.state.meta.errors} />
+                    </Field>
+                  )}
+                </form.Field>
+              )}
+            </>
+          )}
+        </form.Subscribe>
 
         <div>
           <Button className="w-full" type="submit">
@@ -290,7 +329,7 @@ const DiplomaForm: React.FC<DiplomaFormProps> = ({ onSubmit }) => {
           </p>
         </div>
       </form>
-    </Form>
+    </>
   );
 };
 

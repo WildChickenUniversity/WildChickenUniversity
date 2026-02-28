@@ -8,6 +8,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import createDiplomaPDF from "./diplomaGenerator";
 import DiplomaForm, { formSchema } from "./diplomaForm";
 import { SendDiploma } from "./diplomaSend";
+import { Button } from "@/components/ui/button";
 
 type DiplomaData = {
   username: string;
@@ -38,11 +39,8 @@ export default function DiplomaWrapper() {
 
   return (
     <>
-      <div className="border rounded-md p-6">
-        <DiplomaForm onSubmit={onSubmit} />
-      </div>
       {diplomaData && (
-        <div className="mt-4 border rounded-md p-6">
+        <div className="mb-4 border rounded-md p-6">
           <Alert variant="destructive" className="mb-4">
             <AlertCircleIcon />
             <AlertTitle>Heads up!</AlertTitle>
@@ -80,7 +78,20 @@ export default function DiplomaWrapper() {
               major={diplomaData.major}
               degree={diplomaData.degree}
             />{" "}
+            <Button
+              onClick={() => {
+                setDiplomaData(null);
+              }}
+              variant="secondary"
+            >
+              Get Another Diploma
+            </Button>
           </div>
+        </div>
+      )}
+      {!diplomaData && (
+        <div className="border rounded-md p-6">
+          <DiplomaForm onSubmit={onSubmit} />
         </div>
       )}
     </>

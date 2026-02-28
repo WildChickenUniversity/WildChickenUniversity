@@ -1,11 +1,8 @@
 import type { ResolvingMetadata } from "next";
 import Breadcrumb from "@/components/breadcrumbWrapper";
 import buildMetadata from "@/components/buildMetadata";
-import Comment from "@/components/comment";
-import Navbar from "@/components/navbar";
 import AdmissionText from "./components/admissionText.mdx";
 import AdmissionWrapper from "./components/admissionWrapper";
-import NoticeText from "./components/noticeText.mdx";
 
 export const generateMetadata = (_props: {}, parent: ResolvingMetadata) =>
   buildMetadata(
@@ -23,24 +20,17 @@ export const generateMetadata = (_props: {}, parent: ResolvingMetadata) =>
 
 export default function Admission() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex flex-col items-center justify-center mx-auto max-w-5xl w-full p-4">
-        <div className="w-full max-w-2xl">
-          <Breadcrumb />
-          <h1 className="text-2xl font-bold my-1">
-            Wild Chicken University Admission
-          </h1>
-          <div className="mdx-layout font-sm mb-8">
-            <AdmissionText />
-          </div>
-          <AdmissionWrapper />
-          <div className="mdx-layout font-sm mt-8">
-            <NoticeText />
-          </div>
+    <div className="flex flex-1 flex-col items-center justify-start mx-auto max-w-5xl w-full p-4 min-h-[calc(100dvh-4rem)]">
+      <div className="w-full max-w-2xl">
+        <Breadcrumb />
+        <h1 className="text-2xl font-bold my-1">
+          Wild Chicken University Admission
+        </h1>
+        <div className="mdx-layout font-sm mb-8">
+          <AdmissionText />
         </div>
-      </main>
-      <Comment />
+        <AdmissionWrapper />
+      </div>
     </div>
   );
 }

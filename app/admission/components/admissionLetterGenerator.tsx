@@ -83,7 +83,7 @@ async function createAdmissionPDF({
   Object.keys(admissionParagraphs).forEach((key) => {
     const paragraph = admissionParagraphs[key];
     if (paragraph) {
-      doc.text(paragraph, { align: "justify" });
+      doc.text(paragraph, { align: "left" });
       doc.moveDown(0.5);
     }
   });

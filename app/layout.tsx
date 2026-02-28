@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
+import Navbar from "@/components/navbar";
+import Comment from "@/components/comment";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -63,7 +65,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex flex-col min-h-screen">
-            <main className="grow">{children}</main>
+            <main className="grow">
+              <Navbar />
+              {children}
+              <Comment />
+            </main>
           </div>
           <Footer />
         </ThemeProvider>

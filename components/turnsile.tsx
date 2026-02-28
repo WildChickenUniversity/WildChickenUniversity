@@ -66,6 +66,10 @@ const Turnstile = forwardRef<TurnstileRef, TurnstileProps>(
     }));
 
     useEffect(() => {
+      setMounted(true);
+    }, []);
+
+    useEffect(() => {
       if (!mounted) return;
 
       const renderWidget = () => {
@@ -114,7 +118,7 @@ const Turnstile = forwardRef<TurnstileRef, TurnstileProps>(
         if (widgetIdRef.current && window.turnstile) {
           try {
             window.turnstile.remove(widgetIdRef.current);
-          } catch (e) {
+          } catch {
             // ignore
           }
         }

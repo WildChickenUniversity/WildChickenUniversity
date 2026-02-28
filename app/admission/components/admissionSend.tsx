@@ -1,8 +1,7 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { type FormEvent, useState, useRef } from "react";
-import { useForm } from "react-hook-form";
+import { useForm } from "@tanstack/react-form";
+import { type SyntheticEvent, useState, useRef } from "react";
 import { z } from "zod";
 import Turnstile, { TurnstileRef } from "@/components/turnsile";
 import { Button } from "@/components/ui/button";
@@ -14,14 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
@@ -45,56 +37,56 @@ export function SendAdmission({
   const [token, setToken] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileRef>(null);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm({
     defaultValues: {
       email: "",
     },
-  });
+    validators: {
+      onSubmit: formSchema,
+    },
+    onSubmit: async ({ value }) => {
+      setLoading(true);
+      setResult(null);
+      try {
+        const response = await fetch("https://wcu.edu.pl/api/email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            type: "admission",
+            email: value.email,
+            username,
+            admitted,
+            graduate,
+            token,
+          }),
+        });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setLoading(true);
-    setResult(null);
-    try {
-      const response = await fetch("https://wcu.edu.pl/api/email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          type: "admission",
-          email: values.email,
-          username,
-          admitted,
-          graduate,
-          token,
-        }),
-      });
-
-      if (response.ok) {
-        setResult("Email sent successfully!");
-        setTimeout(() => {
-          setOpen(false);
-        }, 2000);
-      } else {
-        setResult("Failed to send email. Please try again.");
+        if (response.ok) {
+          setResult("Email sent successfully!");
+          setTimeout(() => {
+            setOpen(false);
+          }, 2000);
+        } else {
+          setResult("Failed to send email. Please try again.");
+          turnstileRef.current?.reset();
+          setToken(null);
+        }
+      } catch (error) {
+        setResult("An error occurred while sending the email.");
+        console.log(error);
         turnstileRef.current?.reset();
         setToken(null);
       }
-    } catch (error) {
-      setResult("An error occurred while sending the email.");
-      console.log(error);
-      turnstileRef.current?.reset();
-      setToken(null);
-    }
-    setLoading(false);
-  }
+      setLoading(false);
+    },
+  });
 
-  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const isValid = await form.trigger("email");
-    if (!isValid) return;
-    await onSubmit(form.getValues());
+    event.stopPropagation();
+    await form.handleSubmit();
   };
 
   return (
@@ -106,37 +98,40 @@ export function SendAdmission({
         <DialogHeader>
           <DialogTitle>Send Admission Letter via Email</DialogTitle>
         </DialogHeader>
-        <Form {...form}>
-          <form onSubmit={handleFormSubmit} className="space-y-4">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="recipient@example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <DialogFooter>
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={loading || !token}
+        <form onSubmit={handleFormSubmit} className="space-y-4">
+          <form.Field name="email">
+            {(field) => (
+              <Field
+                data-invalid={field.state.meta.errors.length > 0 || undefined}
               >
-                {loading ? "Sending..." : "Send"}
-              </Button>
-            </DialogFooter>
-            <p className="font-mono text-xs text-center">
-              reminder: check your spam box
-            </p>
-            {result && <p className="text-sm text-center mt-1">{result}</p>}
-          </form>
-        </Form>
+                <FieldLabel htmlFor={field.name}>Email</FieldLabel>
+                <Input
+                  id={field.name}
+                  name={field.name}
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onChange={(event) => field.handleChange(event.target.value)}
+                  placeholder="recipient@example.com"
+                />
+                <FieldError errors={field.state.meta.errors} />
+              </Field>
+            )}
+          </form.Field>
+
+          <DialogFooter>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={loading || !token}
+            >
+              {loading ? "Sending..." : "Send"}
+            </Button>
+          </DialogFooter>
+          <p className="font-mono text-xs text-center">
+            reminder: check your spam box
+          </p>
+          {result && <p className="text-sm text-center mt-1">{result}</p>}
+        </form>
         <Turnstile ref={turnstileRef} onToken={setToken} />
       </DialogContent>
     </Dialog>
