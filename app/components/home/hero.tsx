@@ -1,4 +1,4 @@
-import { ArrowUpLeft, ArrowUpRight } from "lucide-react";
+import { ArrowUpLeft, ArrowUpRight, ArrowUp } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -41,6 +41,15 @@ const Hero = () => {
               <span className={`${kavoon.className} pl-2`}>Journey</span> */}
                 Diploma
                 <ArrowUpLeft className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="secondary"
+                size="lg"
+                className="w-48 sm:w-auto rounded-full text-base"
+                onClick={() => router.push("/career")}
+              >
+                Jobs
+                <ArrowUp className="h-5 w-5" />
               </Button>
               <Button
                 variant="outline"
