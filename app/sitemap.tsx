@@ -20,6 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: "https://wcu.edu.pl/career",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: "https://wcu.edu.pl/pages/achievements",
       changeFrequency: "weekly",
       priority: 0.6,
